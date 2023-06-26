@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<style>
+		.button {
+			display: flex;
+			color: tomato;
+			align-items: center;
+			border: 0;
+			background-color: transparent;
+			line-height: 1;
+		}
+
+		.button:hover {
+			color: blueviolet;
+		}
+
+		.button::before {
+			content: '';
+			display: block;
+			width: 24px;
+			height: 24px;
+			margin-right: 6px;
+			background-color: currentColor;
+			mask-image: url(./img/burger-menu-right-svgrepo-com.svg);
+			-webkit-mask-image: url(./img/burger-menu-right-svgrepo-com.svg);
+			mask-size: 24px 24px;
+			-webkit-mask-size: 24px 24px;
+			mask-position: center;
+			-webkit-mask-position: center;
+		}
+	</style>
+
+	<button type="button" class="button">Меню</button>
+
+	<style>
+		.star {
+			height: 17px;
+			width: 105px;
+		}
+
+		.star::before {
+			content: '';
+			display: block;
+			height: 17px;
+			background-image: url(./img/star.svg);
+			background-repeat: space no-repeat;
+			background-size: contain;
+		}
+
+		.star-4::before {
+			width: 85px;
+		}
+	</style>
+
+	<div class="star star-4"></div>
+
+	<style>
+		select {
+			appearance: none;
+			background-image: url(./img/select.svg);
+			background-repeat: no-repeat;
+			background-position: right 10px center;
+			padding-right: 30px;
+		}
+	</style>
+
+	<select name="name">
+		<option>пример</option>
+	</select>
+
+	<style>
+		.bg {
+			width: 240px;
+			height: 240px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 16px;
+			background-image: url(./img/bg.jpg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-color: #131112;
+			/* background: #131112 url(./img/bg.jpg) no-repeat center; */
+			color: #ffffff;
+			padding: 20px;
+		}
+	</style>
+
+	<div class="bg">
+		<pre>
+Щипцами брюки разлохмачу,
+Гребёнкой волосы взъерошу.
+Эффектно ожидать удачу
+До самой смерти я не брошу!
+	</pre>
+	</div>
+
+	<style>
+		.rabbit {
+			width: 280px;
+			height: 280px;
+			background-image: url(./img/frame.png), url(./img/rabbit.jpg);
+			background-size: contain, cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	</style>
+
+	<div class="rabbit"></div>
+
+	<style>
+		.clip {
+			appearance: none;
+			padding: 2px 4px;
+			background-color: #ff6347;
+			color: #000000;
+			border: 3px solid rgba(255, 99, 71, 0.5);
+			font-family: inherit;
+			font-size: inherit;
+			background-clip: border-box;
+		}
+	</style>
+
+	<button type="button" class="clip">Кнопка</button>
+
+</body>
+
+</html>
