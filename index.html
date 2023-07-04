@@ -2,136 +2,107 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
+  <style>
+    .checkbox-view {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+      border: 2px solid currentColor;
+    }
 
-	<style>
-		.button {
-			display: flex;
-			color: tomato;
-			align-items: center;
-			border: 0;
-			background-color: transparent;
-			line-height: 1;
-		}
+    .radio-view {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 8px;
+      border: 2px solid currentColor;
+    }
 
-		.button:hover {
-			color: blueviolet;
-		}
+    .checkbox-view {
+      position: relative;
+    }
 
-		.button::before {
-			content: '';
-			display: block;
-			width: 24px;
-			height: 24px;
-			margin-right: 6px;
-			background-color: currentColor;
-			mask-image: url(./img/burger-menu-right-svgrepo-com.svg);
-			-webkit-mask-image: url(./img/burger-menu-right-svgrepo-com.svg);
-			mask-size: 24px 24px;
-			-webkit-mask-size: 24px 24px;
-			mask-position: center;
-			-webkit-mask-position: center;
-		}
-	</style>
+    .checkbox:checked+.checkbox-view::before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 14px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(25deg);
+      left: 6px;
+      top: 1px;
+    }
 
-	<button type="button" class="button">Меню</button>
+    .radio-view {
+      position: relative;
+    }
 
-	<style>
-		.star {
-			height: 17px;
-			width: 105px;
-		}
+    .radio:checked+.radio-view::before {
+      content: '';
+      position: absolute;
+      background-color: currentColor;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      top: 5px;
+      left: 5px;
+    }
 
-		.star::before {
-			content: '';
-			display: block;
-			height: 17px;
-			background-image: url(./img/star.svg);
-			background-repeat: space no-repeat;
-			background-size: contain;
-		}
+    .label:hover .checkbox-view:not(:active),
+    .label:hover .radio-view:not(:active) {
+      opacity: 0.7;
+    }
 
-		.star-4::before {
-			width: 85px;
-		}
-	</style>
+.checkbox:focus-visible+.checkbox-view,
+.radio:focus-visible+.radio-view {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
 
-	<div class="star star-4"></div>
+    .checkbox-view:active,
+    .radio-view:active {
+      color: #d52b1e;
+    }
 
-	<style>
-		select {
-			appearance: none;
-			background-image: url(./img/select.svg);
-			background-repeat: no-repeat;
-			background-position: right 10px center;
-			padding-right: 30px;
-		}
-	</style>
+    .visually-hidden {
+      position: absolute;
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: none;
+    }
+  </style>
+  <label class="label">
+    <input type="checkbox" class="checkbox visually-hidden" name="name" id="checkbox-1" checked>
+    <span class="checkbox-view"></span>
+    Кнопка 1
+  </label>
+  <label class="label">
+    <input type="checkbox" class="checkbox visually-hidden" name="name" id="checkbox-2">
+    <span class="checkbox-view"></span>
+    Кнопка 2
+  </label>
 
-	<select name="name">
-		<option>пример</option>
-	</select>
-
-	<style>
-		.bg {
-			width: 240px;
-			height: 240px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 16px;
-			background-image: url(./img/bg.jpg);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-color: #131112;
-			/* background: #131112 url(./img/bg.jpg) no-repeat center; */
-			color: #ffffff;
-			padding: 20px;
-		}
-	</style>
-
-	<div class="bg">
-		<pre>
-Щипцами брюки разлохмачу,
-Гребёнкой волосы взъерошу.
-Эффектно ожидать удачу
-До самой смерти я не брошу!
-	</pre>
-	</div>
-
-	<style>
-		.rabbit {
-			width: 280px;
-			height: 280px;
-			background-image: url(./img/frame.png), url(./img/rabbit.jpg);
-			background-size: contain, cover;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
-	</style>
-
-	<div class="rabbit"></div>
-
-	<style>
-		.clip {
-			appearance: none;
-			padding: 2px 4px;
-			background-color: #ff6347;
-			color: #000000;
-			border: 3px solid rgba(255, 99, 71, 0.5);
-			font-family: inherit;
-			font-size: inherit;
-			background-clip: border-box;
-		}
-	</style>
-
-	<button type="button" class="clip">Кнопка</button>
+  <label class="label">
+    <input type="radio" class="radio visually-hidden" name="name" id="radio-1" checked>
+    <span class="radio-view"></span>
+    Кнопка 3
+  </label>
+  <label class="label">
+    <input type="radio" class="radio visually-hidden" name="name" id="radio-2">
+    <span class="radio-view"></span>
+    Кнопка 4
+  </label>
 
 </body>
 
