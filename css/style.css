@@ -13,19 +13,33 @@ body {
 	display: flex;
 }
 
+.top-menu button,
 .top-menu a {
+	appearance: none;
 	text-decoration: none;
 	display: block;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	font-size: inherit;
 	padding: 6px;
 	background-color: beige;
 	font-family: Arial, Helvetica, sans-serif;
 	transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+	color: #0000EE;
 }
 
+.top-menu button:hover,
 .top-menu a:hover {
 	background-color: azure;
 }
 
+.top-menu button:active,
+.top-menu a:active {
+	color: #EE0000;
+}
+
+.top-menu button:focus,
 .top-menu a:focus {
 	outline-offset: -1px;
 }
@@ -38,21 +52,22 @@ body {
 	position: relative;
 }
 
-.parent-item>a {
+.parent-item>button {
 	padding-right: calc(5px + 7px + 5px);
 	background-image: url(../img/arrow-down.svg);
 	background-repeat: no-repeat;
 	background-position: right 5px center;
 	background-size: 7xp auto;
+	border: 0;
 }
 
-.parent-item:hover>a,
-.parent-item:focus-within>a {
+.parent-item:hover>button,
+.parent-item:focus-within>button {
 	background-image: url(../img/arrow-up.svg);
 }
 
-.parent-item:hover > .sub-menu,
-.parent-item:focus-within > .sub-menu {
+.parent-item:hover>.sub-menu,
+.parent-item:focus-within>.sub-menu {
 	display: flex;
 	flex-direction: column;
 	width: max-content;
