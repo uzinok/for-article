@@ -5,167 +5,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <style>
-    .checkbox-view {
-      position: relative;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border-radius: 8px;
-      border: 2px solid currentColor;
-    }
+  <ul class="top-menu">
+    <li class="parent-item">
+      <a href="#">Ссылка 1</a>
 
-    .radio-view {
-      position: relative;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border-radius: 8px;
-      border: 2px solid currentColor;
-    }
+      <ul class="sub-menu">
+        <li class="parent-item">
+          <a href="#">Вложенная ссылка 1</a>
+          <ul class="sub-menu">
+            <li>
+              <a href="#">Ссылка 1</a>
+            </li>
+            <li>
+              <a href="#">Ссылка 2</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Вложенная ссылка 2</a>
+        </li>
+      </ul>
 
-    .checkbox:checked+.checkbox-view::before {
-      content: '';
-      position: absolute;
-      width: 5px;
-      height: 14px;
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
-      transform: rotate(25deg);
-      left: 6px;
-      top: 1px;
-    }
-
-    .radio:checked+.radio-view::before {
-      content: '';
-      position: absolute;
-      background-color: currentColor;
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
-      top: 5px;
-      left: 5px;
-    }
-
-    .label:hover .checkbox-view:not(:active),
-    .label:hover .radio-view:not(:active) {
-      opacity: 0.7;
-    }
-
-    .checkbox:focus-visible+.checkbox-view,
-    .radio:focus-visible+.radio-view {
-      outline: 2px solid #000000;
-      outline-offset: 2px;
-    }
-
-    .checkbox-view:active,
-    .radio-view:active {
-      color: #d52b1e;
-    }
-
-    .visually-hidden {
-      position: absolute;
-      width: 0;
-      height: 0;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      border: none;
-    }
-  </style>
-  <label class="label">
-    <input type="checkbox" class="checkbox visually-hidden" name="name" id="checkbox-1" checked>
-    <span class="checkbox-view"></span>
-    Кнопка 1
-  </label>
-  <label class="label">
-    <input type="checkbox" class="checkbox visually-hidden" name="name" id="checkbox-2">
-    <span class="checkbox-view"></span>
-    Кнопка 2
-  </label>
-  <label class="label">
-    <input type="radio" class="radio visually-hidden" name="name" id="radio-1" checked>
-    <span class="radio-view"></span>
-    Кнопка 3
-  </label>
-  <label class="label">
-    <input type="radio" class="radio visually-hidden" name="name" id="radio-2">
-    <span class="radio-view"></span>
-    Кнопка 4
-  </label>
-
-  <hr>
-
-  <style>
-    .label-1::before {
-      content: '';
-      position: relative;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border-radius: 8px;
-    }
-
-    .radio-1+.label-1::before {
-      border: 2px solid currentColor;
-      box-sizing: border-box;
-      width: 24px;
-      height: 24px;
-      padding: 6px;
-    }
-
-    .radio-1:checked+.label-1::before {
-      background-color: currentColor;
-      background-clip: content-box;
-    }
-
-.label-1:hover:not(:active)::before {
-  opacity: 0.7;
-}
-
-.checkbox-1:focus-visible + .label-1::before,
-.radio-1:focus-visible + .label-1::before {
-  outline: 2px solid #000000;
-  outline-offset: 2px;
-}
-
-.label-1:active::before {
-  color: #d52b1e;
-}
-
-.checkbox-1 + .label-1::before {
-  border: 0;
-  border-radius: 0;
-  background-image: url(./img/checkbox.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.checkbox-1:checked + .label-1::before {
-  background-image: url(./img/checkbox-checked.svg);
-}
-  </style>
-
-<input type="checkbox" class="checkbox-1" name="name-1" id="checkbox-3" checked>
-<label class="label-1" for="checkbox-3">
-  Кнопка 5
-</label>
-<input type="checkbox" class="checkbox-1" name="name-1" id="checkbox-4">
-<label class="label-1" for="checkbox-4">
-  Кнопка 6
-</label>
-
-<input type="radio" class="radio-1" name="name-1" id="radio-3" checked>
-<label class="label-1" for="radio-3">
-  Кнопка 7
-</label>
-<input type="radio" class="radio-1" name="name-1" id="radio-4">
-<label class="label-1" for="radio-4">
-  Кнопка 8
-</label>
+    </li>
+    <li>
+      <a href="#">Ссылка 2</a>
+    </li>
+    <li>
+      <a href="#">Ссылка 3</a>
+    </li>
+  </ul>
 </body>
 
 </html>

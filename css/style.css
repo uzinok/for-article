@@ -1,0 +1,70 @@
+body {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.top-menu {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+}
+
+.top-menu a {
+	text-decoration: none;
+	display: block;
+	padding: 6px;
+	background-color: beige;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+}
+
+.top-menu a:hover {
+	background-color: azure;
+}
+
+.top-menu a:focus {
+	outline-offset: -1px;
+}
+
+.sub-menu {
+	display: none;
+}
+
+.parent-item {
+	position: relative;
+}
+
+.parent-item>a {
+	padding-right: calc(5px + 7px + 5px);
+	background-image: url(../img/arrow-down.svg);
+	background-repeat: no-repeat;
+	background-position: right 5px center;
+	background-size: 7xp auto;
+}
+
+.parent-item:hover>a,
+.parent-item:focus-within>a {
+	background-image: url(../img/arrow-up.svg);
+}
+
+.parent-item:hover > .sub-menu,
+.parent-item:focus-within > .sub-menu {
+	display: flex;
+	flex-direction: column;
+	width: max-content;
+	position: absolute;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	left: 0;
+}
+
+.sub-menu:focus-within .sub-menu,
+.sub-menu:hover .sub-menu {
+	left: 100%;
+	top: 0;
+}
