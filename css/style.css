@@ -13,8 +13,8 @@ body {
   display: flex;
 }
 
-.top-menu button,
-.top-menu a {
+button,
+a {
   appearance: none;
   text-decoration: none;
   display: block;
@@ -29,18 +29,18 @@ body {
   color: #0000EE;
 }
 
-.top-menu button:hover,
-.top-menu a:hover {
+button:hover,
+a:hover {
   background-color: azure;
 }
 
-.top-menu button:active,
-.top-menu a:active {
+button:active,
+a:active {
   color: #EE0000;
 }
 
-.top-menu button:focus,
-.top-menu a:focus {
+button:focus,
+a:focus {
   outline-offset: -1px;
 }
 
@@ -48,11 +48,7 @@ body {
   display: none;
 }
 
-.parent-item {
-  position: relative;
-}
-
-.parent-item>button {
+button {
   padding-right: calc(5px + 7px + 5px);
   background-image: url(../img/arrow-down.svg);
   background-repeat: no-repeat;
@@ -66,16 +62,20 @@ body {
   background-image: url(../img/arrow-up.svg);
 }
 
+.parent-item {
+  position: relative;
+}
+
 .parent-item:hover>.sub-menu,
 .parent-item:focus-within>.sub-menu {
-  display: flex;
-  flex-direction: column;
-  width: max-content;
-  position: absolute;
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  position: absolute;
   left: 0;
+
+  display: block;
 }
 
 .sub-menu .parent-item:focus-within .sub-menu,
