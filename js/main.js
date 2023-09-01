@@ -1,33 +1,33 @@
 window.addEventListener('load', function() {
-	const allCardTitle = document.querySelectorAll('.card__title');
 
 	setHeightTitleCard();
 	window.addEventListener('resize', setHeightTitleCard);
 
 	function setHeightTitleCard() {
-		const length = +getComputedStyle(document.body).getPropertyValue("--card-length")
+		// массив заголовков
+		let titles = Array.from(document.querySelectorAll('.card__title'));
 
-		if (length == 1) return
+		// обнуляю высоту
+		titles.map(title => {
+			title.style.height = ''
+		});
 
-		for (let i = 0; i < allCardTitle.length; i++) {
-			allCardTitle[i].style.height = '';
+		// размер подмассива
+		let lenght = +getComputedStyle(document.body).getPropertyValue("--card-length");
+
+		// создаю массив строк
+		// массив в который будет выведен результат.
+		let title = [];
+		for (let i = 0; i < Math.ceil(titles.length / lenght); i++) {
+			title[i] = titles.slice((i * lenght), (i * lenght) + lenght);
 		}
 
-		for (let i = 0; i < allCardTitle.length; i = i + length) {
-
-			let height = 0;
-			let check = i + length;
-
-			if (check > allCardTitle.length) check = allCardTitle.length
-
-			for (let k = i; k < check; k++) {
-				height = allCardTitle[k].scrollHeight > height ? height = allCardTitle[k].scrollHeight : height;
-			}
-
-			for (let k = i; k < check; k++) {
-				allCardTitle[k].style.height = height + 'px';
-			}
-
-		}
+		// добавление высоты
+		title.map(items => {
+			// получение
+			const h = Math.max.apply(null, items.map(item => item.scrollHeight));
+			// добавленеи
+			items.map(item => item.style.height = h + 'px');
+		});
 	}
 });
