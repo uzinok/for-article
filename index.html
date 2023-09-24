@@ -1,77 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Strange title</title>
-	<link rel="stylesheet" href="./css/style.css">
-	<style>
-		body {
-			margin: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			min-height: 100vh;
-		}
-	</style>
+	<title>progress/meter</title>
 </head>
 
 <body>
 
-	<div class="container container--group">
-		<article class="card">
-			<h3 class="card__title">Доступность и анимация.</h3>
-			<blockquote cite="#">
-				<p class="card__desc">Практически на каждом сайте есть анимация. Анимацию можно реализовывать при помощи css...</p>
-			</blockquote>
-			<p class="card__meta"><a class="card__link" href="#">Подробнее</a><span class="card__date">20.08.2023</span></p>
-		</article>
-		<article class="card">
-			<h3 class="card__title">Цветные иконки.</h3>
-			<blockquote cite="#">
-				<p class="card__desc">Привет!) Статья скорее для студентов: Расскажу как добавить на страницу сайта иконку не добавляя её в html, и как быть если нужно...</p>
-			</blockquote>
-			<p class="card__meta"><a class="card__link" href="#">Подробнее</a><span class="card__date">14.05.2023</span></p>
-		</article>
-		<article class="card">
-			<h3 class="card__title">Горячие клавиши в виндовс.</h3>
-			<blockquote cite="#">
-				<p class="card__desc">У меня уже есть видео которые помогут ускорить верстку на моём канале в дзен, которые помогут ускорить вёрстку проектов. Но ускорить...</p>
-			</blockquote>
-			<p class="card__meta"><a class="card__link" href="#">Подробнее</a><span class="card__date">06.05.2023</span></p>
-		</article>
-		<article class="card">
-			<h3 class="card__title">Деплой сайта на удалённый сервер.</h3>
-			<blockquote cite="#">
-				<p class="card__desc">У меня уже есть статья Деплой сайта на гитхабе, ну а можно ли сборку отправить сразу на хостинг? Конечно можно, и довольно просто))...</p>
-			</blockquote>
-			<p class="card__meta"><a class="card__link" href="#">Подробнее</a><span class="card__date">01.05.2023</span></p>
-		</article>
-		<article class="card">
-			<h3 class="card__title">Деплой сайта на гитхабе.</h3>
-			<blockquote cite="#">
-				<p class="card__desc">Всем привет! Относительно недавно я захотел один из проектов выложить на GitHub Pages. Сначала пошел на ютуб, потом несколько...</p>
-			</blockquote>
-			<p class="card__meta"><a class="card__link" href="#">Подробнее</a><span class="card__date">02.04.2023</span></p>
-		</article>
-		<article class="card">
-			<h3 class="card__title">Picture – оптимизация графики.</h3>
-			<blockquote cite="#">
-				<p class="card__desc">Тег picture достаточно интересная технология позволяющая упростить работу над проектом и оптимизировать сайт во время вёрстки не ...</p>
-			</blockquote>
-			<p class="card__meta"><a class="card__link" href="#">Подробнее</a><span class="card__date">06.01.2023</span></p>
-		</article>
-		<article class="card">
-			<h3 class="card__title">Тэг &lt;img&gt; и его атрибуты.</h3>
-			<blockquote cite="#">
-				<p class="card__desc">Тег img это довольно простой, и в то же самое время сложный элемент. В верстке играет важную роль. Вся важная графика (например ...</p>
-			</blockquote>
-			<p class="card__meta"><a class="card__link" href="#">Подробнее</a><span class="card__date">25.11.2022</span></p>
-		</article>
-	</div>
+	<style>
+		progress {
+			border-radius: 7px;
+			width: 80%;
+			height: 22px;
+			margin-left: -11.5%;
+			box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+			background-color: yellow;
+			border-radius: 7px;
+		}
 
-	<script src="./js/main.js"></script>
+		progress::-webkit-progress-bar {
+			background-color: yellow;
+			border-radius: 7px;
+		}
+
+		progress::-webkit-progress-value {
+			background-color: blue;
+			border-radius: 7px;
+			box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
+		}
+
+		progress::-moz-progress-bar {
+			background-color: blue;
+			border-radius: 7px;
+			box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
+		}
+
+
+		/* */
+		/* */
+		/* */
+		meter {
+			/* -webkit-appearance: none; */
+			height: 15px;
+			width: 140px;
+			border-radius: 6px;
+			/* background-color: #e2e2e2; */
+		}
+
+		meter::-webkit-meter-optimum-value {
+			background-color: green;
+			height: 15px;
+		}
+
+		meter::-webkit-meter-suboptimum-value {
+			background-color: yellow;
+			height: 15px;
+		}
+
+		meter::-webkit-meter-even-less-good-value {
+			background-color: red;
+			height: 15px;
+		}
+	</style>
+
+	<label for="progress">Загружено:</label>
+	<progress id="progress" value="70" max="100"> 70% </progress>
+
+	<meter id="meter" min="0" max="100" low="33" high="66" optimum="80" value="20"></meter>
 </body>
 
 </html>
