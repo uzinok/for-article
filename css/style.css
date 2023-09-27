@@ -9,13 +9,13 @@ progress {
 	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* для Chrome */
+/* для Webkit */
 progress::-webkit-progress-bar {
 	background-color: #b4b4e4;
 	border-radius: 7px;
 }
 
-/* для Chrome */
+/* для Webkit */
 progress::-webkit-progress-value {
 	background-color: #0000ff;
 	background-image: repeating-linear-gradient(-45deg, #1f1fb5 0 20px, #0000ff 20px 40px);

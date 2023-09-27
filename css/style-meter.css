@@ -3,15 +3,25 @@ meter {
 	height: 22px;
 	/* для Firefox */
 	background-color: #b4b4e4;
+	/* для Firefox */
+	background-image: none;
 	border-radius: 7px;
-		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* для Chrome */
+/* для Webkit */
 meter::-webkit-meter-bar {
 	height: 22px;
 	background-color: #b4b4e4;
-	border: 0;border-radius: 7px;
+	border: 0;
+	border-radius: 7px;
+	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
+}
+
+/* для Firefox */
+meter::-moz-meter-bar {
+	border-radius: 7px;
+	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
 }
 
 /* для Firefox */
@@ -19,9 +29,11 @@ meter:-moz-meter-optimum::-moz-meter-bar {
 	background: #228b22;
 }
 
-/* для Chrome */
+/* для Webkit */
 meter::-webkit-meter-optimum-value {
 	background: #228b22;
+	border-radius: 7px;
+	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
 }
 
 /* для Firefox */
@@ -29,7 +41,7 @@ meter:-moz-meter-sub-optimum::-moz-meter-bar {
 	background: #ffd700;
 }
 
-/* для Chrome */
+/* для Webkit */
 meter::-webkit-meter-suboptimum-value {
 	background: #ffd700;
 }
@@ -39,7 +51,7 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
 	background: #dc143c;
 }
 
-/* для Chrome */
+/* для Webkit */
 meter::-webkit-meter-even-less-good-value {
 	background: #dc143c;
 }
