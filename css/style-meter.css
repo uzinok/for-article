@@ -1,0 +1,45 @@
+meter {
+	width: 200px;
+	height: 22px;
+	/* для Firefox */
+	background-color: #b4b4e4;
+	border-radius: 7px;
+		box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* для Chrome */
+meter::-webkit-meter-bar {
+	height: 22px;
+	background-color: #b4b4e4;
+	border: 0;border-radius: 7px;
+}
+
+/* для Firefox */
+meter:-moz-meter-optimum::-moz-meter-bar {
+	background: #228b22;
+}
+
+/* для Chrome */
+meter::-webkit-meter-optimum-value {
+	background: #228b22;
+}
+
+/* для Firefox */
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+	background: #ffd700;
+}
+
+/* для Chrome */
+meter::-webkit-meter-suboptimum-value {
+	background: #ffd700;
+}
+
+/* для Firefox */
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+	background: #dc143c;
+}
+
+/* для Chrome */
+meter::-webkit-meter-even-less-good-value {
+	background: #dc143c;
+}

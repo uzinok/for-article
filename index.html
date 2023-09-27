@@ -5,70 +5,22 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>progress/meter</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="./css/style-meter.css">
 </head>
 
 <body>
 
-	<style>
-		progress {
-			border-radius: 7px;
-			width: 80%;
-			height: 22px;
-			margin-left: -11.5%;
-			box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-			background-color: yellow;
-			border-radius: 7px;
-		}
+	<div>
+		<label for="progress" class="progress-label">Загружено:</label>
+		<progress id="progress" value="70" max="100"> 70% </progress>
+	</div>
 
-		progress::-webkit-progress-bar {
-			background-color: yellow;
-			border-radius: 7px;
-		}
+	<div>
+		<label for="meter" class="meter-label">Шоколада:</label>
+		<meter id="meter" min="0" max="100" low="33" high="66" optimum="80" value="90"></meter>
+	</div>
 
-		progress::-webkit-progress-value {
-			background-color: blue;
-			border-radius: 7px;
-			box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
-		}
-
-		progress::-moz-progress-bar {
-			background-color: blue;
-			border-radius: 7px;
-			box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
-		}
-
-
-		/* */
-		/* */
-		/* */
-		meter {
-			/* -webkit-appearance: none; */
-			height: 15px;
-			width: 140px;
-			border-radius: 6px;
-			/* background-color: #e2e2e2; */
-		}
-
-		meter::-webkit-meter-optimum-value {
-			background-color: green;
-			height: 15px;
-		}
-
-		meter::-webkit-meter-suboptimum-value {
-			background-color: yellow;
-			height: 15px;
-		}
-
-		meter::-webkit-meter-even-less-good-value {
-			background-color: red;
-			height: 15px;
-		}
-	</style>
-
-	<label for="progress">Загружено:</label>
-	<progress id="progress" value="70" max="100"> 70% </progress>
-
-	<meter id="meter" min="0" max="100" low="33" high="66" optimum="80" value="20"></meter>
 </body>
 
 </html>
