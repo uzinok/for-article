@@ -18,8 +18,8 @@ progress::-webkit-progress-bar {
 /* для Webkit */
 progress::-webkit-progress-value {
 	background-color: #1f1fb5;
-	/* background-image: repeating-linear-gradient(-45deg, #0000ff 0 20px, transparent 20px 40px); */
-	/* background-size: 170px 22px; */
+	background-image: repeating-linear-gradient(-45deg, #0000ff 0 20px, transparent 20px 40px);
+	background-size: 170px 22px;
 	border-radius: 7px;
 	/* animation: bg 2s linear 0s infinite; */
 	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
