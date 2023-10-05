@@ -1,41 +1,39 @@
 progress {
 	width: 200px;
 	height: 22px;
-	/* для Firefox */
 	background-color: #b4b4e4;
-	/* для Firefox */
-	border: 0;
 	border-radius: 7px;
 	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+	border: 0;
+	overflow: visible;
 }
 
-/* для Webkit */
 progress::-webkit-progress-bar {
 	background-color: #b4b4e4;
 	border-radius: 7px;
 }
 
-/* для Webkit */
+/* progress::-moz-progress-bar, */
 progress::-webkit-progress-value {
 	background-color: #1f1fb5;
+	border-radius: 7px;
 	background-image: repeating-linear-gradient(-45deg, #0000ff 0 20px, transparent 20px 40px);
 	background-size: 170px 22px;
-	border-radius: 7px;
-	/* animation: bg 2s linear 0s infinite; */
-	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
+	animation: bg 2s linear 0s infinite;
+	box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
 }
 
 /* для Firefox */
 progress::-moz-progress-bar {
 	background-color: #1f1fb5;
-	/* background-image: repeating-linear-gradient(-45deg, #0000ff 0 20px, transparent 20px 40px); */
-	background-size: 170px 22px;
 	border-radius: 7px;
-	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
-	/* animation: bg 2s linear 0s infinite; */
+	background-image: repeating-linear-gradient(-45deg, #0000ff 0 20px, transparent 20px 40px);
+	background-size: 170px 22px;
+	box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
+	animation: bg 2s linear 0s infinite;
 }
 
-/* @keyframes bg {
+@keyframes bg {
 	0% {
 		background-position: 0 0;
 	}
@@ -43,4 +41,4 @@ progress::-moz-progress-bar {
 	100% {
 		background-position: 170px 0;
 	}
-} */
+}
