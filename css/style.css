@@ -1,4 +1,5 @@
 progress {
+	position: relative;
 	width: 200px;
 	height: 22px;
 	background-color: #b4b4e4;
@@ -6,6 +7,18 @@ progress {
 	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 	border: 0;
 	overflow: visible;
+}
+
+progress::before {
+	content: attr(value);
+	position: absolute;
+	top: 2px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: transparent;
+	z-index: 1;
+	color: aliceblue;
+	font-size: 18px;
 }
 
 progress::-webkit-progress-bar {

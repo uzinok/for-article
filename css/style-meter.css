@@ -1,4 +1,5 @@
 meter {
+	position: relative;
 	width: 200px;
 	height: 22px;
 	/* для Firefox */
@@ -7,7 +8,20 @@ meter {
 	background-image: none;
 	border-radius: 7px;
 	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+	overflow: visible;
 }
+
+meter::before {
+	content: attr(value);
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: transparent;
+	z-index: 1;
+	color: aliceblue;
+}
+
 
 /* для Webkit */
 meter::-webkit-meter-bar {
@@ -15,27 +29,28 @@ meter::-webkit-meter-bar {
 	background-color: #b4b4e4;
 	border: 0;
 	border-radius: 7px;
-	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
 }
 
 /* для Firefox */
 meter::-moz-meter-bar {
 	border-radius: 7px;
-	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
+	background-image: none;
+	box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
 }
 
 /* для Firefox */
 meter:-moz-meter-optimum::-moz-meter-bar {
-	background: #228b22;
+	background-color: #228b22;
 }
 
 /* для Webkit */
 meter::-webkit-meter-optimum-value {
-	background: #228b22;
+	background-color: #228b22;
 	border-radius: 7px;
-	/* box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8); */
 }
 
+/*
+*/
 /* для Firefox */
 meter:-moz-meter-sub-optimum::-moz-meter-bar {
 	background: #ffd700;
@@ -44,6 +59,7 @@ meter:-moz-meter-sub-optimum::-moz-meter-bar {
 /* для Webkit */
 meter::-webkit-meter-suboptimum-value {
 	background: #ffd700;
+	border-radius: 7px;
 }
 
 /* для Firefox */
@@ -54,4 +70,5 @@ meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
 /* для Webkit */
 meter::-webkit-meter-even-less-good-value {
 	background: #dc143c;
+	border-radius: 7px;
 }
