@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 20px;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.fot {
+			width: 800px;
+			display: grid;
+			grid-template-columns: 1fr 500px 1fr;
+			gap: 16px;
+		}
+
+		[class*="bl"] {
+			outline: 1px solid tomato;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="fot">
+		<div class="bl-1">
+			соц.сети
+		</div>
+
+		<div class="bl-2">
+			Копирайт
+		</div>
+
+		<div class="bl-3">
+			лого
+		</div>
+	</div>
+
+</body>
+
+</html>

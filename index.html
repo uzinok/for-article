@@ -17,25 +17,51 @@
 			justify-content: center;
 			min-height: 100vh;
 			flex-direction: column;
+			text-align: center;
 		}
 
-		div:first-child {
-			margin-bottom: 20px;
+		.bg,
+		.con {
+			width: 800px;
+		}
+
+		.bg {
+			background-color: rgb(71, 80, 255);
+			height: 50px;
+		}
+
+		.con {
+			padding: 40px;
+		}
+
+		.con p {
+			margin: 0 0 20px;
+		}
+
+		.con p:first-child {
+			font-size: 2em;
+		}
+
+		.con button {
+			background-color: #1A3E3E;
+			color: aliceblue;
+			border: 0;
+			padding: 5px 10px;
+			font-family: inherit;
+			font-size: 1.3em;
 		}
 	</style>
 </head>
 
 <body>
 
-	<div>
-		<label for="progress" class="progress-label">Загружено:</label>
-		<progress id="progress" value="70" max="100"> 70% </progress>
+	<div class="bg"></div>
+	<div class="con">
+		<p>Заголовок</p>
+		<p>Описание</p>
+		<button>Кнопка</button>
 	</div>
-
-	<div>
-		<label for="meter" class="meter-label">Шоколада:</label>
-		<meter id="meter" min="0" max="100" low="33" high="66" optimum="80" value="90"> 90% </meter>
-	</div>
+	<div class="bg"></div>
 
 </body>
 
