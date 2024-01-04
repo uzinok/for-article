@@ -1,3 +1,19 @@
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url(../fonts/SourceSansPro-Regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+	src: url(../fonts/SourceSansPro-SemiBold.ttf) format('truetype');
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -13,6 +29,11 @@ body {
 	background-color: #272727;
 }
 
+.section {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
 h2 {
 	font-weight: 600;
 	font-size: 20px;
@@ -26,7 +47,11 @@ h2 {
 	text-align: center;
 	border-radius: 50%;
 	shape-outside: margin-box;
-	margin: 20px;
+	margin: 0 20px 0 0;
+	background-image: url(../img/circle.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
 
 .blockquote-wrap::before {
@@ -51,4 +76,19 @@ h2 {
 	margin: 0;
 	font-weight: 600;
 	font-size: 22px;
+}
+
+.blockquote-text::before {
+	content: '"';
+	font-size: 135px;
+	font-weight: 600;
+	display: block;
+	line-height: 140%;
+	width: fit-content;
+	height: fit-content;
+}
+
+.blockquote-name {
+	display: block;
+	margin-top: 30px;
 }
