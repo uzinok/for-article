@@ -16,8 +16,6 @@ body {
 h2 {
 	font-weight: 600;
 	font-size: 20px;
-	line-height: 140%;
-	font-family: 'Source Sans Pro', sans-serif;
 	color: #7BD7FF;
 }
 
@@ -25,21 +23,32 @@ h2 {
 	float: left;
 	width: 410px;
 	height: 410px;
+	text-align: center;
 	border-radius: 50%;
-	clip-path: circle(40%);
-	shape-outside: circle(50%);
+	shape-outside: margin-box;
+	margin: 20px;
+}
+
+.blockquote-wrap::before {
+	content: '';
+	display: block;
+	float: left;
+	width: 200px;
+	height: 410px;
+	shape-outside: url(../img/circle-left.png);
+}
+
+.blockquote::before {
+	content: '';
+	display: block;
+	float: right;
+	width: 200px;
+	height: 410px;
+	shape-outside: url(../img/circle-right.png);
 }
 
 .blockquote {
-	float: left;
-	width: 410px;
-	height: 410px;
 	margin: 0;
 	font-weight: 600;
 	font-size: 22px;
-	line-height: 140%;
-	text-align: center;
-	font-style: normal;
-	border-radius: 50%;
-	shape-inside: circle(400px, 60px, 160px);
 }
