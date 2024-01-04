@@ -1,17 +1,17 @@
 @font-face {
-	font-family: 'Source Sans Pro';
 	font-weight: 400;
+	font-family: 'Source Sans Pro';
 	font-style: normal;
-	font-display: swap;
 	src: url(../fonts/SourceSansPro-Regular.ttf) format('truetype');
+	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Source Sans Pro';
 	font-weight: 600;
+	font-family: 'Source Sans Pro';
 	font-style: normal;
-	font-display: swap;
 	src: url(../fonts/SourceSansPro-SemiBold.ttf) format('truetype');
+	font-display: swap;
 }
 
 body {
@@ -34,12 +34,11 @@ body {
 	margin: 0 auto;
 }
 
-h2 {
+.title {
+	margin: 29px 0 20px;
 	font-weight: 600;
 	font-size: 20px;
 	color: #7BD7FF;
-	padding-left: 0;
-	margin: 28px 0 0;
 	max-width: 877px;
 	text-indent: 4px;
 }
@@ -48,14 +47,14 @@ h2 {
 	float: left;
 	width: 410px;
 	height: 410px;
-	text-align: center;
-	border-radius: 50%;
-	shape-outside: margin-box;
 	margin: 0 14px 0 0;
+	text-align: center;
 	background-image: url(../img/circle.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
+	border-radius: 50%;
+	shape-outside: margin-box;
 }
 
 .blockquote-wrap::before {
@@ -65,10 +64,6 @@ h2 {
 	width: 200px;
 	height: 410px;
 	shape-outside: url(../img/circle-left.png);
-}
-
-.blockquote {
-	line-height: 140%;
 }
 
 .blockquote::before {
@@ -81,20 +76,21 @@ h2 {
 }
 
 .blockquote {
+	line-height: 140%;
 	margin: 0;
 	font-weight: 600;
 	font-size: 22px;
 }
 
 .blockquote-text::before {
-content: '"';
-	font-size: 135px;
-	font-weight: 600;
+	content: '"';
 	display: block;
-	line-height: 1;
 	width: fit-content;
 	height: fit-content;
 	margin: 0 auto -39px;
+	font-weight: 600;
+	font-size: 135px;
+	line-height: 1;
 }
 
 .blockquote-name {
@@ -102,6 +98,7 @@ content: '"';
 	margin-top: 30px;
 }
 
-.section p {
+.text {
 	max-width: 1000px;
+	margin: 0;
 }
