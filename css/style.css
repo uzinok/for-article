@@ -1,27 +1,45 @@
-.button-wrap {
-	display: grid;
-	justify-items: center;
-	gap: 20px;
-	padding: 20px;
-	background-image: linear-gradient(-45deg, rgb(255, 187, 175), rgb(189, 255, 188));
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+	font-size: 20px;
+	font-size: 20px;
+	line-height: 140%;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #ffffff;
+	background-color: #272727;
 }
-.button {
-	padding: 16px 32px;
-	font-size: 26px;
-	line-height: 1.3;
-	font-family: Arial, Helvetica, sans-serif;
+
+h2 {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 140%;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #7BD7FF;
+}
+
+.blockquote-wrap {
+	float: left;
+	width: 410px;
+	height: 410px;
+	border-radius: 50%;
+	clip-path: circle(40%);
+	shape-outside: circle(50%);
+}
+
+.blockquote {
+	float: left;
+	width: 410px;
+	height: 410px;
+	margin: 0;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 140%;
 	text-align: center;
-	background-color: transparent;
-	background-clip: padding-box;
-
-	border: 0;
-	position: relative;
-}
-
-.button svg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	font-style: normal;
+	border-radius: 50%;
+	shape-inside: circle(400px, 60px, 160px);
 }
