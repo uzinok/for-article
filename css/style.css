@@ -2,103 +2,41 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 24px;
   min-height: 100vh;
   margin: 0;
   font-size: 30px;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-/*  */
-
-.visually-hidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
+  gap: 24px;
 }
 
-.email-label {
-  position: relative;
+.blockquote {
+  width: 400px;
+  padding: 30px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid;
 }
 
-.email-label::after {
-  content: '';
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 35px;
-  height: 35px;
-  mask-image: url(../img/email.svg);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-  background-color: currentColor;
-}
-
-.email-input {
-  display: block;
-  margin: 0;
-  padding: 4px;
-  padding-right: 40px;
-  font-size: 30px;
-  line-height: 1;
-  border: 3px solid #000000;
-  border-radius: 4px;
-}
-
-.email-input:hover {
-  border: 3px solid#0039a6;
-}
-
-.email-label:hover {
-  color: #0039a6;
-}
-
-.email-input:focus {
-  outline-offset: 3px;
-}
-
-.email-input:invalid {
-  border-color: #d52b1e;
-}
-
-.email-input:disabled {
-  border-color: #747474;
-}
-
-.email-label:has(.email-input:invalid) {
-  color: #d52b1e;
-}
-
-.email-label:has(.email-input:disabled) {
-  color: #747474;
-}
-
-/*  */
-.container-1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.container-1 h2 {
+.blockquote-text {
   margin-top: 0;
 }
 
-h2:has(+ p) {
-  margin-bottom: 0;
-}
-/*  */
-header a:has(> img),
-footer a:has(> img) {
-  text-decoration: none;
+.blockquote-circle::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 30px;
+  background-color: currentColor;
+  border-radius: 50%;
 }
 
-/* :is(header, footer) a:has(> img) {
-  text-decoration: none;
-} */
+.blockquote-rhomb::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 30px;
+  background-color: currentColor;
+  transform: rotate(45deg);
+}
