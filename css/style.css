@@ -1,0 +1,150 @@
+body {
+	margin: 0;
+}
+
+.example {
+	width: 1284px;
+	margin: 0 auto;
+	padding: 84px 78px;
+	background-color: #f9f7f3;
+	border-bottom: 1px solid #000000;
+}
+
+.example:first-child {
+	border-top: 1px solid #000000;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: none;
+	outline: 0;
+}
+
+/* иконки социальных сетей на светлом и тёмном фоне */
+.social {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	text-align: center;
+}
+
+[class^="social__wrap"] {
+	padding: 20px;
+}
+
+.social__wrap-black {
+	background-color: rgba(19, 19, 19, 0.898);
+}
+
+.social__link {
+	position: relative;
+	display: inline-block;
+	width: 41px;
+	height: 41px;
+	border-radius: 5px;
+}
+
+.social__link::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	mask-position: center;
+	mask-repeat: no-repeat;
+}
+
+.social__link--white {
+	background-color: #bdbdbd;
+}
+
+.social__link--white::before {
+	background-color: #333333;
+}
+
+.social__link--black {
+	background-color: #000000;
+}
+
+.social__link--black::before {
+	background-color: #ffffff;
+}
+
+.social__link--telegram::before {
+	mask-image: url(../img/telegram.svg);
+}
+/* иконки социальных сетей на светлом и тёмном фоне */
+
+/* карточки с иконками псевдоэлементами и фоном */
+.example__list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	gap: 40px;
+}
+
+[class*="example__item--bg"] {
+	padding-top: 87px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-size: auto 64px;
+}
+
+.example__item--bg-1 {
+	background-image: url(../img/item-1.svg);
+}
+
+.example__item--bg-2 {
+	background-image: url(../img/item-2.svg);
+}
+
+.example__item--bg-3 {
+	background-image: url(../img/item-3.svg);
+}
+
+[class*="example__item--before"]::before {
+	content: '';
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin-bottom: 23px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.example__item--before-1::before {
+	background-image: url(../img/item-1.svg);
+}
+
+.example__item--before-2::before {
+	background-image: url(../img/item-2.svg);
+}
+
+.example__item--before-3::before {
+	background-image: url(../img/item-3.svg);
+}
+
+.example__item b {
+	display: block;
+	margin-bottom: 23px;
+	font-size: 24px;
+	line-height: 35px;
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.example__item p {
+	max-width: 300px;
+	margin: 0;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+/* карточки с иконками псевдоэлементами и фоном */
