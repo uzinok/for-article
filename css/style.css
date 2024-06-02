@@ -1,9 +1,10 @@
 body {
 	margin: 0;
+	font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 .example {
-	width: 1284px;
+	max-width: 1284px;
 	margin: 0 auto;
 	padding: 84px 78px;
 	background-color: #f9f7f3;
@@ -25,10 +26,162 @@ body {
 	outline: 0;
 }
 
+/* эффект наведения */
+.link-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.link-hover-1 {
+	position: relative;
+	display: inline-block;
+	padding: 20px 24px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #0095da;
+	transform-origin: 50% 0px 0px;
+	transform-style: preserve-3d;
+	transition: transform 0.3s ease 0s;
+}
+
+.link-hover-1::after {
+	content: attr(aria-label);
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 20px 24px;
+	text-align: center;
+	background-color: #0965a0;
+	transform: rotateX(-90deg);
+	transform-origin: 50% 0px 0px;
+	transition: transform 0.3s ease 0s;
+}
+
+.link-hover-1:hover {
+	transform: rotateX(90deg) translateY(-22px);
+}
+
+.link-hover-2 {
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	padding: 20px 24px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #000000;
+	text-decoration: none;
+}
+
+.link-hover-2::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	z-index: -1;
+	width: 100%;
+	height: 0;
+	text-align: center;
+	background-color: #0095da;
+	transform: translateY(-50%);
+	transition: height 0.3s ease 0s;
+}
+
+.link-hover-2:hover::before {
+	height: 100%;
+}
+
+.link-hover-3 {
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	padding: 20px 24px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #000000;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.link-hover-3::before,
+.link-hover-3::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+.link-hover-3::before {
+	background-image: linear-gradient(to left, #0095da, #0965a0);
+}
+
+.link-hover-3::after {
+	background-image: linear-gradient(to left, #0965a0, #0095da);
+	opacity: 0;
+	transition: opacity 0.3s ease 0s;
+}
+
+.link-hover-3:hover:after {
+	opacity: 1;
+}
+
+.link-hover-4 {
+	position: relative;
+	z-index: 0;
+	display: inline-block;
+	padding: 20px 24px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #000000;
+	text-decoration: none;
+}
+
+.link-hover-4::before,
+.link-hover-4::after {
+	content: '';
+	position: absolute;
+	box-sizing: border-box;
+	width: 10px;
+	height: 10px;
+	transition: width 0.3s ease 0s, height 0.3s ease 0s;
+}
+
+.link-hover-4::before {
+	top: 0;
+	left: 0;
+	border-top: 2px solid #0095da;
+	border-left: 2px solid #0095da;
+}
+
+.link-hover-4::after {
+	right: 0;
+	bottom: 0;
+	border-right: 2px solid #0095da;
+	border-bottom: 2px solid #0095da;
+}
+
+.link-hover-4:hover::before,
+.link-hover-4:hover::after {
+	width: 100%;
+	height: 100%;
+}
+
+/* эффект наведения */
+
 /* иконки социальных сетей на светлом и тёмном фоне */
 .social {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
 	text-align: center;
 }
 
@@ -37,7 +190,11 @@ body {
 }
 
 .social__wrap-black {
-	background-color: rgba(19, 19, 19, 0.898);
+	background-color: rgba(19, 19, 19, 0.8);
+}
+
+.social__wrap-white {
+	background-color: #ffffff;
 }
 
 .social__link {
@@ -68,7 +225,7 @@ body {
 }
 
 .social__link--black {
-	background-color: #000000;
+	background-color: rgba(19, 19, 19, 0.8);;
 }
 
 .social__link--black::before {
@@ -78,16 +235,22 @@ body {
 .social__link--telegram::before {
 	mask-image: url(../img/telegram.svg);
 }
+
 /* иконки социальных сетей на светлом и тёмном фоне */
 
 /* карточки с иконками псевдоэлементами и фоном */
 .example__list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	gap: 40px;
+}
+
+[class*="example__item"] {
+	width: 400px;
+	max-width: 100%;
 }
 
 [class*="example__item--bg"] {
@@ -137,7 +300,6 @@ body {
 	margin-bottom: 23px;
 	font-size: 24px;
 	line-height: 35px;
-	font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 .example__item p {
@@ -145,6 +307,6 @@ body {
 	margin: 0;
 	font-size: 16px;
 	line-height: 24px;
-	font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
+
 /* карточки с иконками псевдоэлементами и фоном */
