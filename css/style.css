@@ -26,6 +26,89 @@ body {
 	outline: 0;
 }
 
+/* картинка с псевдоэлементом */
+.img-before::before {
+	content: 'это псевдоэлемент ::before у картинки.';
+	display: block;
+	padding: 5px;
+	color: tomato;
+	border: 1px solid tomato;
+}
+
+/* картинка с псевдоэлементом */
+
+/* карточки с иконками псевдоэлементами и фоном */
+.example__list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	gap: 40px;
+}
+
+[class*="example__item"] {
+	width: 400px;
+	max-width: 100%;
+}
+
+[class*="example__item--bg"] {
+	padding-top: 87px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-size: auto 64px;
+}
+
+.example__item--bg-1 {
+	background-image: url(../img/item-1.svg);
+}
+
+.example__item--bg-2 {
+	background-image: url(../img/item-2.svg);
+}
+
+.example__item--bg-3 {
+	background-image: url(../img/item-3.svg);
+}
+
+[class*="example__item--before"]::before {
+	content: '';
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin-bottom: 23px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.example__item--before-1::before {
+	background-image: url(../img/item-1.svg);
+}
+
+.example__item--before-2::before {
+	background-image: url(../img/item-2.svg);
+}
+
+.example__item--before-3::before {
+	background-image: url(../img/item-3.svg);
+}
+
+.example__item b {
+	display: block;
+	margin-bottom: 23px;
+	font-size: 24px;
+	line-height: 35px;
+}
+
+.example__item p {
+	max-width: 300px;
+	margin: 0;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+/* карточки с иконками псевдоэлементами и фоном */
 /* орнамент */
 .blockquote {
 	width: 820px;
@@ -61,9 +144,6 @@ body {
 	background-repeat: no-repeat;
 	background-position: center bottom, center;
 	background-size: 820px 216px, cover;
-
-	/* width: 820px;
-		height: 216px; */
 }
 
 .blockquote-text {
@@ -434,76 +514,3 @@ body {
 }
 
 /* иконки социальных сетей на светлом и тёмном фоне */
-
-/* карточки с иконками псевдоэлементами и фоном */
-.example__list {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	gap: 40px;
-}
-
-[class*="example__item"] {
-	width: 400px;
-	max-width: 100%;
-}
-
-[class*="example__item--bg"] {
-	padding-top: 87px;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-size: auto 64px;
-}
-
-.example__item--bg-1 {
-	background-image: url(../img/item-1.svg);
-}
-
-.example__item--bg-2 {
-	background-image: url(../img/item-2.svg);
-}
-
-.example__item--bg-3 {
-	background-image: url(../img/item-3.svg);
-}
-
-[class*="example__item--before"]::before {
-	content: '';
-	display: block;
-	width: 64px;
-	height: 64px;
-	margin-bottom: 23px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-}
-
-.example__item--before-1::before {
-	background-image: url(../img/item-1.svg);
-}
-
-.example__item--before-2::before {
-	background-image: url(../img/item-2.svg);
-}
-
-.example__item--before-3::before {
-	background-image: url(../img/item-3.svg);
-}
-
-.example__item b {
-	display: block;
-	margin-bottom: 23px;
-	font-size: 24px;
-	line-height: 35px;
-}
-
-.example__item p {
-	max-width: 300px;
-	margin: 0;
-	font-size: 16px;
-	line-height: 24px;
-}
-
-/* карточки с иконками псевдоэлементами и фоном */
