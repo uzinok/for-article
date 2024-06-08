@@ -515,3 +515,32 @@ body {
 }
 
 /* иконки социальных сетей на светлом и тёмном фоне */
+
+/* подчёркивание */
+.nav-link {
+	--offset-nav-link: 15px;
+	position: relative;
+	display: inline-block;
+	max-width: 250px;
+	padding: 10px var(--offset-nav-link);
+	text-align: center;
+	color: inherit;
+	text-decoration: none;
+}
+
+.nav-link--underline {
+	text-decoration: underline;
+	text-underline-offset: 14px;
+	text-decoration-thickness: 2px;
+}
+
+.nav-link--before[aria-current="page"]::after {
+	content: '';
+	position: absolute;
+	right: var(--offset-nav-link);
+	bottom: -2px;
+	left: var(--offset-nav-link);
+	height: 2px;
+	background-color: currentColor;
+}
+/* подчёркивание */
