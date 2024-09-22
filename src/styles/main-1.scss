@@ -1,0 +1,161 @@
+/* Global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Manrope", sans-serif;
+  background-color: #316dc2;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  font-weight: 400;
+  font-family: "Manrope", sans-serif;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.reset-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+/* Селект */
+.select {
+  position: relative;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.select__button {
+  position: relative;
+  width: 100%;
+  margin: 0 0 8px;
+  padding: 17px 50px 17px 20px;
+  font-size: 14px;
+  line-height: 100%;
+  text-align: left;
+  color: #f0efe9;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: border-color 0.4s ease;
+
+  @media (min-width: 768px) {
+    min-height: 52px;
+    margin: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: #ffffff;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    width: 16px;
+    height: 16px;
+    background-image: url("https://www.freeiconspng.com/uploads/white-down-arrow-png-2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px 10px;
+    transform: translateY(-50%);
+    transition: transform 0.4s ease;
+  }
+
+  &:focus-visible {
+    border-color: #ffffff;
+    outline: none;
+
+    &::after {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+
+  &:active {
+    &::after {
+      transform: rotate(-180deg) translateY(50%);
+    }
+  }
+}
+
+.select__button--rotated::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.select__list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 2;
+  display: none;
+  width: 100%;
+  padding: 1px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.select__list--visible {
+  display: block;
+}
+
+.select__item {
+  padding: 17px 20px;
+  font-size: 14px;
+  line-height: 100%;
+  color: #484848;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      color: #316dc2;
+    }
+  }
+
+  &:active {
+    color: #ffffff;
+    background-color: #316dc2;
+  }
+
+  &:focus-visible {
+    color: #ffffff;
+    background-color: #316dc2;
+    outline: none;
+  }
+
+  &:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+.select__input {
+  display: none;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./styles/main.min.css">
+</head>
+
+<body>
+	<div class="custom-select">
+		<label for="country" class="custom-select__button">Выберите страну</label>
+
+		<select name="country" id="country" class="visually-hidden">
+			<option value="ru">Россия</option>
+			<option value="de">Германия</option>
+			<option value="fr">Франция</option>
+		</select>
+
+		<ul class="custom-select__list" aria-hidden="true">
+			<li class="custom-select__item">Россия</li>
+			<li class="custom-select__item">Германия</li>
+			<li class="custom-select__item">Франция</li>
+		</ul>
+	</div>
+
+	<script src="./scripts/main.js"></script>
+</body>
+
+</html>
