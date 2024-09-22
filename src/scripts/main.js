@@ -66,7 +66,6 @@ const prewValue = () => {
 
 	if (customSelect.querySelector('.custom-select__item--active')) {
 		itemList.forEach((item, index) => {
-			console.log(index - 1 === 0 ? 0 : index - 1);
 			if (!target) {
 
 				target = item.classList.contains('custom-select__item--active') ? itemList[index - 1 <= 0 ? 0 : index - 1] : '';
@@ -83,14 +82,12 @@ const prewValue = () => {
 }
 
 const onkeydownCustomSelect = (evt) => {
-	console.log(evt.key);
-
-	if (evt.key === 'ArrowUp') {
+	if (evt.key === 'ArrowUp' || evt.key === 'ArrowLeft') {
 		evt.preventDefault();
 		prewValue();
 	}
 
-	if (evt.key === 'ArrowDown') {
+	if (evt.key === 'ArrowDown' || evt.key === 'ArrowRight') {
 		evt.preventDefault();
 		nextValue();
 	}
