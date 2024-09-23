@@ -83,6 +83,8 @@ const prewValue = () => {
 
 const onkeydownCustomSelect = (evt) => {
 	if (evt.key === 'ArrowUp' || evt.key === 'ArrowLeft') {
+		console.log('up || left');
+
 		evt.preventDefault();
 		prewValue();
 	}

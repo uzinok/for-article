@@ -10,6 +10,14 @@
 
 <body>
 
+	<label for="c-1">Выберите страну</label>
+	<select name="" id="c-1">
+		<option value="nl" role="option">Нидерланды</option>
+		<option value="es" role="option">Испания</option>
+		<option value="it" role="option">Италиля</option>
+		<option value="ae" role="option">Объединенные Арабские Эмираты</option>
+	</select>
+
 	<div class="custom-select">
 		<button class="custom-select__button" type="button" aria-label="Выберите страну">
 			<span>Выберите страну</span>
@@ -20,14 +28,8 @@
 			<li class="custom-select__item" data-value="it" role="option">Италиля</li>
 			<li class="custom-select__item" data-value="ae" role="option">Объединенные Арабские Эмираты</li>
 		</ul>
-		<input class="custom-select__input visually-hidden" type="text" name="custom-select-city" id="custom-select-city" value="">
+		<input class="custom-select__input" type="hidden" name="custom-select-city" id="custom-select-city" value="">
 	</div>
-	<select name="" id="">
-		<option value="nl" role="option">Нидерланды</option>
-		<option value="es" role="option">Испания</option>
-		<option value="it" role="option">Италиля</option>
-		<option value="ae" role="option">Объединенные Арабские Эмираты</option>
-	</select>
 
 	<script src="./scripts/main.js"></script>
 </body>
