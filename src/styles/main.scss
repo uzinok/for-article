@@ -104,17 +104,25 @@ body {
 	}
 }
 
+.custom-select__list {
+	&:not(:hover) {
+		.custom-select__item {
+			&--active {
+				color: #fdfdfd;
+				background-color: #1A3E3E;
+			}
+		}
+	}
+}
+
 .custom-select__item {
 	color: #1A3E3E;
 	background-color: #fdfdfd;
 
 	&:hover {
-		text-shadow: 1px 1px 1px currentColor;
+		color: #fdfdfd;
+		background-color: #1A3E3E;
 		cursor: pointer;
-	}
-
-	&:focus {
-		color: red;
 	}
 
 	&:not(:last-child) {
@@ -127,10 +135,5 @@ body {
 
 	&:last-child {
 		border-radius: 0 0 4px 4px;
-	}
-
-	&--active {
-		color: #fdfdfd;
-		background-color: #1A3E3E;
 	}
 }

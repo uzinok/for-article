@@ -41,16 +41,24 @@ const onClickList = (evt) => {
 	}
 }
 
+const onClickDocument = (evt) => {
+	if (!evt.target.closest('button')) {
+		closeCustomSelect();
+	}
+}
+
 const openCustomSelect = () => {
 	customSelect.classList.add('custom-select--view');
 
 	list.addEventListener('click', onClickList);
+	document.addEventListener('click', onClickDocument);
 }
 
 const closeCustomSelect = () => {
 	customSelect.classList.remove('custom-select--view');
 
 	list.removeEventListener('click', onClickList);
+	document.removeEventListener('click', onClickDocument);
 }
 
 button.addEventListener('click', onClickButton);
