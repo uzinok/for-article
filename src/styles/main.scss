@@ -113,6 +113,10 @@ body {
 		cursor: pointer;
 	}
 
+	&:focus {
+		color: red;
+	}
+
 	&:not(:last-child) {
 		border-bottom: 0;
 	}
