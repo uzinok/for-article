@@ -10,15 +10,17 @@
 
 <body>
 
-	<label for="c-1">Выберите страну</label>
-	<select name="" id="c-1">
-		<option value="nl" role="option">Нидерланды</option>
-		<option value="es" role="option">Испания</option>
-		<option value="it" role="option">Италиля</option>
-		<option value="ae" role="option">Объединенные Арабские Эмираты</option>
-	</select>
 
+	<!-- <label for="c-1">Выберите страну</label> -->
 	<div class="custom-select">
+		<select name="" id="c-1" class="custom-select__native">
+			<option value="" disabled selected role="option">Выберите страну</option>
+			<option value="nl" role="option">Нидерланды</option>
+			<option value="es" role="option">Испания</option>
+			<option value="it" role="option">Италиля</option>
+			<option value="ae" role="option">Объединенные Арабские Эмираты</option>
+		</select>
+
 		<button class="custom-select__button" type="button" aria-label="Выберите страну">
 			<span>Выберите страну</span>
 		</button>

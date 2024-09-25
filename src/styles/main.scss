@@ -17,6 +17,7 @@ body {
 }
 
 .custom-select__item,
+.custom-select__native,
 .custom-select__button {
 	position: relative;
 	display: block;
@@ -44,6 +45,7 @@ body {
 	}
 }
 
+.custom-select__native,
 .custom-select__button {
 	padding-right: 36px;
 	border-radius: 4px;
@@ -87,6 +89,18 @@ body {
 			border-bottom-color: transparent;
 		}
 	}
+}
+
+.custom-select__native {
+	&:focus-visible + .custom-select__button {
+		display: none;
+	}
+}
+
+.custom-select__button {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .custom-select__list {
