@@ -3,6 +3,7 @@ const button = customSelect.querySelector('.custom-select__button');
 const buttonText = button.querySelector('span');
 const list = customSelect.querySelector('.custom-select__list');
 const input = customSelect.querySelector('.custom-select__input');
+const selectNative = customSelect.querySelector('.custom-select__native');
 const itemList = customSelect.querySelectorAll('.custom-select__item');
 
 const onClickButton = () => {
@@ -10,12 +11,11 @@ const onClickButton = () => {
 		closeCustomSelect();
 		return;
 	}
-
 	openCustomSelect();
 }
 
-const updateInputValue = (value) => {
-	input.value = value;
+const updateValue = (value) => {
+	selectNative.value = value;
 }
 
 const updateItemView = (elem) => {
@@ -34,7 +34,7 @@ const onClickList = (evt) => {
 		const value = target.dataset.value;
 		const text = target.innerText;
 
-		updateInputValue(value);
+		updateValue(value);
 		updateItemView(target);
 		updateButtonText(text);
 		closeCustomSelect();
@@ -62,3 +62,15 @@ const closeCustomSelect = () => {
 }
 
 button.addEventListener('click', onClickButton);
+
+const onChangeSelectNative = (evt) => {
+	const target = customSelect.querySelector(`[data-value="${evt.target.value}"]`);
+	const value = target.dataset.value;
+	const text = target.innerText;
+
+	updateValue(value);
+	updateItemView(target);
+	updateButtonText(text);
+}
+
+selectNative.addEventListener('change', onChangeSelectNative);
