@@ -21,16 +21,18 @@
 			<option value="ae" role="option">Объединенные Арабские Эмираты</option>
 		</select>
 
-		<button class="custom-select__button" type="button" aria-label="Выберите страну">
-			<span>Выберите страну</span>
-		</button>
-		<ul class="custom-select__list" role="listbox">
-			<li class="custom-select__item" data-value="nl" role="option">Нидерланды</li>
-			<li class="custom-select__item" data-value="es" role="option">Испания</li>
-			<li class="custom-select__item" data-value="it" role="option">Италиля</li>
-			<li class="custom-select__item" data-value="ae" role="option">Объединенные Арабские Эмираты</li>
-		</ul>
-		<input class="custom-select__input" type="hidden" name="custom-select-city" id="custom-select-city" value="">
+		<div>
+			<button class="custom-select__button" type="button" aria-label="Выберите страну" tabindex="-1">
+				<span>Выберите страну</span>
+			</button>
+			<ul class="custom-select__list" role="listbox">
+				<li class="custom-select__item" data-value="nl" role="option" disabled>Выберите страну</li>
+				<li class="custom-select__item" data-value="nl" role="option">Нидерланды</li>
+				<li class="custom-select__item" data-value="es" role="option">Испания</li>
+				<li class="custom-select__item" data-value="it" role="option">Италиля</li>
+				<li class="custom-select__item" data-value="ae" role="option">Объединенные Арабские Эмираты</li>
+			</ul>
+		</div>
 	</div>
 
 	<script src="./scripts/main.js"></script>

@@ -2,7 +2,6 @@ const customSelect = document.querySelector('.custom-select');
 const button = customSelect.querySelector('.custom-select__button');
 const buttonText = button.querySelector('span');
 const list = customSelect.querySelector('.custom-select__list');
-const input = customSelect.querySelector('.custom-select__input');
 const selectNative = customSelect.querySelector('.custom-select__native');
 const itemList = customSelect.querySelectorAll('.custom-select__item');
 
@@ -48,6 +47,8 @@ const onClickDocument = (evt) => {
 }
 
 const openCustomSelect = () => {
+	console.log('open');
+
 	customSelect.classList.add('custom-select--view');
 
 	list.addEventListener('click', onClickList);
