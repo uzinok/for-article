@@ -1,41 +1,158 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="./styles/main.min.css">
+	<title>Inteo</title>
 </head>
 
 <body>
+	<header class="header">
+		<h1 class="visually-hidden">Inteo</h1>
+		<div class="container">
+			<a href="#" class="logo">
+				<img src="./img/logo.svg" alt="Inteo">
+			</a>
 
+			<nav class="header__nav">
+				<ul class="header__nav-list">
+					<li class="header__nav-item"><a href="#" class="header__nav-link">About</a></li>
+					<li class="header__nav-item"><a href="#" class="header__nav-link">Services</a></li>
+					<li class="header__nav-item"><a href="#" class="header__nav-link">Our Work</a></li>
+				</ul>
+			</nav>
 
-	<!-- <label for="c-1">Выберите страну</label> -->
-	<div class="custom-select">
-		<select name="" id="c-1" class="custom-select__native">
-			<option value="" disabled selected role="option">Выберите страну</option>
-			<option value="nl" role="option">Нидерланды</option>
-			<option value="es" role="option">Испания</option>
-			<option value="it" role="option">Италиля</option>
-			<option value="ae" role="option">Объединенные Арабские Эмираты</option>
-		</select>
-
-		<div>
-			<button class="custom-select__button" type="button" aria-label="Выберите страну" tabindex="-1">
-				<span>Выберите страну</span>
-			</button>
-			<ul class="custom-select__list" role="listbox">
-				<li class="custom-select__item" data-value="nl" role="option" disabled>Выберите страну</li>
-				<li class="custom-select__item" data-value="nl" role="option">Нидерланды</li>
-				<li class="custom-select__item" data-value="es" role="option">Испания</li>
-				<li class="custom-select__item" data-value="it" role="option">Италиля</li>
-				<li class="custom-select__item" data-value="ae" role="option">Объединенные Арабские Эмираты</li>
-			</ul>
+			<a href="#contact" class="header__button button">Contact us</a>
 		</div>
-	</div>
 
-	<script src="./scripts/main.js"></script>
+		<div class="container">
+			<p class="header__title">Make <i>your home</i> an ode to joy</p>
+			<p class="header__subtitle">We turn your empty house to a lovely home, making the compact spaces with sapce saving furnitures. Making the unique
+				tastes of yours into reality!</p>
+		</div>
+	</header>
+
+	<main>
+
+		<section class="awards">
+			<div class="container">
+				<p class="awards__text-circle text-circle">
+					<span>Get in touch</span>
+					<span>Get in touch</span>
+				</p>
+				<img src="./img/awards.jpg" alt="#">
+				<div class="awards__list-wrap">
+					<h2 class="awards__title">Awards</h2>
+					<ul class="awards__list">
+						<li class="awards__item awards__item--1">German Design Award 2021</li>
+						<li class="awards__item awards__item--2">Gold A’ Design Award 2021</li>
+						<li class="awards__item awards__item--3">IF Design Award 2020</li>
+						<li class="awards__item awards__item--4">Good Design Award 2019</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="about">
+			<div class="container">
+				<h2 class="page-title">About us</h2>
+				<p class="page-subtitle">We help to bring your <i>dream home</i> to reality</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla dui amet faucibus nam. Erat id laoreet
+					posuere etiam morbi.</p>
+				<p>Tempor dolor elementum tellus non ipsum faucibus. Justo, magna mauris posuere auctor justo. Habitant proin aliquet volutpat leo ultricies. Dui blandit eget vitae turpis ultrices aliquet nunc. Faucibus sit odio bibendum lobortis diam.</p>
+				<div class="about__image-wrap">
+					<p class="about__text-circle text-circle">
+						<span>design studio</span>
+						<span>award winning</span>
+					</p>
+					<img src="./img/about-1.jpg" alt="#">
+					<img src="./img/about-2.jpg" alt="#">
+				</div>
+
+				<footer class="about__footer">
+					<ul class="about__footer-list">
+						<li class="about__footer-item"><span>100%</span>satisfitation clients</li>
+						<li class="about__footer-item"><span>250</span>employees on worldwide</li>
+						<li class="about__footer-item"><span>3469</span>projects completed on 60 countries</li>
+					</ul>
+				</footer>
+			</div>
+		</section>
+
+		<section class="service">
+			<div class="container">
+				<h2 class="page-title">Our services</h2>
+				<p class="page-subtitle">We provide the <i>best solutions</i> for your dream home</p>
+
+				<ul class="service__list">
+					<li class="service__item service__item--1">
+						<h3>Architectural & Interior design</h3>
+						<p>Non diam pretium tristique augue placerat dolor. Accumsan nibh nunc, molestie volutpat ipsum, ultricies.</p>
+					</li>
+					<li class="service__item service__item--2">
+						<h3>Building Renovation</h3>
+						<p>Non diam pretium tristique augue placerat dolor. Accumsan nibh nunc, molestie volutpat ipsum, ultricies.</p>
+					</li>
+					<li class="service__item service__item--3">
+						<h3>Construciton Management</h3>
+						<p>Non diam pretium tristique augue placerat dolor. Accumsan nibh nunc, molestie volutpat ipsum, ultricies.</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="works">
+			<h2 class="page-title">Recent works</h2>
+			<p class="page-subtitle">Some of <i>our crafts</i> made with love</p>
+
+			<article class="works__card">
+				<img src="img/works-1.jpg" alt="#">
+				<h3>Villa Furnishing & Interior</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla dui amet faucibus nam. Erat id laoreet posuere etiam morbi.</p>
+			</article>
+			<article class="works__card">
+				<img src="img/works-2.jpg" alt="#">
+				<h3>Luxury Hotel Renovation</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla dui amet faucibus nam. Erat id laoreet
+					posuere etiam morbi.</p>
+			</article>
+			<article class="works__card">
+				<img src="img/works-3.jpg" alt="#">
+				<h3>Residence Swimming Pool</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus fringilla dui amet faucibus nam. Erat id laoreet
+					posuere etiam morbi.</p>
+			</article>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container contacts">
+			<h2 class="visually-hidden">Contacts</h2>
+
+			<p class="contacts__title">Kick-start your dream home with us</p>
+			<div class="contacts__subtitle">Send us a hi</div>
+
+			<address class="contacts__address">
+				<p><span>Brooklyn, New York</span> 962 Fifth Avenue Str, 3rd Floor-Trump Building NY 10006, United State.</p>
+				<p><span class="contacts__label">Email us at</span> <a href="mailto:hello@landify.design">hello@landify.design</a></p>
+				<p><span class="contacts__label">If you're hurry, quick call for us</span> <a href="tel:+86631250859">+8(663)125-08-59</a></p>
+			</address>
+		</div>
+
+		<div class="container">
+			<p>© 2022 Inteo - Award winning studio. Made with love by <a href="#">Landify</a></p>
+			<div class="footer__social social">
+				<b>CONNECT</b>
+				<ul class="social__list">
+					<li class="social__item"><a href="#" class="social__link social__link--i"><span class="visually-hidden">instagram</span></a></li>
+					<li class="social__item"><a href="#" class="social__link social__link--f"><span class="visually-hidden">facebook</span></a></li>
+					<li class="social__item"><a href="#" class="social__link social__link--y"><span class="visually-hidden">youtube</span></a></li>
+					<li class="social__item"><a href="#" class="social__link social__link--t"><span class="visually-hidden">twiter</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>
