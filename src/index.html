@@ -38,7 +38,33 @@
 
 		<section class="awards">
 			<div class="container">
-				<p class="awards__text-circle text-circle"> Get in touch • Get in touch • </p>
+				<p class="awards__text-circle text-circle"> Get in touch • Get in touch •&nbsp;</p>
+
+				<svg viewBox="0 0 100 100" width="120" height="120" xmlns="http://www.w3.org/2000/svg" class="svg-text-circle">
+					<path id="circlePath" d="
+      M 18, 50
+      a 30,30 0 1,1 63,0
+      30,30 0 1,1 -63,0
+    " fill="transparent" />
+					<defs>
+						<style>
+							.circlePath {
+								font-weight: 500;
+								font-size: 11px;
+								font-family: 'Outfit', sans-serif;
+								text-transform: uppercase;
+								letter-spacing: 1.05px;
+								fill: #fff;
+							}
+						</style>
+					</defs>
+					<text>
+						<textPath href="#circlePath" class="circlePath">
+							Get in touch • Get in touch •
+						</textPath>
+					</text>
+				</svg>
+
 				<img src="./img/awards.jpg" alt="#">
 				<div class="awards__list-wrap">
 					<h2 class="awards__title">Awards</h2>
