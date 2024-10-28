@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			font-family: Arial, Helvetica, sans-serif;
+      font-size: 26px;
+		}
+
+		.block {
+			position: relative;
+			border: 1px solid #000000;
+			margin: 1px;
+			width: auto;
+			box-sizing: border-box;
+			height: calc(100vh - 2px);
+			aspect-ratio: 9 / 16;
+		}
+
+		.block-inner {
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto 1fr;
+			box-sizing: border-box;
+			padding: 4px;
+		}
+
+    .block-inner > div{
+      text-align: center;
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .for-text {
+      color: #ffffff;
+      -webkit-text-stroke: 1px #000000;
+    }
+
+    .for-text span {
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: 0.05em;
+      padding: 5px;
+    }
+
+    .notes {
+      font-weight: 900;
+    }
+
+		table {
+			box-sizing: border-box;
+			border: 1px solid #000000;
+			width: 100%;
+			max-width: 100%;
+			border-collapse: collapse;
+      background-color: #d9d9ff;
+		}
+
+		caption {
+			margin-bottom: 1em;
+			font-weight: 700;
+		}
+
+		th,
+		td {
+      text-align: center;
+			padding: 4px;
+			border: 1px solid #000000;
+      font-weight: 500;
+		}
+
+		col:last-child {
+			background-color: #ffb4a6;
+		}
+
+    tr:nth-child(3),
+    tr:nth-child(4) {
+      background-color: #7fffd4;
+    }
+
+    tr:last-child td:last-child {
+      background-color: #fff8dc;
+    }
+
+	</style>
+</head>
+
+<body>
+	<div class="block">
+		<div class="block-inner">
+      <div class="for-text">
+        <span>второй</span> <span>слой</span> <span>это</span> <span>colgroup</span>
+      </div>
+			<table>
+				<caption>Слои таблицы</caption>
+        <colgroup>
+          <col>
+          <col>
+        </colgroup>
+				<tr>
+					<th>первый слой</th>
+					<td>сама таблица</td>
+				</tr>
+				<tr>
+					<th>второй слой</th>
+					<td>colgroup</td>
+				</tr>
+				<tr>
+					<th>третий слой</th>
+					<td>ряды</td>
+				</tr>
+				<tr>
+					<th>четвёртый слой</th>
+					<td>ячейки</td>
+				</tr>
+			</table>
+      <div class="notes">
+        больше про таблицы в статье или видео по ссылке в описании
+      </div>
+		</div>
+	</div>
+</body>
+
+</html>
