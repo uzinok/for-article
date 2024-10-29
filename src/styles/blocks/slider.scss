@@ -1,0 +1,32 @@
+.slider {
+	--value: 50%;
+	width: 300px;
+	height: 300px;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.slider__img-wrap {
+	position: relative;
+	height: 100%;
+}
+
+.slider__img {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	max-width: initial;
+	height: 100%;
+	object-fit: cover;
+}
+
+.slider__img--before {
+	left: 0;
+	width: var(--value, 50%);
+	object-position: left;
+}
+
+.slider__img--after {
+	right: 0;
+	width: calc(100% - var(--value, 50%));
+	object-position: right;
+}
