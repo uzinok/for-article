@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./styles/main-1.min.css">
+</head>
+
+<body>
+
+	<div class="slider">
+		<picture>
+			<source srcset="img/1-1.avif" type="image/avif">
+			<img class="slider__img slider__img--before" src="img/1-1.png" alt="До" width="300" height="300">
+		</picture>
+		<picture>
+			<source srcset="img/1-2.avif" type="image/avif">
+			<img class="slider__img slider__img--after" src="img/1-2.png" alt="После" width="300" height="300">
+		</picture>
+		<label class="visually-hidden" for="slider-range">Показать картинку до или после</label>
+		<input class="slider__range-js" id="slider-range" type="range" min="0" max="100" value="50" step="1">
+		<div class="slider__range-visible"></div>
+		<script>
+			const slider = document.querySelector(".slider"),
+				range = document.querySelector(".slider__range-js");
+			range.addEventListener("input", () => {
+				slider.style.setProperty("--value", range.value + "%")
+			});
+		</script>
+	</div>
+
+	<script src="./scripts/main.min.js"></script>
+</body>
+
+</html>

@@ -3,6 +3,7 @@ body {
 }
 
 .range-wrap {
+	--value: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -38,6 +39,7 @@ body {
 	height: 20px;
 	background: #ff6347;
 	border-radius: 4px;
+	transform: translateX( calc(var(--value) - 50%) );
 	cursor: pointer;
 	appearance: none;
 }
@@ -69,6 +71,7 @@ input[type=range]::-moz-range-track {
 }
 
 .output {
+	transform: translateX( calc(var(--value) - 50%) );
 	min-width: 35px;
 	padding: 2px;
 	font-size: 16px;
