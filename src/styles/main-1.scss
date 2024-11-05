@@ -23,14 +23,29 @@
 	left: 0;
 	width: var(--value);
 	border-right: 2px solid #000000;
+	border-right: 2px solid #000000!important;
 	object-position: left;
 }
 
 .slider__img--after {
 	right: 0;
 	width: calc(100% - var(--value));
+	border-left: 2px solid #000000!important;
 	border-left: 2px solid #000000;
 	object-position: right;
+}
+
+.slider__range-js::-moz-range-thumb {
+	width: 50px;
+	height: 50px;
+	background-color: currentColor;
+	background-image: url(../../img/comparision.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	border-radius: 50%;
+	transform: translateX(calc(var(--value) - 50%));
+	appearance: none;
 }
 
 .slider__range-js::-webkit-slider-thumb {
@@ -42,7 +57,7 @@
 	background-position: center;
 	background-size: contain;
 	border-radius: 50%;
-	transform: translateX( calc(var(--value) - 50%) );
+	transform: translateX(calc(var(--value) - 50%));
 	appearance: none;
 }
 
@@ -50,6 +65,7 @@
 	position: absolute;
 	margin: 0;
 	background-color: transparent;
+	outline: 0;
 	cursor: col-resize;
 	appearance: none;
 	inset: 0;
@@ -61,6 +77,10 @@
 
 .slider__range-js:active {
 	color: #888;
+}
+
+.slider__range-js:focus-visible::-moz-range-thumb {
+	outline: auto;
 }
 
 .slider__range-js:focus-visible::-webkit-slider-thumb {
