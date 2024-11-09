@@ -10,11 +10,11 @@
 
 <body>
 
-	<div class="range-wrap no-js">
-		<label for="range" class="range-label">Сколько яблок вы хотите съесть?</label>
-		<input type="range" id="range" class="range" value="70" min="0" max="100">
-		<output id="rangevalue" class="output"></output>
-	</div>
+<div class="range-wrap no-js"> <!-- класс no-js -->
+	<label for="range" class="range-label">Сколько яблок вы хотите съесть?</label>
+	<input type="range" id="range" class="range" value="70" min="0" max="100">
+	<output name="value" class="output" for="range"></output>
+</div>
 
 	<script src="./scripts/main.min.js"></script>
 </body>
