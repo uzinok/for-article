@@ -31,7 +31,7 @@ body {
 }
 
 .range::-webkit-slider-thumb {
-	width: 25px;
+	width: 1px;
 	height: 25px;
 	background-color: #ff6347;
 	border-radius: 3px;
@@ -44,6 +44,18 @@ input[type="range"]::-moz-range-thumb {}
 	padding: 2px 4px;
 	border: 2px solid #ff6347;
 	border-radius: 3px;
+	position: absolute;
+	top: 0;
+	left: var(--left);
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		height: 100%;
+		width: 1%;
+		background-color: #ff6347;
+	}
 }
 
 .no-js .output {
@@ -58,6 +70,12 @@ input[type="range"]::-moz-range-thumb {}
 	background-image: linear-gradient(90deg, #ff6347, transparent 1%);
 	background-repeat: repeat no-repeat;
 	background-size: 20px 25px;
+}
+
+.range-inner {
+	position: relative;
+	padding-top: 25px;
+	width: fit-content;
 }
 
 input[type=range]::-webkit-slider-runnable-track {}

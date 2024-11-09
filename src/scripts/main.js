@@ -10,11 +10,14 @@ const onRangeInput = () => {
 
 	output.value = value;
 
-	const min = range.min; // минимальое значение
-	const max = range.max; // максимальное значение
-	const valuePercent = `${100 - ((max - value) / (max - min) * 100)}%`; // расчитываем проценты
+	const min = range.min; // получаем минимальое значение
+	const max = range.max; // получаем максимальное значение
+	const valuePercent = `${100 - ((max - value) / (max - min) * 100)}`; // расчитываем проценты
+	const left = valuePercent;
 
-	range.style.backgroundSize = `${ valuePercent } 100%`; // меняемм значение background-size
+	range.style.backgroundSize = `${valuePercent}% 100%`; // меняемм значение background-size
+
+	rangeWrap.style.setProperty('--left', left + '%' );
 }
 
 onRangeInput();
