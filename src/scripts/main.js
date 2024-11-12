@@ -1,23 +1,18 @@
-const rangeWrap = document.querySelector('.range-wrap'); // получаем родительский блок output
-
-rangeWrap.classList.remove('no-js'); // удаляем класс no-js
-
+const rangeWrap = document.querySelector('.range-wrap');
+rangeWrap.classList.remove('no-js');
 const range = document.querySelector('.range');
-const output = document.querySelector('.output');
+const output = document.querySelector('.output-text');
 
 const onRangeInput = () => {
 	const value = range.value;
+	output.innerText = value;
 
-	output.value = value;
+	const min = range.min;
+	const max = range.max;
+	const valuePercent = `${100 - ((max - value) / (max - min) * 100)}`;
 
-	const min = range.min; // получаем минимальое значение
-	const max = range.max; // получаем максимальное значение
-	const valuePercent = `${100 - ((max - value) / (max - min) * 100)}`; // расчитываем проценты
-
-	range.style.backgroundSize = `${valuePercent}% 100%`; // меняемм значение background-size
-
-	rangeWrap.style.setProperty('--left', valuePercent + '%');
-}
+	rangeWrap.style.setProperty('--valuePercent', valuePercent + '%');
+};
 
 onRangeInput();
 range.addEventListener('input', onRangeInput);
