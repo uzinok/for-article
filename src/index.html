@@ -9,8 +9,12 @@
 </head>
 
 <body>
-
 	<video poster="./img/1.jpg" controls>
+		<track kind="subtitles" src="./video/ru-1.vtt" srclang="ru" default label="Русский">
+		<track kind="subtitles" src="./video/en-1.vtt" srclang="en" label="English">
+		<source src="./video/1.mp4" type="video/mp4">
+	</video>
+	<video controls>
 		<track kind="subtitles" src="./video/ru-1.vtt" srclang="ru" default label="Русский">
 		<track kind="subtitles" src="./video/en-1.vtt" srclang="en" label="English">
 		<source src="./video/1.mp4" type="video/mp4">
