@@ -5,6 +5,7 @@ const playPause = customVideo.querySelector('.custom-video__play-pause');
 const range = customVideo.querySelector('.custom-video__range-elements');
 const timeBefore = customVideo.querySelector('.custom-video__range-before');
 const timeAfter = customVideo.querySelector('.custom-video__range-after');
+const fullscreen = customVideo.querySelector('.custom-video__fullscreen');
 
 start.addEventListener('click', () => {
 	video.play();
@@ -35,6 +36,10 @@ video.addEventListener("loadedmetadata", () => {
 });
 
 video.addEventListener("timeupdate", () => {
+	if (!range.getAttribute("max")) {
+		range.setAttribute("max", video.duration);
+	}
+
 	range.value = video.currentTime;
 	timeAfter.innerText = msToTime(video.currentTime * 1000);
 });
@@ -52,4 +57,21 @@ function msToTime(duration) {
 	seconds = (seconds < 10) ? "0" + seconds : seconds;
 	return hours + ":" + minutes + ":" + seconds;
 }
-console.log(msToTime(300000))
+
+const setFullscreenData = (state) => {
+	customVideo.setAttribute("data-fullscreen", !!state);
+}
+
+const handleFullscreen = () => {
+	if (document.fullscreenElement !== null) {
+		// The document is in fullscreen mode
+		document.exitFullscreen();
+		setFullscreenData(false);
+	} else {
+		// The document is not in fullscreen mode
+		customVideo.requestFullscreen();
+		setFullscreenData(true);
+	}
+};
+
+fullscreen.addEventListener('click', handleFullscreen);
