@@ -31,14 +31,25 @@ const getTime = (time) => roundUp(time / 60, 2);
 
 video.addEventListener("loadedmetadata", () => {
 	range.setAttribute("max", video.duration);
-	timeBefore.innerText = getTime(video.duration);
+	timeBefore.innerText = msToTime(video.duration * 1000);
 });
 
 video.addEventListener("timeupdate", () => {
 	range.value = video.currentTime;
-	timeAfter.innerText = getTime(video.currentTime);
+	timeAfter.innerText = msToTime(video.currentTime * 1000);
 });
 
 range.addEventListener('input', () => {
 	video.currentTime = range.value;
 });
+
+function msToTime(duration) {
+	var seconds = Math.floor((duration / 1000) % 60),
+		minutes = Math.floor((duration / (1000 * 60)) % 60),
+		hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+	hours = (hours < 10) ? "0" + hours : hours;
+	minutes = (minutes < 10) ? "0" + minutes : minutes;
+	seconds = (seconds < 10) ? "0" + seconds : seconds;
+	return hours + ":" + minutes + ":" + seconds;
+}
+console.log(msToTime(300000))
