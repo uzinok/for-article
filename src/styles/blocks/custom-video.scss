@@ -1,0 +1,149 @@
+.custom-video {
+	position: relative;
+	width: fit-content;
+}
+
+.custom-video__start {
+	position: absolute;
+	z-index: 1;
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	appearance: none;
+	inset: 0;
+
+	.custom-video--started & {
+		display: none;
+	}
+
+	&:hover {
+		&::before {
+			background-color: #b3e2ab;
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		background-color: #abe2cf;
+		transition: background-color 0.25s ease-in-out;
+		inset: 0;
+		mask-image: url(../../img/custom-video_start.svg);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: 200px auto;
+	}
+}
+
+.custom-video__elements {
+	display: block;
+}
+
+.custom-video__controls {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	background-color: #ffffff;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out 0.5s;
+	gap: 20px;
+
+	.custom-video--started:hover & {
+		opacity: 1;
+	}
+}
+
+.custom-video__play-pause {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	appearance: none;
+
+	&:hover {
+
+		&::after,
+		&::before {
+			background-color: #b3e2ab;
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		background-color: #abe2cf;
+		transition: background-color 0.25s ease-in-out;
+		inset: 0;
+		mask-image: url(../../img/play.svg);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: 30px 30px;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		background-color: #abe2cf;
+		opacity: 0;
+		transition: background-color 0.25s ease-in-out;
+		inset: 0;
+		mask-image: url(../../img/pause.svg);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: 30px 30px;
+	}
+
+	&--played {
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.custom-video__range-times {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	margin: 0;
+	gap: 15px;
+}
+
+.custom-video__range-elements {
+	flex-grow: 1;
+	height: 10px;
+	margin: 0;
+	overflow: hidden;
+	background-color: transparent;
+	border: 1px solid #abe2cf;
+	border-radius: 3px;
+	appearance: none;
+
+}
+
+.custom-video__range-elements::-webkit-slider-thumb {
+	width: 10px;
+	height: 10px;
+	background-color: #abe2cf;
+	box-shadow: -100vw 0 0 100vw #b3e2ab;
+	appearance: none;
+}
+
+.custom-video__range-elements::-moz-range-thumb {
+	width: 10px;
+	height: 10px;
+	background-color: #abe2cf;
+	border: 0;
+	border-radius: 0;
+	box-shadow: -100vw 0 0 100vw #b3e2ab;
+	appearance: none;
+}

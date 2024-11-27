@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="./styles/main.min.css">
 </head>
+
 <body>
-	сборка работает
+
+	<div class="custom-video">
+		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" muted controls>
+			<source src="./video/two_families_mafia-x-men_el.webm" type="video/webm">
+			<source src="./video/two_families_mafia-x-men_el.mp4" type="video/mp4">
+		</video>
+
+		<button type="button" class="custom-video__start">
+			<span class="visually-hidden">play</span>
+		</button>
+
+		<div class="custom-video__controls">
+			<button type="button" class="custom-video__play-pause">
+				<span class="visually-hidden">play/pause</span>
+			</button>
+
+			<p class="custom-video__range-times">
+				<span class="custom-video__range-before"></span>
+				<input class="custom-video__range-elements" type="range" name="range-times" min="0" value="0">
+				<span class="custom-video__range-after"></span>
+			</p>
+		</div>
+	</div>
+
+	<script src="./scripts/main.min.js"></script>
 </body>
+
 </html>
