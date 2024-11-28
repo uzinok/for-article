@@ -11,6 +11,7 @@
 <body>
 
 	<div class="custom-video">
+		<!-- <video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" muted controls> -->
 		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" muted>
 			<source src="./video/two_families_mafia-x-men_el.webm" type="video/webm">
 			<source src="./video/two_families_mafia-x-men_el.mp4" type="video/mp4">
@@ -30,6 +31,14 @@
 				<label class="visually-hidden" for="range-times">current times</label>
 				<input orient="vertical" id="range-times" class="custom-video__range-elements" type="range" name="range-times" min="0" value="0">
 				<span class="custom-video__range-after"></span>
+			</p>
+
+			<p class="custom-video__sound">
+				<button type="button" class="custom-video__sound-button">
+					<span class="visually-hidden">muted/unmuted</span>
+				</button>
+				<label for="sound-range" class="visually-hidden">volume level</label>
+				<input type="range" name="sound-range" id="sound-range" class="custom-video__sound-range" min="0" max="1" step="0.1">
 			</p>
 
 			<button type="button" class="custom-video__fullscreen">

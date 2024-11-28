@@ -32,6 +32,7 @@ const getTime = (time) => roundUp(time / 60, 2);
 
 video.addEventListener("loadedmetadata", () => {
 	range.setAttribute("max", video.duration);
+	timeAfter.innerText = msToTime(0);
 	timeBefore.innerText = msToTime(video.duration * 1000);
 });
 
