@@ -11,7 +11,8 @@
 <body>
 
 	<div class="custom-video">
-		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" controls>
+		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" controls muted autoplay>
+			<track kind="subtitles" src="./vtt/two_families_mafia-x-men_el-ru.vtt" srclang="ru" default label="Русский">
 			<source src="./video/two_families_mafia-x-men_el.webm" type="video/webm">
 			<source src="./video/two_families_mafia-x-men_el.mp4" type="video/mp4">
 		</video>
@@ -43,6 +44,10 @@
 			<button type="button" class="custom-video__fullscreen">
 				<span class="visually-hidden">fullscreen</span>
 			</button>
+
+			<!-- <button type="button" class="custom-video__settings">
+				<span class="visually-hidden">settings</span>
+			</button> -->
 		</div>
 	</div>
 

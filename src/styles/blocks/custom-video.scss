@@ -12,7 +12,6 @@
 
 .custom-video__start {
 	position: absolute;
-	z-index: 1;
 	display: none;
 	height: calc(100% - 30px);
 	padding: 0;
@@ -28,17 +27,17 @@
 
 	&:hover {
 		&::before {
-			background-color: #0039a6;
+			background-color: #d40000;
 		}
 	}
 
 	&::before {
 		content: '';
 		position: absolute;
-		background-color: #0000ee;
+		background-color: #ff0000;
 		transition: background-color 0.25s ease-in-out;
 		inset: 0;
-		mask-image: url(../../img/custom-video_start.svg);
+		mask-image: url(../../img/volume-mute.svg);
 		mask-repeat: no-repeat;
 		mask-position: center;
 		mask-size: 200px auto;
@@ -184,7 +183,7 @@
 		background-color: #0000ee;
 		transition: background-color 0.25s ease-in-out;
 		inset: 0;
-		mask-image: url(../../img/aspect-ratio.svg);
+		mask-image: url(../../img/arrows-angle-expand.svg);
 		mask-repeat: no-repeat;
 		mask-position: center;
 		mask-size: 20px 20px;
@@ -266,6 +265,7 @@
 	opacity: 0;
 	transition: opacity 0.25s ease-in-out;
 	appearance: none;
+	z-index: 1;
 
 
 	.custom-video__sound:hover & {
@@ -292,3 +292,35 @@
 	box-shadow: -100vw 0 0 100vw #7777f3;
 	appearance: none;
 }
+
+// .custom-video__settings {
+// 	position: relative;
+// 	display: block;
+// 	width: 30px;
+// 	min-width: 30px;
+// 	height: 30px;
+// 	padding: 0;
+// 	background-color: transparent;
+// 	border: 0;
+// 	cursor: pointer;
+// 	appearance: none;
+
+// 	&:hover {
+// 		&::before {
+// 			background-color: #0039a6;
+// 		}
+// 	}
+
+// 	&::before {
+// 		content: '';
+// 		position: absolute;
+// 		background-color: #0000ee;
+// 		transition: background-color 0.25s ease-in-out;
+// 		inset: 0;
+// 		mask-image: url(../../img/three-dots-vertical.svg);
+// 		mask-repeat: no-repeat;
+// 		mask-position: center;
+// 		mask-size: 20px 20px;
+// 	}
+
+// }

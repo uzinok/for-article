@@ -80,7 +80,8 @@ export function copy() {
 			"./src/*.ico",
 			"./src/img/**/*.{svg,jpg,jpeg,png,webp,avif}",
 			"./src/video/**/*.{mp4,webm}",
-			"./src/static/**/*.{css,js}",
+		"./src/static/**/*.{css,js}",
+		"./src/vtt/**/*.vtt",
 		], {
 			base: paths.src
 		})
