@@ -2,10 +2,15 @@ const customVideo = document.querySelector('.custom-video');
 const video = customVideo.querySelector('.custom-video__elements');
 const start = customVideo.querySelector('.custom-video__start');
 const playPause = customVideo.querySelector('.custom-video__play-pause');
-const range = customVideo.querySelector('.custom-video__range-elements');
+const timeRange = customVideo.querySelector('.custom-video__range-elements');
 const timeBefore = customVideo.querySelector('.custom-video__range-before');
 const timeAfter = customVideo.querySelector('.custom-video__range-after');
 const fullscreen = customVideo.querySelector('.custom-video__fullscreen');
+const soundButton = customVideo.querySelector('.custom-video__sound-button');
+const soundRange = customVideo.querySelector('.custom-video__sound-range');
+
+video.controls = false;
+timeRange.setAttribute('value', 0);
 
 start.addEventListener('click', () => {
 	video.play();
@@ -31,28 +36,28 @@ const roundUp = (num, precision) => {
 const getTime = (time) => roundUp(time / 60, 2);
 
 video.addEventListener("loadedmetadata", () => {
-	range.setAttribute("max", video.duration);
+	timeRange.setAttribute("max", video.duration);
 	timeAfter.innerText = msToTime(0);
 	timeBefore.innerText = msToTime(video.duration * 1000);
 });
 
 video.addEventListener("timeupdate", () => {
-	if (!range.getAttribute("max")) {
-		range.setAttribute("max", video.duration);
+	if (!timeRange.getAttribute("max")) {
+		timeRange.setAttribute("max", video.duration);
 	}
 
-	range.value = video.currentTime;
+	timeRange.value = video.currentTime;
 	timeAfter.innerText = msToTime(video.currentTime * 1000);
 });
 
-range.addEventListener('input', () => {
-	video.currentTime = range.value;
+timeRange.addEventListener('input', () => {
+	video.currentTime = +timeRange.value;
 });
 
 function msToTime(duration) {
-	var seconds = Math.floor((duration / 1000) % 60),
-		minutes = Math.floor((duration / (1000 * 60)) % 60),
-		hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+	let seconds = Math.floor((duration / 1000) % 60);
+	let minutes = Math.floor((duration / (1000 * 60)) % 60);
+	let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 	hours = (hours < 10) ? "0" + hours : hours;
 	minutes = (minutes < 10) ? "0" + minutes : minutes;
 	seconds = (seconds < 10) ? "0" + seconds : seconds;
@@ -76,3 +81,24 @@ const handleFullscreen = () => {
 };
 
 fullscreen.addEventListener('click', handleFullscreen);
+
+if (video.muted) {
+	soundButton.classList.add('custom-video__sound-button--muted');
+	soundRange.value = 0;
+} else {
+	soundRange.value = video.volume;
+}
+
+soundButton.addEventListener('click', () => {
+	soundButton.classList.toggle('custom-video__sound-button--muted');
+	video.muted = !video.muted;
+
+	soundRange.value = video.muted ? 0 : video.volume;
+});
+
+soundRange.addEventListener('input', () => {
+	video.volume = soundRange.value;
+
+	soundButton.classList.toggle('custom-video__sound-button--down', +soundRange.value <= 0.5);
+	soundButton.classList.toggle('custom-video__sound-button--muted', +soundRange.value === 0);
+});
