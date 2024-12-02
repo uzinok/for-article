@@ -8,6 +8,7 @@ const timeAfter = customVideo.querySelector('.custom-video__range-after');
 const fullscreen = customVideo.querySelector('.custom-video__fullscreen');
 const buttonSound = customVideo.querySelector('.custom-video__sound-button');
 const soundRange = customVideo.querySelector('.custom-video__sound-range');
+const buttonCC = customVideo.querySelector('.custom-video__cc');
 
 // удаляем нативные элементы управления
 video.controls = false;
@@ -183,3 +184,74 @@ buttonSound.addEventListener('click', handleButtonSound);
 soundRange.addEventListener('input', handleSoundRange);
 
 fullscreen.addEventListener('click', handleFullscreen);
+
+// track
+// subtitles
+if (video.textTracks.length === 0) {
+	buttonCC.classList.add('hide');
+} else {
+	for (var i = 0; i < video.textTracks.length; i++) {
+		video.textTracks[i].mode = "hidden";
+	}
+	buttonCC.classList.add('custom-video__cc--hidden');
+}
+
+if (video.textTracks.length === 1) {
+	const handleButtonCC = () => {
+		if (video.textTracks[0].mode === 'hidden') {
+			video.textTracks[0].mode = 'showing';
+			buttonCC.classList.remove('custom-video__cc--hidden');
+		} else {
+			buttonCC.classList.add('custom-video__cc--hidden');
+			video.textTracks[0].mode = 'hidden';
+		}
+	}
+
+	buttonCC.addEventListener('click', handleButtonCC);
+}
+
+if (video.textTracks.length > 1) {
+	const listCC = document.createElement('ul');
+	listCC.classList.add('custom-video__list-cc');
+
+	const li = document.createElement('li');
+
+	const buttonHiddenCC = document.createElement('button');
+	buttonHiddenCC.type = 'button';
+	buttonHiddenCC.innerText = 'Отключить';
+	buttonHiddenCC.classList.add('custom-video__button-cc');
+	buttonHiddenCC.dataset.track = -1;
+
+	li.append(buttonHiddenCC);
+	listCC.append(li);
+
+	for (let i = 0; i < video.textTracks.length; i++) {
+		const element = video.textTracks[i];
+
+		const li = document.createElement('li');
+
+		const button = document.createElement('button');
+		button.innerText = element.label;
+		button.classList.add('custom-video__button-cc');
+		button.dataset.track = i;
+
+		li.append(button);
+		listCC.append(li);
+	}
+
+	buttonCC.after(listCC);
+
+	listCC.addEventListener('click', (evt) => {
+		for (var i = 0; i < video.textTracks.length; i++) {
+			video.textTracks[i].mode = "hidden";
+		}
+
+		if (+evt.target.dataset.track === -1) {
+			return buttonCC.classList.add('custom-video__cc--hidden');
+		}
+
+		video.textTracks[+evt.target.dataset.track].mode = 'showing';
+		buttonCC.classList.remove('custom-video__cc--hidden');
+
+	});
+}

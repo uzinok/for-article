@@ -11,26 +11,27 @@
 <body>
 
 	<div class="custom-video">
-		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" controls muted autoplay>
+		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" controls muted>
 			<track kind="subtitles" src="./vtt/two_families_mafia-x-men_el-ru.vtt" srclang="ru" default label="Русский">
+			<track kind="subtitles" src="./vtt/two_families_mafia-x-men_el-en.vtt" srclang="en" label="English">
 			<source src="./video/two_families_mafia-x-men_el.webm" type="video/webm">
 			<source src="./video/two_families_mafia-x-men_el.mp4" type="video/mp4">
 		</video>
 
-		<button type="button" class="custom-video__start">
+		<button type="button" class="custom-video__start hide">
 			<span class="visually-hidden">play</span>
 		</button>
 
 		<div class="custom-video__controls">
+			<label class="visually-hidden" for="range-times">current times</label>
+			<input id="range-times" class="custom-video__range-elements" type="range" name="range-times" min="0" value="0">
+
 			<button type="button" class="custom-video__play-pause">
 				<span class="visually-hidden">play/pause</span>
 			</button>
 
 			<p class="custom-video__range-times">
-				<span class="custom-video__range-after"></span>
-				<label class="visually-hidden" for="range-times">current times</label>
-				<input id="range-times" class="custom-video__range-elements" type="range" name="range-times" min="0">
-				<span class="custom-video__range-before"></span>
+				<span class="custom-video__range-after"></span> / <span class="custom-video__range-before"></span>
 			</p>
 
 			<p class="custom-video__sound">
@@ -38,16 +39,20 @@
 					<span class="visually-hidden">muted/unmuted</span>
 				</button>
 				<label for="sound-range" class="visually-hidden">volume level</label>
-				<input type="range" name="sound-range" id="sound-range" class="custom-video__sound-range" min="0" max="1" step="0.1">
+				<input type="range" name="sound-range" id="sound-range" class="custom-video__sound-range" min="0" max="1" step="0.01">
 			</p>
 
 			<button type="button" class="custom-video__fullscreen">
 				<span class="visually-hidden">fullscreen</span>
 			</button>
 
-			<button type="button" class="custom-video__settings">
-				<span class="visually-hidden">settings</span>
+			<button type="button" class="custom-video__cc">
+				<span class="visually-hidden">CC</span>
 			</button>
+
+			<!-- <button type="button" class="custom-video__settings">
+				<span class="visually-hidden">settings</span>
+			</button> -->
 		</div>
 	</div>
 
