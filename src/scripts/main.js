@@ -12,6 +12,7 @@ const soundDownload = customVideo.querySelector('.custom-video__download');
 const buttonCC = customVideo.querySelector('.custom-video__button-cc');
 const labelSpeed = customVideo.querySelector('.custom-video__speed-label span');
 const rangeSpeed = customVideo.querySelector('.custom-video__speed-range');
+const buttonSettings = customVideo.querySelector('.custom-video__settings');
 
 // init
 // удаляем нативные элементы управления
@@ -203,8 +204,12 @@ rangeSpeed.addEventListener('input', handleRangeSpeed);
 
 // track
 // subtitles
+
+// custom-video__button-cc--current
+
+
 const toggleButtonCCClassHidden = (state) => {
-	buttonCC.classList.toggle('custom-video__button-cc--hidden', !!state)
+	buttonCC.classList.toggle('custom-video__button-cc--current', !state)
 }
 
 if (video.textTracks.length === 0) {
@@ -297,3 +302,7 @@ if (video.textTracks.length > 1) {
 		toggleButtonCCClassHidden(false);
 	});
 }
+
+buttonSettings.addEventListener('click', () => {
+	buttonSettings.classList.toggle('custom-video__settings--opened');
+});

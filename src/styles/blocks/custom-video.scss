@@ -273,6 +273,10 @@
 	list-style-type: none;
 	text-align: center;
 	background-color: var(--bg-custom);
+
+	.custom-video__settings:not(.custom-video__settings--opened) + & {
+		display: none;
+	}
 }
 
 .custom-video__item-settings {
