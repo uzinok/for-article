@@ -2,57 +2,66 @@ const customVideo = document.querySelector('.custom-video');
 const video = customVideo.querySelector('.custom-video__elements');
 const buttonStart = customVideo.querySelector('.custom-video__start');
 const buttonPlayPause = customVideo.querySelector('.custom-video__play-pause');
-const timeRange = customVideo.querySelector('.custom-video__range-elements');
+const rangeTime = customVideo.querySelector('.custom-video__range-elements');
 const timeBefore = customVideo.querySelector('.custom-video__range-before');
 const timeAfter = customVideo.querySelector('.custom-video__range-after');
 const fullscreen = customVideo.querySelector('.custom-video__fullscreen');
 const buttonSound = customVideo.querySelector('.custom-video__sound-button');
-const soundRange = customVideo.querySelector('.custom-video__sound-range');
+const rangeSound = customVideo.querySelector('.custom-video__sound-range');
+const soundDownload = customVideo.querySelector('.custom-video__download');
 const buttonCC = customVideo.querySelector('.custom-video__cc');
+const labelSpeed = customVideo.querySelector('.custom-video__speed-label span');
+const rangeSpeed = customVideo.querySelector('.custom-video__speed-range');
 
+// init
 // удаляем нативные элементы управления
 video.controls = false;
 
-// all
-const toggleMutted = () => {
-	// визуально переключаем внешний вид чтобы было видно когда звук отключен
-	// если звук включается, то и рейнджу указываем уровень звука видео
-	// добавить проверку после включения включения звука: если уровень громкости 0, то поставить 0.1
-	buttonSound.classList.toggle('custom-video__sound-button--muted');
-	video.muted = !video.muted;
-
-	soundRange.value = video.muted ? 0 : video.volume;
+if (video.muted) {
+	// если есть атрибут muted у видео
+	// кнопке звука задаем класс, чтобы сообщить пользователю о выключенном звуке
+	// рейнджу звука устанавливаем 0
+	buttonSound.classList.add('custom-video__sound-button--muted');
 }
 
-const msToTime = (duration) => {
-	// получаем время в миллисекундах, переводим в понятное время в формате чч:мм:сс
-	let seconds = Math.floor((duration / 1000) % 60);
-	let minutes = Math.floor((duration / (1000 * 60)) % 60);
-	let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-	hours = (hours < 10) ? "0" + hours : hours;
-	minutes = (minutes < 10) ? "0" + minutes : minutes;
-	seconds = (seconds < 10) ? "0" + seconds : seconds;
-	return hours + ":" + minutes + ":" + seconds;
+const handleLoadedMetaData = () => {
+	// когда загнрузятся данные о видео
+	// указываем рейнджу максимальное значение (обязательно атрибутом)
+	// указываем пользователю длительноесть видео
+	rangeTime.setAttribute("max", video.duration);
+	timeAfter.innerText = msToTime(0);
+	timeBefore.innerText = msToTime(video.duration * 1000);
 }
 
-const toggleButtonPlayPause = () => {
-	buttonPlayPause.classList.toggle('custom-video__play-pause--played');
-}
+video.addEventListener("loadedmetadata", handleLoadedMetaData);
 
-const setFullscreenData = (state) => {
-	customVideo.setAttribute("data-fullscreen", !!state);
-}
-
-// handle
+// start
 const handleButtonStart = () => {
 	// если видна кнопка start, отслеживаем клик
 	// удаляем слушатель этой кнопки
 	// включаем звук и перематываем на начало видео
 	buttonStart.removeEventListener('click', handleButtonStart);
-	buttonStart.classList.add('hide')
+	buttonStart.classList.add('hidden')
 	toggleMutted();
 }
 
+// start & init
+if (video.muted && video.autoplay) {
+	// если автовоспроизведение включено и отключен звук
+	// показываем кнопку старт
+	// кнопке play/pause задаём класс custom-video__play-pause--played, указываем что видео играет
+	// показывем что отключен звук у кнопки buttonSound
+	buttonStart.classList.remove('hidden');
+	toggleButtonPlayPause();
+	buttonSound.classList.add('custom-video__sound-button--muted');
+} else {
+	// или просто удаляем слушатель этой кнопки
+	buttonStart.removeEventListener('click', handleButtonStart);
+}
+
+buttonStart.addEventListener('click', handleButtonStart);
+
+// play pause
 const handleButtonPlayPause = () => {
 	// по клику на кнопку play/pause
 	if (video.paused || video.ended) {
@@ -72,13 +81,22 @@ const handleButtonPlayPause = () => {
 	}
 }
 
-const handleLoadedMetaData = () => {
-	// когда загнрузятся данные о видео
-	// указываем рейнджу максимальное значение (обязательно атрибутом)
-	// указываем пользователю длительноесть видео
-	timeRange.setAttribute("max", video.duration);
-	timeAfter.innerText = msToTime(0);
-	timeBefore.innerText = msToTime(video.duration * 1000);
+const toggleButtonPlayPause = () => {
+	buttonPlayPause.classList.toggle('custom-video__play-pause--played');
+}
+
+buttonPlayPause.addEventListener('click', handleButtonPlayPause);
+
+// time
+const msToTime = (duration) => {
+	// получаем время в миллисекундах, переводим в понятное время в формате чч:мм:сс
+	let seconds = Math.floor((duration / 1000) % 60);
+	let minutes = Math.floor((duration / (1000 * 60)) % 60);
+	let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+	hours = (hours < 10) ? "0" + hours : hours;
+	minutes = (minutes < 10) ? "0" + minutes : minutes;
+	seconds = (seconds < 10) ? "0" + seconds : seconds;
+	return hours + ":" + minutes + ":" + seconds;
 }
 
 const handleTimeUpdate = () => {
@@ -86,24 +104,41 @@ const handleTimeUpdate = () => {
 	// проверяем, наличие атрибута макс.
 	// если нет, то добавляем этот атрибут и общую длительность видео
 	// после чего обновляем текущее значение рейнджа и показываем пользователю текущее время
-	if (!timeRange.getAttribute("max")) {
-		timeRange.setAttribute("max", video.duration);
+	if (!rangeTime.getAttribute("max")) {
+		rangeTime.setAttribute("max", video.duration);
 		timeBefore.innerText = msToTime(video.duration * 1000);
 	}
 
-	timeRange.value = video.currentTime;
+	rangeTime.value = video.currentTime;
 	timeAfter.innerText = msToTime(video.currentTime * 1000);
 }
+
+video.addEventListener("timeupdate", handleTimeUpdate);
 
 const handleEnded = () => {
 	buttonPlayPause.classList.remove('custom-video__play-pause--played');
 }
 
-const handleTimeRange = () => {
+video.addEventListener('ended', handleEnded);
+
+const handleRangeTime = () => {
 	// если пользователь меняет значение рейнджа
 	// меняем время и у видео
 
-	video.currentTime = +timeRange.value;
+	video.currentTime = +rangeTime.value;
+}
+
+rangeTime.addEventListener('input', handleRangeTime);
+
+// sound
+const toggleMutted = () => {
+	// визуально переключаем внешний вид чтобы было видно когда звук отключен
+	// если звук включается, то и рейнджу указываем уровень звука видео
+	// добавить проверку после включения включения звука: если уровень громкости 0, то поставить 0.1
+	buttonSound.classList.toggle('custom-video__sound-button--muted');
+	video.muted = !video.muted;
+
+	rangeSound.value = video.muted ? 0 : video.volume;
 }
 
 const handleButtonSound = () => {
@@ -118,17 +153,26 @@ const handleButtonSound = () => {
 	video.muted = !video.muted;
 }
 
-const handleSoundRange = () => {
+buttonSound.addEventListener('click', handleButtonSound);
+
+const handleRangeSound = () => {
 	// если пользователь меняет значение уровня громкости
 	// меняем уровень громкости у видео
 	// у кнопки включения/выключения звука, добавляем соответствующие классы для визуализации
 	// при нулевой громкости указываем что у видео отключен звук
-	video.volume = soundRange.value;
+	video.volume = rangeSound.value;
 
-	buttonSound.classList.toggle('custom-video__sound-button--down', +soundRange.value <= 0.5);
-	buttonSound.classList.toggle('custom-video__sound-button--muted', +soundRange.value === 0);
+	buttonSound.classList.toggle('custom-video__sound-button--down', +rangeSound.value <= 0.5);
+	buttonSound.classList.toggle('custom-video__sound-button--muted', +rangeSound.value === 0);
 
 	video.muted = !video.volume;
+}
+
+rangeSound.addEventListener('input', handleRangeSound);
+
+// fullscreen
+const setFullscreenData = (state) => {
+	customVideo.setAttribute("data-fullscreen", !!state);
 }
 
 const handleFullscreen = () => {
@@ -147,80 +191,72 @@ const handleFullscreen = () => {
 	}
 };
 
-// init
-if (video.muted && video.autoplay) {
-	// если автовоспроизведение включено и отключен звук
-	// показываем кнопку старт
-	// кнопке play/pause задаём класс custom-video__play-pause--played, указываем что видео играет
-	// показывем что отключен звук у кнопки buttonSound
-	buttonStart.classList.remove('hide');
-	toggleButtonPlayPause();
-	buttonSound.classList.add('custom-video__sound-button--muted');
-} else {
-	// или просто удаляем слушатель этой кнопки
-	buttonStart.removeEventListener('click', handleButtonStart);
-}
-
-if (video.muted) {
-	// если есть атрибут muted у видео
-	// кнопке звука задаем класс, чтобы сообщить пользователю о выключенном звуке
-	// рейнджу звука устанавливаем 0
-	buttonSound.classList.add('custom-video__sound-button--muted');
-	soundRange.value = 0;
-}
-
-video.addEventListener("loadedmetadata", handleLoadedMetaData);
-
-// work
-buttonStart.addEventListener('click', handleButtonStart);
-
-buttonPlayPause.addEventListener('click', handleButtonPlayPause);
-
-video.addEventListener("timeupdate", handleTimeUpdate);
-video.addEventListener('ended', handleEnded);
-timeRange.addEventListener('input', handleTimeRange);
-
-buttonSound.addEventListener('click', handleButtonSound);
-soundRange.addEventListener('input', handleSoundRange);
-
 fullscreen.addEventListener('click', handleFullscreen);
+
+// speed
+const handleRangeSpeed = () => {
+	video.playbackRate = +rangeSpeed.value;
+	labelSpeed.innerText = +rangeSpeed.value;
+}
+
+rangeSpeed.addEventListener('input', handleRangeSpeed);
 
 // track
 // subtitles
+const toggleButtonCCClassHidden = (state) => {
+	buttonCC.classList.toggle('custom-video__cc--hidden', !!state)
+}
+
 if (video.textTracks.length === 0) {
-	buttonCC.classList.add('hide');
+	buttonCC.classList.add('hidden');
 } else {
 	for (var i = 0; i < video.textTracks.length; i++) {
 		video.textTracks[i].mode = "hidden";
 	}
-	buttonCC.classList.add('custom-video__cc--hidden');
+	toggleButtonCCClassHidden(true);
+}
+
+const handleButtonCC = () => {
+	if (video.textTracks[0].mode === 'hidden') {
+		video.textTracks[0].mode = 'showing';
+		toggleButtonCCClassHidden(false);
+	} else {
+		toggleButtonCCClassHidden(true);
+		video.textTracks[0].mode = 'hidden';
+	}
 }
 
 if (video.textTracks.length === 1) {
-	const handleButtonCC = () => {
-		if (video.textTracks[0].mode === 'hidden') {
-			video.textTracks[0].mode = 'showing';
-			buttonCC.classList.remove('custom-video__cc--hidden');
-		} else {
-			buttonCC.classList.add('custom-video__cc--hidden');
-			video.textTracks[0].mode = 'hidden';
-		}
-	}
-
 	buttonCC.addEventListener('click', handleButtonCC);
 }
 
+const createButtonCC = (label, dataTrack) => {
+	const button = document.createElement('button');
+	button.type = 'button';
+	button.innerText = label;
+	button.classList.add('custom-video__button-cc');
+	button.dataset.track = dataTrack;
+
+	return button;
+}
+
+const toggleButtonCCClassCurrent = (AllButtonListCC, current) => {
+	AllButtonListCC.forEach(button => {
+		button.classList.toggle('custom-video__button-cc--current', +button.dataset.track === +current);
+	});
+}
+
 if (video.textTracks.length > 1) {
+	const AllButtonListCC = [];
 	const listCC = document.createElement('ul');
 	listCC.classList.add('custom-video__list-cc');
 
 	const li = document.createElement('li');
 
-	const buttonHiddenCC = document.createElement('button');
-	buttonHiddenCC.type = 'button';
-	buttonHiddenCC.innerText = 'Отключить';
-	buttonHiddenCC.classList.add('custom-video__button-cc');
-	buttonHiddenCC.dataset.track = -1;
+	const buttonHiddenCC = createButtonCC('Отключить', -1);
+
+	AllButtonListCC.push(buttonHiddenCC);
+	toggleButtonCCClassCurrent(AllButtonListCC, -1);
 
 	li.append(buttonHiddenCC);
 	listCC.append(li);
@@ -230,10 +266,9 @@ if (video.textTracks.length > 1) {
 
 		const li = document.createElement('li');
 
-		const button = document.createElement('button');
-		button.innerText = element.label;
-		button.classList.add('custom-video__button-cc');
-		button.dataset.track = i;
+		const button = createButtonCC(element.label, i);
+
+		AllButtonListCC.push(button);
 
 		li.append(button);
 		listCC.append(li);
@@ -242,16 +277,21 @@ if (video.textTracks.length > 1) {
 	buttonCC.after(listCC);
 
 	listCC.addEventListener('click', (evt) => {
+		if (!evt.target.dataset.track) {
+			return;
+		}
+
 		for (var i = 0; i < video.textTracks.length; i++) {
 			video.textTracks[i].mode = "hidden";
 		}
 
+		toggleButtonCCClassCurrent(AllButtonListCC, evt.target.dataset.track);
+
 		if (+evt.target.dataset.track === -1) {
-			return buttonCC.classList.add('custom-video__cc--hidden');
+			return toggleButtonCCClassHidden(true);
 		}
 
 		video.textTracks[+evt.target.dataset.track].mode = 'showing';
-		buttonCC.classList.remove('custom-video__cc--hidden');
-
+		toggleButtonCCClassHidden(false);
 	});
 }

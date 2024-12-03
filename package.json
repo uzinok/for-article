@@ -16,7 +16,8 @@
 		"not < 0.2%"
 	],
 	"scripts": {
-		"build": "gulp build"
+		"build": "gulp build",
+		"start": "gulp start"
 	},
 	"license": "ISC",
 	"devDependencies": {

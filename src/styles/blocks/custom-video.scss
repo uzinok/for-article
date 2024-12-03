@@ -1,5 +1,9 @@
-.hide {
+.hidden {
 	display: none;
+}
+
+.current {
+	background-color: #c6c6f6;
 }
 
 .custom-video {
@@ -304,6 +308,37 @@
 	}
 }
 
+.custom-video__download {
+	position: relative;
+	display: block;
+	width: 30px;
+	min-width: 30px;
+	height: 30px;
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	appearance: none;
+
+	&:hover {
+		&::before {
+			background-color: #0039a6;
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		background-color: #0000ee;
+		transition: background-color 0.25s ease-in-out;
+		inset: 0;
+		mask-image: url(../../img/cloud-download.svg);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		mask-size: 20px 20px;
+	}
+}
+
 .custom-video__cc {
 	position: relative;
 	width: 30px;
@@ -373,6 +408,11 @@
 
 	&:hover {
 		color: #0039a6;
+	}
+
+	&--current {
+		color: #f8f8f8;
+		background-color: #0000ee;
 	}
 }
 
