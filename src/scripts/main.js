@@ -9,7 +9,7 @@ const fullscreen = customVideo.querySelector('.custom-video__fullscreen');
 const buttonSound = customVideo.querySelector('.custom-video__sound-button');
 const rangeSound = customVideo.querySelector('.custom-video__sound-range');
 const soundDownload = customVideo.querySelector('.custom-video__download');
-const buttonCC = customVideo.querySelector('.custom-video__cc');
+const buttonCC = customVideo.querySelector('.custom-video__button-cc');
 const labelSpeed = customVideo.querySelector('.custom-video__speed-label span');
 const rangeSpeed = customVideo.querySelector('.custom-video__speed-range');
 
@@ -204,7 +204,7 @@ rangeSpeed.addEventListener('input', handleRangeSpeed);
 // track
 // subtitles
 const toggleButtonCCClassHidden = (state) => {
-	buttonCC.classList.toggle('custom-video__cc--hidden', !!state)
+	buttonCC.classList.toggle('custom-video__button-cc--hidden', !!state)
 }
 
 if (video.textTracks.length === 0) {
@@ -234,6 +234,7 @@ const createButtonCC = (label, dataTrack) => {
 	const button = document.createElement('button');
 	button.type = 'button';
 	button.innerText = label;
+	button.classList.add('custom-video__button-settings');
 	button.classList.add('custom-video__button-cc');
 	button.dataset.track = dataTrack;
 
@@ -247,6 +248,7 @@ const toggleButtonCCClassCurrent = (AllButtonListCC, current) => {
 }
 
 if (video.textTracks.length > 1) {
+	buttonCC.classList.add('hidden');
 	const AllButtonListCC = [];
 	const listCC = document.createElement('ul');
 	listCC.classList.add('custom-video__list-cc');
