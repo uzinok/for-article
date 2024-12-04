@@ -303,6 +303,28 @@ if (video.textTracks.length > 1) {
 	});
 }
 
-buttonSettings.addEventListener('click', () => {
-	buttonSettings.classList.toggle('custom-video__settings--opened');
-});
+const checkSettingsClick = (evt) => {
+	if (!evt.target.closest('.custom-video__settings') && !evt.target.closest('.custom-video__list-settings')) {
+		closeSetting();
+	}
+}
+
+const openSetting = () => {
+	buttonSettings.classList.add('custom-video__settings--opened');
+	document.addEventListener('click', checkSettingsClick);
+}
+
+const closeSetting = () => {
+	buttonSettings.classList.remove('custom-video__settings--opened');
+	document.removeEventListener('click', checkSettingsClick);
+}
+
+const handleButtonSettings = () => {
+	if (buttonSettings.classList.contains('custom-video__settings--opened')) {
+		return closeSetting();
+	}
+
+	openSetting();
+}
+
+buttonSettings.addEventListener('click', handleButtonSettings);
