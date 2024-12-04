@@ -46,7 +46,11 @@ const handleButtonStart = () => {
 	toggleMutted();
 }
 
-// start & init
+
+const toggleButtonPlayPause = () => {
+	buttonPlayPause.classList.toggle('custom-video__play-pause--played');
+}
+
 if (video.muted && video.autoplay) {
 	// если автовоспроизведение включено и отключен звук
 	// показываем кнопку старт
@@ -80,10 +84,6 @@ const handleButtonPlayPause = () => {
 		video.pause();
 		buttonPlayPause.classList.remove('custom-video__play-pause--played');
 	}
-}
-
-const toggleButtonPlayPause = () => {
-	buttonPlayPause.classList.toggle('custom-video__play-pause--played');
 }
 
 buttonPlayPause.addEventListener('click', handleButtonPlayPause);
@@ -172,23 +172,32 @@ const handleRangeSound = () => {
 rangeSound.addEventListener('input', handleRangeSound);
 
 // fullscreen
-const setFullscreenData = (state) => {
-	customVideo.setAttribute("data-fullscreen", !!state);
+const toggleFullscreenClass = () => {
+	customVideo.classList.toggle('custom-video--fullscreen');
+}
+
+const handleFullscreenchange = () => {
+	if (document.fullscreenElement === null) {
+		document.exitFullscreen();
+		toggleFullscreenClass(false);
+	}
 }
 
 const handleFullscreen = () => {
 	// по клику на кнопку фулскрин, смотрим
 	// если есть полноэкранный режим, сворачиваем
-	// или переводим наш блок в полноекранный режим
-	// оба действия помечаем атрибутом
-	if (document.fullscreenElement !== null) {
-		document.exitFullscreen();
-		setFullscreenData(false);
-	} else {
+	// или переводим наш блок в полноэкранный режим
+	// оба действия помечаем сменой класса
+	if (document.fullscreenElement === null) {
+		// отслеживаем сворачивание окна другими способами, помимо клика по кнопке
+		customVideo.addEventListener('fullscreenchange', handleFullscreenchange);
+		toggleFullscreenClass();
 		customVideo.requestFullscreen();
-		setFullscreenData(true);
-
-		// добавить проверку, если пользовать какое-то время не двигает мышкой - скрыть контроллер, при возобновлении движении мышки - опять показать
+	} else {
+		// удаляем это отслеживание сворачивания проигрывателя
+		customVideo.removeEventListener('fullscreenchange', handleFullscreenchange);
+		toggleFullscreenClass();
+		document.exitFullscreen();
 	}
 };
 
@@ -204,9 +213,6 @@ rangeSpeed.addEventListener('input', handleRangeSpeed);
 
 // track
 // subtitles
-
-// custom-video__button-cc--current
-
 
 const toggleButtonCCClassHidden = (state) => {
 	buttonCC.classList.toggle('custom-video__button-cc--current', !state)
