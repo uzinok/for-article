@@ -50,22 +50,14 @@ if (video.muted && video.autoplay && buttonStart) {
   buttonSound.classList.add('custom-video__sound-button--muted');
 }
 
-
-// play pause
 const handleButtonPlayPause = () => {
-  // по клику на кнопку play/pause
   if (video.paused || video.ended) {
-    // если достигло конца, ставим на начало
-    // включаем воспроизведение видео
-    // задаём кнопке класс custom-video__play-pause--played
     if (video.duration - video.currentTime <= 10) {
       video.currentTime = 0;
     }
     video.play();
     toggleButtonPlayPause();
   } else {
-    // ставим видео на паузу
-    // меняем внешний вид кнопки play/Pause
     video.pause();
     buttonPlayPause.classList.remove('custom-video__play-pause--played');
   }

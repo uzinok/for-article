@@ -11,7 +11,7 @@
 <body>
 
 	<div class="custom-video">
-		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" playsinline controls muted autoplay>
+		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" playsinline controls muted>
 			<track kind="subtitles" src="./vtt/two_families_mafia-x-men_el-ru.vtt" srclang="ru" default label="Русский">
 			<track kind="subtitles" src="./vtt/two_families_mafia-x-men_el-en.vtt" srclang="en" label="English">
 			<source src="./video/two_families_mafia-x-men_el.webm" type="video/webm">
@@ -137,13 +137,31 @@
 		video.addEventListener("timeupdate", handleTimeUpdate);
 
 		const handleRangeTime = () => {
-				// если пользователь меняет значение рейнджа
-				// меняем время и у видео
+			video.currentTime = +rangeTime.value;
+		}
 
-				video.currentTime = +rangeTime.value;
+		rangeTime.addEventListener('input', handleRangeTime);
+
+		const toggleButtonPlayPause = () => {
+			buttonPlayPause.classList.toggle('custom-video__play-pause--played');
+		}
+
+		const handleButtonPlayPause = () => {
+			if (video.paused || video.ended) {
+				video.play();
+			} else {
+				video.pause();
 			}
+			toggleButtonPlayPause();
+		}
 
-			rangeTime.addEventListener('input', handleRangeTime);
+		buttonPlayPause.addEventListener('click', handleButtonPlayPause);
+
+		const handleEnded = () => {
+			toggleButtonPlayPause();
+		}
+
+		video.addEventListener('ended', handleEnded);
 	</script>
 </body>
 
