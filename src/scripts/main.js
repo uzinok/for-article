@@ -20,10 +20,14 @@ if (video.muted) {
   buttonSound.classList.add('custom-video__sound-button--muted');
 }
 
+const setDuration = () => {
+	rangeTime.setAttribute("max", video.duration);
+	timeAfter.innerText = msToTime(0);
+	timeBefore.innerText = msToTime(video.duration * 1000);
+}
+
 const handleLoadedMetaData = () => {
-  rangeTime.setAttribute("max", video.duration);
-  timeAfter.innerText = msToTime(0);
-  timeBefore.innerText = msToTime(video.duration * 1000);
+	setDuration();
 }
 
 video.addEventListener("loadedmetadata", handleLoadedMetaData);
@@ -34,7 +38,6 @@ const handleButtonStart = () => {
   buttonStart.classList.add('hidden');
   toggleMutted();
 }
-
 
 const toggleButtonPlayPause = () => {
   buttonPlayPause.classList.toggle('custom-video__play-pause--played');
@@ -72,7 +75,6 @@ buttonPlayPause.addEventListener('click', handleButtonPlayPause);
 
 // time
 const msToTime = (duration) => {
-  // получаем время в миллисекундах, переводим в понятное время в формате чч:мм:сс
   let seconds = Math.floor((duration / 1000) % 60);
   let minutes = Math.floor((duration / (1000 * 60)) % 60);
   let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
@@ -83,13 +85,8 @@ const msToTime = (duration) => {
 }
 
 const handleTimeUpdate = () => {
-  // когда видео воспроизводится
-  // проверяем, наличие атрибута макс.
-  // если нет, то добавляем этот атрибут и общую длительность видео
-  // после чего обновляем текущее значение рейнджа и показываем пользователю текущее время
   if (!rangeTime.getAttribute("max")) {
-    rangeTime.setAttribute("max", video.duration);
-    timeBefore.innerText = msToTime(video.duration * 1000);
+		setDuration();
   }
 
   rangeTime.value = video.currentTime;
