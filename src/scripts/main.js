@@ -124,21 +124,20 @@ const toggleFullscreenClass = () => {
 
 const handleFullscreenchange = () => {
 	if (document.fullscreenElement === null) {
-		document.exitFullscreen();
-		toggleFullscreenClass(false);
+		toggleFullscreenClass();
+		customVideo.removeEventListener('fullscreenchange', handleFullscreenchange);
 	}
 }
 
 const handleFullscreen = () => {
 	if (document.fullscreenElement === null) {
 		customVideo.addEventListener('fullscreenchange', handleFullscreenchange);
-		toggleFullscreenClass();
 		customVideo.requestFullscreen();
 	} else {
 		customVideo.removeEventListener('fullscreenchange', handleFullscreenchange);
-		toggleFullscreenClass();
 		document.exitFullscreen();
 	}
+	toggleFullscreenClass();
 };
 fullscreen.addEventListener('click', handleFullscreen);
 

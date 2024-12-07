@@ -184,6 +184,29 @@
 			video.muted = !video.volume;
 		}
 		rangeSound.addEventListener('input', handleRangeSound);
+
+		const toggleFullscreenClass = () => {
+			customVideo.classList.toggle('custom-video--fullscreen');
+		}
+
+		const handleFullscreenchange = () => {
+			if (document.fullscreenElement === null) {
+				toggleFullscreenClass();
+				customVideo.removeEventListener('fullscreenchange', handleFullscreenchange);
+			}
+		}
+
+		const handleFullscreen = () => {
+			if (document.fullscreenElement === null) {
+				customVideo.addEventListener('fullscreenchange', handleFullscreenchange);
+				customVideo.requestFullscreen();
+			} else {
+				customVideo.removeEventListener('fullscreenchange', handleFullscreenchange);
+				document.exitFullscreen();
+			}
+			toggleFullscreenClass();
+		};
+		fullscreen.addEventListener('click', handleFullscreen);
 	</script>
 </body>
 
