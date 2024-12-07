@@ -88,7 +88,12 @@
 
 		video.controls = false;
 
+		if (video.muted) {
+			buttonSound.classList.add('custom-video__sound-button--muted');
+		}
+
 		const toggleMutted = () => {
+			buttonSound.classList.toggle('custom-video__sound-button--muted');
 			video.muted = !video.muted;
 		}
 
@@ -162,6 +167,23 @@
 		}
 
 		video.addEventListener('ended', handleEnded);
+
+		const handleButtonSound = () => {
+			if (video.volume === 0) {
+				return;
+			}
+
+			toggleMutted();
+		}
+		buttonSound.addEventListener('click', handleButtonSound);
+
+		const handleRangeSound = () => {
+			video.volume = rangeSound.value;
+			buttonSound.classList.toggle('custom-video__sound-button--down', +rangeSound.value <= 0.5);
+			buttonSound.classList.toggle('custom-video__sound-button--muted', +rangeSound.value === 0);
+			video.muted = !video.volume;
+		}
+		rangeSound.addEventListener('input', handleRangeSound);
 	</script>
 </body>
 
