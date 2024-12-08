@@ -148,34 +148,101 @@ const handleRangeSpeed = () => {
 }
 rangeSpeed.addEventListener('input', handleRangeSpeed);
 
+const checkSettingsClick = (evt) => {
+	if (!evt.target.closest('.custom-video__settings') && !evt.target.closest('.custom-video__list-settings')) {
+		closeSetting();
+	}
+}
+
+const openSetting = () => {
+	buttonSettings.classList.add('custom-video__settings--opened');
+	document.addEventListener('click', checkSettingsClick);
+}
+
+const closeSetting = () => {
+	buttonSettings.classList.remove('custom-video__settings--opened');
+	document.removeEventListener('click', checkSettingsClick);
+}
+
+const handleButtonSettings = () => {
+	if (buttonSettings.classList.contains('custom-video__settings--opened')) {
+		return closeSetting();
+	}
+
+	openSetting();
+}
+
+buttonSettings.addEventListener('click', handleButtonSettings);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // track
 // subtitles
 
-const toggleButtonCCClassHidden = (state) => {
-	buttonCC.classList.toggle('custom-video__button-cc--current', !state)
+const toggleButtonCCClassHidden = () => {
+	buttonCC.classList.toggle('hidden');
 }
 
+
 if (video.textTracks.length === 0) {
-	buttonCC.classList.add('hidden');
+	toggleButtonCCClassHidden();
 } else {
 	for (var i = 0; i < video.textTracks.length; i++) {
 		video.textTracks[i].mode = "hidden";
 	}
-	toggleButtonCCClassHidden(true);
 }
+
 
 const handleButtonCC = () => {
 	if (video.textTracks[0].mode === 'hidden') {
 		video.textTracks[0].mode = 'showing';
-		toggleButtonCCClassHidden(false);
+		buttonCC.classList.toggle('custom-video__button-cc--current');
 	} else {
-		toggleButtonCCClassHidden(true);
+		buttonCC.classList.toggle('custom-video__button-cc--current');
 		video.textTracks[0].mode = 'hidden';
 	}
 }
 
 if (video.textTracks.length === 1) {
 	buttonCC.addEventListener('click', handleButtonCC);
+}
+
+const toggleButtonCCClassCurrent = (AllButtonListCC, current) => {
+	AllButtonListCC.forEach(button => {
+		button.classList.toggle('custom-video__button-cc--current', +button.dataset.track === +current);
+	});
 }
 
 const createButtonCC = (label, dataTrack) => {
@@ -189,14 +256,9 @@ const createButtonCC = (label, dataTrack) => {
 	return button;
 }
 
-const toggleButtonCCClassCurrent = (AllButtonListCC, current) => {
-	AllButtonListCC.forEach(button => {
-		button.classList.toggle('custom-video__button-cc--current', +button.dataset.track === +current);
-	});
-}
-
 if (video.textTracks.length > 1) {
-	buttonCC.classList.add('hidden');
+	toggleButtonCCClassHidden();
+
 	const AllButtonListCC = [];
 	const listCC = document.createElement('ul');
 	listCC.classList.add('custom-video__list-cc');
@@ -231,43 +293,15 @@ if (video.textTracks.length > 1) {
 			return;
 		}
 
+		const datasetTrack = evt.target.dataset.track;
+
 		for (var i = 0; i < video.textTracks.length; i++) {
 			video.textTracks[i].mode = "hidden";
 		}
 
-		toggleButtonCCClassCurrent(AllButtonListCC, evt.target.dataset.track);
-
-		if (+evt.target.dataset.track === -1) {
-			return toggleButtonCCClassHidden(true);
+		toggleButtonCCClassCurrent(AllButtonListCC, datasetTrack);
+		if (datasetTrack !== '-1') {
+			video.textTracks[datasetTrack].mode = 'showing';
 		}
-
-		video.textTracks[+evt.target.dataset.track].mode = 'showing';
-		toggleButtonCCClassHidden(false);
 	});
 }
-
-const checkSettingsClick = (evt) => {
-	if (!evt.target.closest('.custom-video__settings') && !evt.target.closest('.custom-video__list-settings')) {
-		closeSetting();
-	}
-}
-
-const openSetting = () => {
-	buttonSettings.classList.add('custom-video__settings--opened');
-	document.addEventListener('click', checkSettingsClick);
-}
-
-const closeSetting = () => {
-	buttonSettings.classList.remove('custom-video__settings--opened');
-	document.removeEventListener('click', checkSettingsClick);
-}
-
-const handleButtonSettings = () => {
-	if (buttonSettings.classList.contains('custom-video__settings--opened')) {
-		return closeSetting();
-	}
-
-	openSetting();
-}
-
-buttonSettings.addEventListener('click', handleButtonSettings);
