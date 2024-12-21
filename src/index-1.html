@@ -1,340 +1,120 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="./styles/main.min.css">
+	<style>
+		body {
+			margin: 0;
+		}
+
+		.container {
+			box-sizing: border-box;
+			max-width: 768px;
+			margin: 0 auto;
+		}
+
+		header {
+			padding: 15px;
+			background-color: #c3d08b;
+		}
+
+		.header-inner {
+			display: flex;
+			align-items: center;
+		}
+
+		.logo {
+			margin-right: 40px;
+		}
+
+		nav {
+			margin-right: 20px;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			display: flex;
+		}
+
+		li {
+			margin-right: 10px;
+		}
+
+		.header-inner > a:last-child {
+			margin-left: auto;
+		}
+
+		h1 {
+			margin-top: 0;
+		}
+
+		section {
+			padding: 15px;
+			background-color: #c3d08b;
+		}
+
+		section:not(:last-of-type) {
+			margin-bottom: 15px;
+		}
+
+		.inner {
+			background-color: #ffffff;
+		}
+
+		.inner > *:first-child {
+			margin-top: 0;
+		}
+
+		.inner > *:last-child {
+			margin-bottom: 0;
+		}
+	</style>
 </head>
 
 <body>
+	<header class="container">
+		<div class="inner header-inner">
+			<a href="#" class="logo">LOGO</a>
 
-	<div class="custom-video">
-		<video class="custom-video__elements" poster="./img/two_families_mafia-x-men_el.jpg" preload="metadata" playsinline controls muted>
-			<track kind="subtitles" src="./vtt/two_families_mafia-x-men_el-ru.vtt" srclang="ru" default label="Русский">
-			<track kind="subtitles" src="./vtt/two_families_mafia-x-men_el-en.vtt" srclang="en" label="English">
-			<source src="./video/two_families_mafia-x-men_el.webm" type="video/webm">
-			<source src="./video/two_families_mafia-x-men_el.mp4" type="video/mp4">
-		</video>
+			<nav>
+				<ul>
+					<li><a href="#">О нас</a></li>
+					<li><a href="#">Типограф</a></li>
+				</ul>
+			</nav>
 
-		<button type="button" class="custom-video__start hidden">
-			<span class="visually-hidden">play</span>
-		</button>
-
-		<div class="custom-video__controls">
-			<label class="visually-hidden" for="range-times">current times</label>
-			<input id="range-times" class="custom-video__range custom-video__range-elements" type="range" name="range-times" min="0" value="0">
-
-			<button type="button" class="custom-video__button custom-video__play-pause">
-				<span class="visually-hidden">play/pause</span>
-			</button>
-
-			<p class="custom-video__range-times">
-				<span class="custom-video__range-after"></span> / <span class="custom-video__range-before"></span>
-			</p>
-
-			<p class="custom-video__sound">
-				<button type="button" class="custom-video__button custom-video__sound-button">
-					<span class="visually-hidden">muted/unmuted</span>
-				</button>
-				<label for="sound-range" class="visually-hidden">volume level</label>
-				<input type="range" name="sound-range" id="sound-range" class="custom-video__range custom-video__sound-range" min="0" max="1" step="0.01" value="1">
-			</p>
-
-			<button type="button" class="custom-video__button custom-video__fullscreen">
-				<span class="visually-hidden">fullscreen</span>
-			</button>
-
-			<button type="button" class="custom-video__button custom-video__settings">
-				<span class="visually-hidden">settings</span>
-			</button>
-
-			<ul class="custom-video__list-settings">
-				<li class="custom-video__item-settings custom-video__item-settings--speed">
-					<label for="speed-range" class="custom-video__speed-label">Скорость: <span>1</span></label>
-					<input type="range" name="speed-range" id="speed-range" class="custom-video__range custom-video__speed-range" min="0.1" max="3" step="0.1" value="1">
-				</li>
-				<li class="custom-video__item-settings">
-					<a href="./video/two_families_mafia-x-men_el.mp4" download class="custom-video__button-settings custom-video__download">
-						Скачать
-					</a>
-				</li>
-				<li class="custom-video__item-settings">
-					<button type="button" class="custom-video__button-settings custom-video__button-cc">
-						Субтитры
-					</button>
-				</li>
-			</ul>
+			<a href="#">Подписаться</a>
 		</div>
-	</div>
+	</header>
+	<main class="container">
+		<h1>Панграммы</h1>
 
-	<script>
-		const customVideo = document.querySelector('.custom-video');
-		const video = customVideo.querySelector('.custom-video__elements');
-		const buttonStart = customVideo.querySelector('.custom-video__start');
-		const buttonPlayPause = customVideo.querySelector('.custom-video__play-pause');
-		const rangeTime = customVideo.querySelector('.custom-video__range-elements');
-		const timeBefore = customVideo.querySelector('.custom-video__range-before');
-		const timeAfter = customVideo.querySelector('.custom-video__range-after');
-		const fullscreen = customVideo.querySelector('.custom-video__fullscreen');
-		const buttonSound = customVideo.querySelector('.custom-video__sound-button');
-		const rangeSound = customVideo.querySelector('.custom-video__sound-range');
-		const soundDownload = customVideo.querySelector('.custom-video__download');
-		const buttonCC = customVideo.querySelector('.custom-video__button-cc');
-		const labelSpeed = customVideo.querySelector('.custom-video__speed-label span');
-		const rangeSpeed = customVideo.querySelector('.custom-video__speed-range');
-		const buttonSettings = customVideo.querySelector('.custom-video__settings');
+		<section>
+			<div class="inner">
+				<h2>Русские панграммы</h2>
+				<blockquote>Твёрдый, как ъ, но и мягкий, словно ь, юноша из Бухары ищет фемину-москвичку для просмотра цветного экрана
+					жизни.</blockquote>
+				<p>Автор — Дмитрий Файнштейн</p>
+				<blockquote>Всё ускоряющаяся эволюция компьютерных технологий предъявила жёсткие требования к производителям как собственно вычислительной техники, так и периферийных устройств.</blockquote>
+				<p>Автор — Андрей Николаев (Легостаев)</p>
+			</div>
+		</section>
 
-		video.controls = false;
-
-		if (video.muted) {
-			buttonSound.classList.add('custom-video__sound-button--muted');
-		}
-
-		const toggleMutted = () => {
-			buttonSound.classList.toggle('custom-video__sound-button--muted');
-			video.muted = !video.muted;
-		}
-
-		const handleButtonStart = () => {
-			buttonStart.removeEventListener('click', handleButtonStart);
-			buttonStart.classList.add('hidden');
-			toggleMutted();
-		}
-
-		if (video.muted && video.autoplay && buttonStart) {
-			buttonStart.classList.remove('hidden');
-			buttonStart.addEventListener('click', handleButtonStart);
-		}
-
-		const msToTime = (duration) => {
-			let seconds = Math.floor((duration / 1000) % 60);
-			let minutes = Math.floor((duration / (1000 * 60)) % 60);
-			let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-			hours = (hours < 10) ? "0" + hours : hours;
-			minutes = (minutes < 10) ? "0" + minutes : minutes;
-			seconds = (seconds < 10) ? "0" + seconds : seconds;
-			return hours + ":" + minutes + ":" + seconds;
-		}
-
-		const setDuration = () => {
-			rangeTime.setAttribute("max", video.duration);
-			timeAfter.innerText = msToTime(0);
-			timeBefore.innerText = msToTime(video.duration * 1000);
-		}
-
-		const handleLoadedMetaData = () => {
-			setDuration();
-		}
-
-		video.addEventListener("loadedmetadata", handleLoadedMetaData);
-
-		const handleTimeUpdate = () => {
-			if (!rangeTime.getAttribute("max")) {
-				setDuration();
-			}
-
-			rangeTime.value = video.currentTime;
-			timeAfter.innerText = msToTime(video.currentTime * 1000);
-		}
-
-		video.addEventListener("timeupdate", handleTimeUpdate);
-
-		const handleRangeTime = () => {
-			video.currentTime = +rangeTime.value;
-		}
-
-		rangeTime.addEventListener('input', handleRangeTime);
-
-		const toggleButtonPlayPause = () => {
-			buttonPlayPause.classList.toggle('custom-video__play-pause--played');
-		}
-
-		const handleButtonPlayPause = () => {
-			if (video.paused || video.ended) {
-				video.play();
-			} else {
-				video.pause();
-			}
-			toggleButtonPlayPause();
-		}
-
-		buttonPlayPause.addEventListener('click', handleButtonPlayPause);
-
-		const handleEnded = () => {
-			toggleButtonPlayPause();
-		}
-
-		video.addEventListener('ended', handleEnded);
-
-		const handleButtonSound = () => {
-			if (video.volume === 0) {
-				return;
-			}
-
-			toggleMutted();
-		}
-		buttonSound.addEventListener('click', handleButtonSound);
-
-		const handleRangeSound = () => {
-			video.volume = rangeSound.value;
-			buttonSound.classList.toggle('custom-video__sound-button--down', +rangeSound.value <= 0.5);
-			buttonSound.classList.toggle('custom-video__sound-button--muted', +rangeSound.value === 0);
-			video.muted = !video.volume;
-		}
-		rangeSound.addEventListener('input', handleRangeSound);
-
-		const toggleFullscreenClass = () => {
-			customVideo.classList.toggle('custom-video--fullscreen');
-		}
-
-		const handleFullscreenchange = () => {
-			if (document.fullscreenElement === null) {
-				toggleFullscreenClass();
-				customVideo.removeEventListener('fullscreenchange', handleFullscreenchange);
-			}
-		}
-
-		const handleFullscreen = () => {
-			if (document.fullscreenElement === null) {
-				customVideo.addEventListener('fullscreenchange', handleFullscreenchange);
-				customVideo.requestFullscreen();
-			} else {
-				customVideo.removeEventListener('fullscreenchange', handleFullscreenchange);
-				document.exitFullscreen();
-			}
-			toggleFullscreenClass();
-		};
-		fullscreen.addEventListener('click', handleFullscreen);
-
-		const checkSettingsClick = (evt) => {
-			if (!evt.target.closest('.custom-video__settings') && !evt.target.closest('.custom-video__list-settings')) {
-				closeSetting();
-			}
-		}
-
-		const openSetting = () => {
-			buttonSettings.classList.add('custom-video__settings--opened');
-			document.addEventListener('click', checkSettingsClick);
-		}
-
-		const closeSetting = () => {
-			buttonSettings.classList.remove('custom-video__settings--opened');
-			document.removeEventListener('click', checkSettingsClick);
-		}
-
-		const handleButtonSettings = () => {
-			if (buttonSettings.classList.contains('custom-video__settings--opened')) {
-				return closeSetting();
-			}
-
-			openSetting();
-		}
-
-		buttonSettings.addEventListener('click', handleButtonSettings);
-
-		const handleRangeSpeed = () => {
-			video.playbackRate = +rangeSpeed.value;
-			labelSpeed.innerText = +rangeSpeed.value;
-		}
-		rangeSpeed.addEventListener('input', handleRangeSpeed);
-
-		const toggleButtonCCClassHidden = () => {
-			buttonCC.classList.toggle('hidden');
-		}
-
-		if (video.textTracks.length === 0) {
-			toggleButtonCCClassHidden();
-		} else {
-			for (var i = 0; i < video.textTracks.length; i++) {
-				video.textTracks[i].mode = "hidden";
-			}
-		}
-
-		const handleButtonCC = () => {
-			if (video.textTracks[0].mode === 'hidden') {
-				video.textTracks[0].mode = 'showing';
-			} else {
-				video.textTracks[0].mode = 'hidden';
-			}
-			buttonCC.classList.toggle('custom-video__button-cc--current');
-		}
-
-		if (video.textTracks.length === 1) {
-			buttonCC.addEventListener('click', handleButtonCC);
-		}
-
-		const toggleButtonCCClassCurrent = (AllButtonListCC, current) => {
-			AllButtonListCC.forEach(button => {
-				button.classList.toggle('custom-video__button-cc--current', +button.dataset.track === +current);
-			});
-		}
-
-		const createButtonCC = (label, dataTrack) => {
-			const button = document.createElement('button');
-			button.type = 'button';
-			button.innerText = label;
-			button.classList.add('custom-video__button-settings');
-			button.classList.add('custom-video__button-cc');
-			button.dataset.track = dataTrack;
-
-			return button;
-		}
-
-
-		if (video.textTracks.length > 1) {
-			toggleButtonCCClassHidden();
-
-			const AllButtonListCC = [];
-			const listCC = document.createElement('ul');
-			listCC.classList.add('custom-video__list-cc');
-
-			const li = document.createElement('li');
-
-			const buttonHiddenCC = createButtonCC('Отключить', -1);
-
-			AllButtonListCC.push(buttonHiddenCC);
-			toggleButtonCCClassCurrent(AllButtonListCC, -1);
-
-			li.append(buttonHiddenCC);
-			listCC.append(li);
-
-			for (let i = 0; i < video.textTracks.length; i++) {
-				const element = video.textTracks[i];
-
-				const li = document.createElement('li');
-
-				const button = createButtonCC(element.label, i);
-
-				AllButtonListCC.push(button);
-
-				li.append(button);
-				listCC.append(li);
-			}
-
-			buttonCC.after(listCC);
-
-
-			listCC.addEventListener('click', (evt) => {
-				if (!evt.target.dataset.track) {
-					return;
-				}
-
-				const datasetTrack = evt.target.dataset.track;
-
-				for (var i = 0; i < video.textTracks.length; i++) {
-					video.textTracks[i].mode = "hidden";
-				}
-
-				toggleButtonCCClassCurrent(AllButtonListCC, datasetTrack);
-				if (datasetTrack !== '-1') {
-					video.textTracks[datasetTrack].mode = 'showing';
-				}
-			});
-		}
-
-	</script>
+		<section>
+			<div class="inner">
+				<h2>Голландские панграммы</h2>
+				<blockquote>Sexy qua lijf, doch bang voor ’t zwempak.</blockquote>
+				<p>31 буква. Автор — Яспер Схоорманс</p>
+				<blockquote>M’n chique juf zwiert langs de vip-skybox.</blockquote>
+				<p>33 буквы. Автор — Марк Камстеег</p>
+			</div>
+		</section>
+	</main>
 </body>
 
 </html>

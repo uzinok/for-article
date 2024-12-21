@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+body {
+  margin: 0;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+}
+
+h2 {
+  margin-top: 0;
+  grid-column: 1 / -1;
+}
+
+.blockquote-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 1px solid
+}
+
+blockquote {
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 40px;
+}
+
+blockquote::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 90px;
+  float: right;
+  margin-right: -40px;
+  background-image: url(./img/1.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+p {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+  <h1>Панграммы</h1>
+
+  <section>
+    <div class="inner section-inner">
+      <h2>Русские панграммы</h2>
+      <div class="blockquote-inner">
+        <blockquote>Твёрдый, как ъ, но и мягкий, словно ь, юноша из Бухары ищет фемину-москвичку для просмотра цветного экрана
+          жизни.</blockquote>
+        <p>Автор — Дмитрий Файнштейн</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+
+</html>

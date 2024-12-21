@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			background-color: #e8e8e8;
+		}
+
+		.container {
+			box-sizing: border-box;
+			max-width: 768px;
+			margin: 0 auto;
+			background-color: #ffffff;
+		}
+
+		.row {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		header {
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+
+		.header-inner {
+			display: flex;
+			align-items: center;
+		}
+
+		.logo {
+			margin-right: 40px;
+		}
+
+		nav {
+			margin-right: 20px;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			display: flex;
+		}
+
+		li {
+			margin-right: 10px;
+		}
+
+		.header-inner > a:last-child {
+			margin-left: auto;
+		}
+
+		h1 {
+			background-color: #e8e8e8;
+			margin-top: 0;
+		}
+
+		section {
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+
+		section:not(:last-of-type) {
+			margin-bottom: 15px;
+		}
+
+		.inner {
+			background-color: #ffffff;
+		}
+
+		.inner > *:first-child {
+			margin-top: 0;
+		}
+
+		.inner > *:last-child {
+			margin-bottom: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="container row">
+		<div class="inner header-inner">
+			<a href="#" class="logo">LOGO</a>
+
+			<nav>
+				<ul>
+					<li><a href="#">О нас</a></li>
+					<li><a href="#">Типограф</a></li>
+				</ul>
+			</nav>
+
+			<a href="#">Подписаться</a>
+		</div>
+	</header>
+	<main class="container">
+		<h1 class="row">Панграммы</h1>
+
+		<section>
+			<div class="inner row">
+				<h2>Русские панграммы</h2>
+				<blockquote>Твёрдый, как ъ, но и мягкий, словно ь, юноша из Бухары ищет фемину-москвичку для просмотра цветного экрана
+					жизни.</blockquote>
+				<p>Автор — Дмитрий Файнштейн</p>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>
