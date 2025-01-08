@@ -1,0 +1,49 @@
+@import './blocks/all.scss';
+@import './blocks/button.scss';
+.mail {
+	text-align: center;
+}
+
+.mail__container {
+	box-sizing: border-box;
+	padding: 121px 230px;
+	background-color: #ffca42;
+}
+
+.mail__page-title {
+	margin-bottom: 20px;
+
+	&::after {
+		background-color: #1B3764;
+	}
+}
+
+.mail__page-subtitle {
+	margin-bottom: 40px;
+}
+
+.form {
+	display: flex;
+	gap: 11px;
+}
+
+.form__controll {
+	display: block;
+	box-sizing: border-box;
+	height: 64px;
+	padding: 17px 24px;
+	background-color: #ffffff;
+	border: 0;
+	font-family: "Inter", sans-serif;
+	font-size: 17px;
+	line-height: 1.8;
+}
+
+.form__controll::placeholder {
+	color: #969aa0;
+	opacity: 0;
+}
+
+.mail__input {
+	width: 100%;
+}
