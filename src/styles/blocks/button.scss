@@ -1,6 +1,21 @@
 .button {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  appearance: none;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 20px 56px;
+	font-weight: 700;
+	font-size: 19px;
+	line-height: 1.25;
+	font-family: "Cardo", serif;
+	text-align: center;
+	color: #1b3764;
+	text-decoration: none;
+	background-color: #ffca42;
+	border: 1px solid #ffca42;
+	transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+	appearance: none;
+
+	&:hover {
+		color: #1b3764;
+		background-color: #ffffff;
+	}
 }

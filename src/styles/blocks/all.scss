@@ -1,5 +1,13 @@
 body {
 	margin: 0;
+	font-family: "Inter", sans-serif;
+	color: #1b3764;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
 }
 
 .visually-hidden {
@@ -37,6 +45,7 @@ body {
 	font-size: 45px;
 	line-height: 1.2;
 	font-family: "Cardo", serif;
+	text-align: center;
 	letter-spacing: -0.02em;
 
 	&::after {
@@ -44,12 +53,14 @@ body {
 		display: block;
 		width: 55px;
 		height: 3px;
-		margin: 14px auto 0;
+		margin-top: 14px;
+		margin-right: auto;
+		margin-left: auto;
+		background-color: #ffca42;
 	}
 }
 
 .page-subtitle {
-	font-family: "Inter", sans-serif;
 	font-size: 19px;
 	line-height: 1.8;
 }

@@ -1,5 +1,6 @@
 @import './blocks/all.scss';
 @import './blocks/button.scss';
+
 .mail {
 	text-align: center;
 }
@@ -14,7 +15,7 @@
 	margin-bottom: 20px;
 
 	&::after {
-		background-color: #1B3764;
+		background-color: #1b3764;
 	}
 }
 
@@ -32,18 +33,25 @@
 	box-sizing: border-box;
 	height: 64px;
 	padding: 17px 24px;
-	background-color: #ffffff;
-	border: 0;
-	font-family: "Inter", sans-serif;
 	font-size: 17px;
 	line-height: 1.8;
+	font-family: "Inter", sans-serif;
+	background-color: #ffffff;
+	border: 0;
 }
 
 .form__controll::placeholder {
 	color: #969aa0;
-	opacity: 0;
+	opacity: 1;
 }
 
 .mail__input {
 	width: 100%;
+}
+
+.form__button {
+	min-width: 300px;
+	color: #ffffff;
+	background-color: #1b3764;
+	border-color: #1b3764;
 }
