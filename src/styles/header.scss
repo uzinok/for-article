@@ -117,7 +117,7 @@
 }
 
 .header__social {
-	margin-right: 15px;
+	margin-right: 33px;
 }
 
 .header__nav {
@@ -227,5 +227,6 @@
 }
 
 .header__button {
+	flex-shrink: 0;
 	padding: 12px 35px;
 }
