@@ -1,6 +1,16 @@
 @import './blocks/all.scss';
 @import './blocks/button.scss';
 
+.visually-hidden {
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: none;
+}
+
 .mail {
 	text-align: center;
 }
@@ -15,6 +25,7 @@
 	margin-bottom: 20px;
 
 	&::after {
+		margin-top: 14px;
 		background-color: #1b3764;
 	}
 }
