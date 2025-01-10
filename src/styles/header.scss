@@ -1,6 +1,12 @@
 @import './blocks/all.scss';
 @import './blocks/button.scss';
 
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
 .visually-hidden {
 	position: absolute;
 	width: 0;
@@ -56,17 +62,17 @@
 }
 
 .social {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 45px);
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	gap: 10px;
+	gap: 0 10px;
+}
 
-	& li {
-		margin-top: 2px;
-		margin-bottom: 2px;
-	}
+.social__item {
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 .social__link {
@@ -130,10 +136,18 @@
 .nav__list {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-end;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	gap: 48px;
+}
+
+.nav__item {
+	margin: 9px 0;
+
+	&:not(:first-child) {
+		margin-left: 48px;
+	}
 }
 
 .nav__sublist {
@@ -142,7 +156,7 @@
 
 .nav__link {
 	display: block;
-	padding: 14px 0;
+	padding: 5px 0;
 	font-weight: 500;
 	font-size: 17px;
 	line-height: 1.25;
@@ -159,7 +173,7 @@
 		opacity: 0.5;
 	}
 
-	.nav__item-icon & {
+	.nav__item--icon & {
 		position: relative;
 
 		&::after {
@@ -197,11 +211,14 @@
 	&::before {
 		content: '';
 		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 22px;
+		height: 21px;
 		background-color: #ffffff;
-		inset: 0;
 		mask-image: url(../../img/header/basket.svg);
-		mask-size: 22px 21px;
-		mask-position: left bottom;
+		mask-size: contain;
+		mask-position: center;
 		mask-repeat: no-repeat;
 	}
 }
@@ -230,5 +247,9 @@
 
 .header__button {
 	flex-shrink: 0;
+	max-width: 200px;
 	padding: 12px 35px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
