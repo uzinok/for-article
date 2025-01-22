@@ -16,42 +16,23 @@ body {
 	border: none;
 }
 
-.password-container {
-	display: flex;
-	height: 18px;
-	border: 1px solid rgba(0, 0, 0, 0.6);
-	border-radius: 3px;
+.textarea-container {
+	position: relative;
+	width: fit-content;
+	height: fit-content;
 }
 
-.password-container:hover {
-	border-color: #000000;
-}
-
-.password-container:has(.password-input:focus) {
-	outline: auto;
-}
-
-.password-input {
-	background-color: transparent;
-	border: 0;
-	outline: 0;
-}
-
-.password-button {
-	width: 30px;
-	padding: 0;
-	background-color: transparent;
-	border: 0;
-	appearance: none;
-}
-
-.password-button {
-	background-image: url(../../img/no-view.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 15px 15px;
-}
-
-.password-button--view {
-	background-image: url(../../img/view.svg);
+.textarea-visible {
+	display: block;
+	padding: 2px;
+	font-family: monospace;
+	white-space: pre-wrap;
+	border-width: 1px;
+	border-style: solid;
+	text-indent: 0px;
+	letter-spacing: normal;
+	word-spacing: normal;
+	line-height: normal;
+	text-transform: none;
+	font-variation-settings: inherit;
 }

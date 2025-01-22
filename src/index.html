@@ -11,12 +11,13 @@
 
 <body>
 
-<div class="password-container">
-	<input type="password" class="password-input" placeholder="Введите пароль" value="123">
-	<button type="button" class="password-button">
-		<span class="visually-hidden password-button__text">Показать</span>
-	</button>
-</div>
+	<form action="#" method="get">
+		<div class="textarea-container">
+			<label for="comments" class="visually-hidden">Введите текст комментария</label>
+			<textarea name="comments" id="comments" class="textarea-visible" placeholder="Ваш комметарий"></textarea>
+		</div>
+		<button type="submit">Отправить</button>
+	</form>
 
 	<script src="./scripts/main.js"></script>
 
