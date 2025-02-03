@@ -1,25 +1,25 @@
 @media (min-width: 576px) {
-    :root {
-        --offset-pageX: 20px;
-    }
+	:root {
+		--offset-pageX: 20px;
+	}
 }
 
 :root {
-    --transition-duration: 150ms;
-    --transition-function: ease-in-out;
-    --color-text: #ffffff;
-    --color-body: #05081a;
-    --page-text: #050818;
-    --page-body: #ffffff;
-    --color-hover: #0039a6;
-    --color-active: #d52b1e;
-    --link-color: #0000ee;
-    --link-visited: #551a8b;
-    --bg-code: #f8f8f8;
-    --page-width: 900px;
-    --offset-pageX: 14px;
-    --offset-pageY: 14px;
-    --font-size: 18px;
+	--transition-duration: 150ms;
+	--transition-function: ease-in-out;
+	--color-text: #ffffff;
+	--color-body: #05081a;
+	--page-text: #050818;
+	--page-body: #ffffff;
+	--color-hover: #0039a6;
+	--color-active: #d52b1e;
+	--link-color: #0000ee;
+	--link-visited: #551a8b;
+	--bg-code: #f8f8f8;
+	--page-width: 900px;
+	--offset-pageX: 14px;
+	--offset-pageY: 14px;
+	--font-size: 18px;
 }
 
 body {
@@ -42,12 +42,12 @@ body {
 }
 
 .container {
-	height: 100vh;
-	border: 1px solid;
-	box-sizing: border-box;
-	aspect-ratio: 9 / 16;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
+	box-sizing: border-box;
+	height: 100vh;
+	border: 1px solid;
+	aspect-ratio: 9 / 16;
 }
 
 .code {
@@ -55,7 +55,8 @@ body {
 	display: block;
 	padding: var(--offset-pageY) calc(var(--offset-pageX) / 2) calc(var(--offset-pageY) / 2);
 	overflow: hidden;
-	font-size: 17px;
+	font-weight: 700;
+	font-size: 23px;
 	line-height: 20px;
 	background-color: var(--bg-code);
 	border-radius: 2px;
@@ -89,9 +90,9 @@ body {
 }
 
 .code pre {
+	margin-top: 0;
 	white-space: pre-wrap;
 	word-wrap: break-word;
-	margin-top: 0;
 }
 
 .code code {
@@ -120,29 +121,6 @@ body {
 	color-scheme: var(--color-hover);
 }
 
-.code__pre::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 25px;
-	width: 2px;
-	height: 100%;
-	background-color: var(--color-hover);
-	background-image: linear-gradient(to left, var(--color-hover), var(--color-active));
-	opacity: .5;
-}
-
-.code__pre .codenumber {
-	display: block;
-	width: 28px;
-	margin-right: 5px;
-	color: var(--color-hover);
-	opacity: .7;
-	-webkit-user-select: none;
-	user-select: none;
-	pointer-events: none;
-}
-
 .code__pre .codeline {
 	display: flex;
 	transition: background-color var(--transition-duration) var(--transition-function);
@@ -150,9 +128,42 @@ body {
 
 form button,
 textarea {
-	font-size: 22px;
 	display: block;
 	width: 96%;
 	margin: 2% auto;
+	font-size: 23px;
 	resize: none;
+}
+
+textarea {
+	font-weight: 700;
+}
+
+.active {
+	animation: out 2s linear;
+}
+
+@keyframes out {
+	0% {
+		color: blue;
+		text-shadow: 0 0 1px red, 0 0 2px red, 0 0 3px red;
+	}
+
+	100% {
+		color: blue;
+		text-shadow: 0 0 0 red, 0 0 0 red, 0 0 0 red;
+	}
+}
+
+.code > span {
+	position: absolute;
+	bottom: 24px;
+	left: 0;
+	width: 100%;
+	font-size: 25px;
+	line-height: 40px;
+	text-align: center;
+	color: blue;
+	font-weight: 900;
+	text-shadow: 0 0 1px red;
 }
