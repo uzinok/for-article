@@ -1,12 +1,9 @@
 const textarea = document.querySelector('textarea');
-
 const text = 'Для того чтобы сделать TextArea autoGrow или, проще говоря, резиновый TextArea, достаточно отследить изменение в поле ввода и измерить его высоту с помощью JavaScript-свойства элемента scrollHeight.   \nСбросте высоту элемента перед назначением новой высоты, на случай если количество текста уменьшится.   \nДля более точного определения высоты стоит учитывать высоту бордера сверху и снизу.'
-
 const onInputTextarea = () => {
 	textarea.style.height = ``
 	textarea.style.height = `${textarea.scrollHeight + 2}px`
 }
-
 let index = 0;
 
 function addCharacter() {
@@ -14,8 +11,7 @@ function addCharacter() {
 		textarea.value += text[index];
 		index++;
 		onInputTextarea();
-		setTimeout(addCharacter, 50); // Устанавливает скорость: 100 мс на символ
-
+		setTimeout(addCharacter, 50);
 		if (textarea.value.indexOf('достаточно') > 0) {
 			document.querySelector('.span-1').classList.add('active');
 		}
@@ -42,13 +38,9 @@ function addCharacter() {
 		if (textarea.value.indexOf('учитывать высоту') > 0) {
 			document.querySelector('.span-8').classList.add('active');
 		}
-		//
 	}
 }
-
-
 setTimeout(addCharacter, 10);
-
 textarea.addEventListener('input', onInputTextarea);
 
 
