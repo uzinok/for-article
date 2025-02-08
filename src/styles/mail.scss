@@ -36,12 +36,14 @@
 
 .form {
 	display: flex;
+	width: 100%;
 	gap: 11px;
 }
 
 .form__controll {
 	display: block;
 	box-sizing: border-box;
+	width: 100%;
 	height: 64px;
 	padding: 17px 24px;
 	font-size: 17px;
@@ -58,11 +60,11 @@
 
 .mail__input--icon {
 	width: 100%;
-	background-image: url(../../img/mail/icon-email.svg);
-	background-size: 24px auto;
-	background-position: right 24px center;
-	background-repeat: no-repeat;
 	padding-right: 72px;
+	background-image: url(../../img/mail/icon-email.svg);
+	background-repeat: no-repeat;
+	background-position: right 24px center;
+	background-size: 24px auto;
 }
 
 .form__button {
