@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  width: 100%;
+  background-color: rgba(142, 68, 173, 0.7);
+}
+
+.block {
+  width: fit-content;
+  padding: 20px;
+  font-weight: 700;
+  font-size: 22px;
+  background-color: rgba(52, 152, 219, 0.7);
+}
+
+.block:first-child {
+  margin-right: auto;
+  margin-left: auto;
+}

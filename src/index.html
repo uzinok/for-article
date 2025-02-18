@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+	<style>
+		svg {
+			max-width: 100%;
+			height: auto;
+		}
+		.text {
+			fill: tomato;
+			color: aqua;
+			text-shadow: 0 0 2px blue, 0 0 4px blue, 0 0 6px blue, 0 0 8px blue, 0 0 10px blue;
+			font-size: 20px;
+		}
+	</style>
 </head>
+
 <body>
 
-	<ul>
-		<li><a href="./mail.html">mail</a></li>
-		<li><a href="./articles.html">articles</a></li>
-		<li><a href="./header.html">header</a></li>
-	</ul>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120" viewBox="0 0 240 120">
+  <path fill="none" stroke="none" d="M120 220a100 100 0 1 1 0-200 100 100 0 0 1 0 200z" id="pathCircle" />
+  <text>
+    <textPath class="text" href="#pathCircle" startOffset="50%" text-anchor="middle">
+      текст по окружности
+    </textPath>
+  </text>
+</svg>
 
 </body>
+
 </html>
