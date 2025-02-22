@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+	// Находим все элементы с классом "next-text"
+	const textBlocks = document.querySelectorAll('.next-text');
+
+	// Перебираем каждый блок
+	textBlocks.forEach(block => {
+		// Разбиваем текст на слова
+		const words = block.textContent.split(' ');
+
+		// Очищаем содержимое блока
+		block.innerHTML = '';
+
+		// Оборачиваем каждое слово в <span> и добавляем обратно в блок
+		words.forEach(word => {
+			const span = document.createElement('span');
+			span.textContent = word + ' '; // Добавляем пробел после каждого слова
+			block.appendChild(span);
+		});
+	});
+
 	const divs = document.querySelectorAll('.next-text');
 	let spanIndex = 0;
 	let divIndex = 0;
@@ -29,23 +49,43 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (currentActiveDiv) {
 				switch (divIndex) {
 					case 1:
-						document.querySelector('table').classList.add('bg-1')
+						if (document.querySelector('text'))
+							document.querySelector('text').remove();
 						break;
 
 					case 2:
-						document.querySelector('table').classList.add('bg-2')
+						document.querySelector('svg').classList.add('svg-bg')
 						break
 
 					case 3:
-						document.querySelector('table').classList.add('bg-3')
+						if (!document.querySelector('textPath')) {
+							document.querySelector('svg').innerHTML += `<text><textPath href="#pathCircle">Текст по окружности</textPath></text>`;
+							document.querySelector('codeline:nth-child(5)').innerHTML = `  d="M120 220a100 100 0 1 1 0-200 100 100 0 0 1 0 200z"`;
+							document.querySelector('codeline:nth-child(6)').innerHTML = `    id="pathCircle"&gt;&lt;/path&gt;`;
+
+							document.querySelector('codeline:nth-child(7)').innerHTML = `  &lt;text&gt;`;
+							document.querySelector('codeline:nth-child(8)').innerHTML = `    &lt;textPath href="#pathCircle"&gt;`;
+							document.querySelector('codeline:nth-child(10)').innerHTML = `      Текст по окружности`;
+							document.querySelector('codeline:nth-child(11)').innerHTML = `    &lt;/textPath&gt;`;
+							document.querySelector('codeline:nth-child(12)').innerHTML = `  &lt;/text&gt;`;
+
+							document.querySelector('codeline:nth-child(14)').innerHTML = `&lt;svg&gt;`;
+						}
 						break
 
 					case 4:
-						document.querySelector('table').classList.add('bg-4')
+						document.querySelector('textPath').setAttribute('startOffset', '50%');
+						document.querySelector('codeline:nth-child(8)').innerHTML = `    &lt;textPath href="#pathCircle"`
+						document.querySelector('codeline:nth-child(9)').innerHTML = `      startOffset="50%"&gt;`
 						break
 
-					case 5:
-						document.querySelector('table').classList.add('bg-5')
+						case 6:
+							document.querySelector('textPath').setAttribute('text-anchor', 'middle');
+							document.querySelector('codeline:nth-child(9)').innerHTML = `      startOffset="50%" text-anchor="middle"&gt;`
+						break
+
+					case 7:
+						document.querySelector('svg').classList.remove('svg-bg');
 						break
 
 					default:

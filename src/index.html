@@ -13,56 +13,60 @@
 		<div class="block-inner">
 			<div class="for-text">
 				<div class="next-text ">
-					<span class="current">фон</span> <span>у таблицы</span> <span>можно</span> <span>добавлять</span> <span>слоями</span>
+					Чтобы создать текст, который будет следовать по окружности
 				</div>
 				<div class="next-text">
-					<span>первый</span> <span>слой</span> <span>это</span> <span>сама</span> <span>таблица</span>
+					необходимо нарисовать круг с помощью любого редактора SVG
 				</div>
 				<div class="next-text">
-					<span>второй</span> <span>слой</span> <span>это</span> <span>colgroup</span>
+					Между кругом и краями изображения было достаточно места для текста
 				</div>
 				<div class="next-text">
-					<span>третий</span> <span>слой</span> <span>это</span> <span>thead,</span> <span>tbody,</span> <span>tfoot</span>
+					Добавим text и textPath в SVG со своим текстом
 				</div>
 				<div class="next-text">
-					<span>четвёрты</span> <span>слой</span> <span>это</span> <span>ряды</span>
+					Чтобы текст начинался сверу, используйне startOffset="50%"
 				</div>
 				<div class="next-text">
-					<span>пятый</span> <span>слой - </span> <span>ячейки</span>
+					А чтобы верхняя точка была центром текстового узла
+				</div>
+				<div class="next-text">
+					используйте атрибут text-anchor="middle"
+				</div>
+				<div class="next-text">
+					Подробнее в статье или видео
+				</div>
+				<div class="next-text">
+					Ссылка в описании
 				</div>
 			</div>
 
-			<table>
-				<caption>Слои таблицы</caption>
-				<colgroup>
-					<col>
-					<col>
-				</colgroup>
-				<tbody>
-					<tr>
-						<th>первый слой</th>
-						<td>сама таблица</td>
-					</tr>
-					<tr>
-						<th>второй слой</th>
-						<td>colgroup</td>
-					</tr>
-					<tr>
-						<th>третий слой</th>
-						<td>tbody</td>
-					</tr>
-					<tr>
-						<th>четвёртый слой</th>
-						<td>ряды</td>
-					</tr>
-					<tr>
-						<th>пятый слой</th>
-						<td>ячейки</td>
-					</tr>
-				</tbody>
-			</table>
-			<div class="notes">
-				больше про таблицы в&#160;статье или видео по&#160;ссылке в&#160;описании
+			<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240">
+				<path fill="#ff6347" d="M120 220a100 100 0 1 1 0-200 100 100 0 0 1 0 200z" id="pathCircle"></path>
+				<text>
+					<textPath href="#pathCircle" startOffset="50%" text-anchor="middle">Текст по окружности</textPath>
+				</text>
+			</svg>
+
+			<div class="code">
+				<pre>
+				<code class="code__pre">
+					<codeline class="codeline">&lt;svg xmlns="http://www.w3.org/2000/svg"</codeline>
+					<codeline class="codeline">    width="240" height="240"&gt;</codeline>
+					<codeline class="codeline">  </codeline>
+					<codeline class="codeline">  &lt;path fill="#ff6347"</codeline>
+					<codeline class="codeline">  d="M120 220a100 100 0 1 1 0-200 100 100 0 0 1 0 200z"&gt;</codeline>
+					<codeline class="codeline">  &lt;/path&gt;</codeline>
+					<codeline class="codeline"></codeline>
+					<codeline class="codeline">&lt;svg&gt;</codeline>
+					<codeline class="codeline"></codeline>
+					<codeline class="codeline"></codeline>
+					<codeline class="codeline"></codeline>
+					<codeline class="codeline"></codeline>
+					<codeline class="codeline"></codeline>
+					<codeline class="codeline"></codeline>
+				</code>
+			</pre>
 			</div>
 		</div>
 	</div>
