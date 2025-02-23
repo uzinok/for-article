@@ -1,0 +1,70 @@
+.diagonal-size {
+	position: relative;
+	width: 280px;
+	height: 100px;
+	border: 1px solid #ff6347;
+}
+
+.diagonal-size::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 296px;
+	height: 1px;
+	background-color: #000;
+	transform: translate(-50%, -50%) rotate(19.5deg);
+	transform-origin: center;
+}
+
+//
+.diagonal-background {
+	width: 280px;
+	height: 200px;
+	background-image: linear-gradient(to top right, #ff6347 50%, transparent 50%);
+	border: 1px solid #ff6347;
+}
+
+//
+.diagonal-line {
+	position: relative;
+	width: 280px;
+	height: 200px;
+	border: 1px solid #ff6347;
+}
+
+.diagonal-line::after {
+	content: '';
+	position: absolute;
+	background: linear-gradient(to bottom right, transparent calc(50% - 0.8px), #000000 calc(50% - 0.8px), #000000 calc(50% + 0.8px), transparent calc(50% + 0.8px));
+	inset: 0;
+}
+
+.diagonal-line1 {
+	position: relative;
+	width: 280px;
+	height: 200px;
+	border: 1px solid #ff6347;
+}
+
+.diagonal-line1::after {
+	content: '';
+	position: absolute;
+	background: linear-gradient(to bottom right, transparent 49.5%, #000000 49.5%, #000000 50.5%, transparent 50.5%);
+	inset: 0;
+}
+
+.diagonal-line-clip {
+	position: relative;
+	width: 280px;
+	height: 300px;
+	border: 1px solid #ff6347;
+}
+
+.diagonal-line-clip::after {
+	content: '';
+	position: absolute;
+	background-color: #ff6347;
+	clip-path: polygon(0 0, 100% 100%, 99% 100%, 0 1%);
+	inset: 0;
+}
