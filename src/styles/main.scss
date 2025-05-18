@@ -56,8 +56,10 @@ section {
 
 	& img {
 		display: block;
-		width: 80px;
-		height: 80px;
+		// width: 80px;
+		// height: 80px;
+		width: clamp(70px, 21vw, 100px);
+		height: clamp(70px, 21vw, 100px);
 		margin: 0 auto;
 		border-radius: 3px;
 	}
