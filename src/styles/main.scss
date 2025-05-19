@@ -15,8 +15,10 @@ body {
 	text-align: center;
 	background-color: #9bb0c1;
 	background-image: url(../../img/bg.jpg);
+	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 section {
@@ -45,6 +47,7 @@ section {
 	padding: 0;
 	list-style-type: none;
 	gap: 10px;
+	gap: clamp(10px, 3vw, 20px);
 }
 
 .li {
@@ -72,5 +75,16 @@ section {
 
 	& > :last-child {
 		margin-bottom: 0;
+	}
+}
+
+.elem {
+	display: grid;
+	gap: 10px;
+}
+
+@media (min-width: 990px) {
+	.elem {
+		gap: 20px;
 	}
 }
