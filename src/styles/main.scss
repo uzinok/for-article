@@ -47,7 +47,6 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding: 0;
   list-style-type: none;
-  gap: 10px;
   gap: clamp(10px, 3vw, 20px);
 }
 
@@ -60,9 +59,7 @@ section {
 
   & img {
     display: block;
-    width: 70px;
     width: clamp(70px, 21vw, 100px);
-    height: 70px;
     height: clamp(70px, 21vw, 100px);
     margin: 0 auto;
     border-radius: 3px;
