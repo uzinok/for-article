@@ -1,77 +1,121 @@
 html,
 body {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  min-width: 320px;
-  margin: 0;
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  background-color: #9bb0c1;
-  background-image: url(../../img/bg.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	min-width: 320px;
+	margin: 0;
+	padding: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	background-color: #9bb0c1;
+}
+
+@media (min-width: 840px) {
+	body {
+		// background-image: url(../../img/bg.jpg);
+		// background-repeat: no-repeat;
+		// background-position: center;
+		// background-size: cover;
+		// background-attachment: fixed;
+		background: url(../../img/bg.jpg) #9bb0c1 no-repeat center/cover fixed;
+	}
+}
+
+@media (max-width: 768px) {
+	.nav {
+		display: none;
+	}
+}
+
+@media (min-width: 700px) and (max-width: 800px) {
+	body {
+		color: red
+	}
 }
 
 section {
-  position: relative;
-  max-width: 800px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 15px;
-  font-size: clamp(16px, 1vw * 0.70 + 1em - 2px, 20px);
-  background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 3px;
-  box-shadow: 0 0 5px #ffffff;
-  backdrop-filter: blur(10px);
+	position: relative;
+	max-width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 15px;
+	font-size: 16px;
+	background-color: rgba(255, 255, 255, 0.75);
+	border-radius: 3px;
+	box-shadow: 0 0 5px #ffffff;
+	backdrop-filter: blur(10px);
 
-  & > * {
-    margin-top: 0;
-  }
+	& > * {
+		margin-top: 0;
+	}
 
-  & > :last-child {
-    margin-bottom: 0;
-  }
+	& > :last-child {
+		margin-bottom: 0;
+	}
 }
 
 .ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 0;
-  list-style-type: none;
-  gap: clamp(10px, 3vw, 20px);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	padding: 0;
+	list-style-type: none;
+	gap: 10px;
 }
 
 .li {
-  padding: 10px;
-  font-size: 0.9em;
-  background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 3px;
-  box-shadow: 0 0 3px #ffffff;
+	padding: 10px;
+	font-size: 0.9em;
+	background-color: rgba(255, 255, 255, 0.75);
+	border-radius: 3px;
+	box-shadow: 0 0 3px #ffffff;
 
-  & img {
-    display: block;
-    width: clamp(70px, 21vw, 100px);
-    height: clamp(70px, 21vw, 100px);
-    margin: 0 auto;
-    border-radius: 3px;
-  }
+	& img {
+		display: block;
+		width: 70px;
+		height: 70px;
+		margin: 0 auto;
+		border-radius: 3px;
+	}
 
-  & b {
-    display: block;
-    margin-bottom: 0.25em;
-    text-transform: uppercase;
-  }
+	& b {
+		display: block;
+		margin-bottom: 0.25em;
+		text-transform: uppercase;
+	}
 
-  & > :last-child {
-    margin-bottom: 0;
-  }
+	& > :last-child {
+		margin-bottom: 0;
+	}
+}
+
+body {
+	font-size: 16px; /* можно не указывать, по умолчанию размер текста на странице 16px */
+}
+
+@media (min-width: 768px) {
+	body {
+		font-size: 20px;
+	}
+}
+
+.normal {
+	font-size: 1em;
+	margin-bottom: 1em;
+}
+
+
+.big {
+	font-size: 1.25em;
+	margin-bottom: 1.5em;
+}
+
+
+.small {
+	font-size: .75em;
 }
