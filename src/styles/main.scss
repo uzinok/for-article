@@ -1,121 +1,174 @@
-html,
-body {
+html {
 	height: 100%;
 }
 
 body {
-	display: grid;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
 	min-width: 320px;
+	height: 100%;
 	margin: 0;
-	padding: 5px;
 	font-family: Arial, Helvetica, sans-serif;
-	text-align: center;
-	background-color: #9bb0c1;
+	background-color: aliceblue;
 }
 
-@media (min-width: 840px) {
-	body {
-		// background-image: url(../../img/bg.jpg);
-		// background-repeat: no-repeat;
-		// background-position: center;
-		// background-size: cover;
-		// background-attachment: fixed;
-		background: url(../../img/bg.jpg) #9bb0c1 no-repeat center/cover fixed;
-	}
+.visually-hidden {
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: none;
+	outline: 0;
 }
 
-@media (max-width: 768px) {
-	.nav {
-		display: none;
-	}
+.header {
+	padding: 15px;
 }
 
-@media (min-width: 700px) and (max-width: 800px) {
-	body {
-		color: red
-	}
-}
-
-section {
+.container {
 	position: relative;
-	max-width: 800px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	max-width: 990px;
 	margin-right: auto;
 	margin-left: auto;
 	padding: 15px;
-	font-size: 16px;
-	background-color: rgba(255, 255, 255, 0.75);
-	border-radius: 3px;
-	box-shadow: 0 0 5px #ffffff;
-	backdrop-filter: blur(10px);
-
-	& > * {
-		margin-top: 0;
-	}
-
-	& > :last-child {
-		margin-bottom: 0;
-	}
+	background-color: #fff;
+	border-radius: 25px;
 }
 
-.ul {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	padding: 0;
-	list-style-type: none;
-	gap: 10px;
-}
-
-.li {
-	padding: 10px;
-	font-size: 0.9em;
-	background-color: rgba(255, 255, 255, 0.75);
-	border-radius: 3px;
-	box-shadow: 0 0 3px #ffffff;
+.logo {
+	display: block;
+	width: fit-content;
+	height: fit-content;
+	text-decoration: none;
 
 	& img {
 		display: block;
-		width: 70px;
-		height: 70px;
-		margin: 0 auto;
-		border-radius: 3px;
+		width: 40px;
+		height: 40px;
 	}
+}
 
-	& b {
+.nav {
+	margin-left: auto;
+}
+
+.nav__list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+	& a {
+		color: #000000;
+		text-decoration: none;
+		transition: opacity 0.25s ease-in-out;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+		&:active {
+			opacity: 0.4;
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.nav__toggle {
+		position: relative;
 		display: block;
-		margin-bottom: 0.25em;
-		text-transform: uppercase;
+		width: 40px;
+		height: 40px;
+		padding: 0;
+		background-color: transparent;
+		border: 0;
+		cursor: pointer;
+		transition: opacity 0.25s ease-in-out;
+		appearance: none;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+		&:active {
+			opacity: 0.4;
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			width: 30px;
+			height: 2px;
+			background-color: #000000;
+			transform-origin: center;
+			transform: translateX(-50%);
+		}
+
+		&::before {
+			top: 7px;
+			box-shadow: 0 12px 0 #000000;
+		}
+
+		&::after {
+			bottom: 7px;
+		}
 	}
 
-	& > :last-child {
-		margin-bottom: 0;
+	.nav__list {
+		position: absolute;
+		top: calc(100% + 15px);
+		left: 50%;
+		display: grid;
+		box-sizing: border-box;
+		width: 290px;
+		padding: 15px;
+		background-color: #ffffff;
+		border-radius: 25px;
+		transform: translate(-50%);
+		gap: 5px;
+
+		& a {
+			display: block;
+			padding: 5px;
+			font-size: 18px;
+		}
 	}
 }
 
-body {
-	font-size: 16px; /* можно не указывать, по умолчанию размер текста на странице 16px */
-}
-
-@media (min-width: 768px) {
-	body {
-		font-size: 20px;
+@media (max-width: 600px) {
+	.nav__list {
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
 	}
 }
 
-.normal {
-	font-size: 1em;
-	margin-bottom: 1em;
+@media (max-width: 600px) {
+	.nav--open .nav__list {
+		visibility: visible;
+		opacity: 1;
+	}
 }
 
+@media (max-width: 600px) {
+	.nav--open .nav__toggle {
 
-.big {
-	font-size: 1.25em;
-	margin-bottom: 1.5em;
-}
+		&::before,
+		&::after {
+			top: 50%;
+		}
 
+		&::before {
+			transform: translate(-50%, -50%) rotate(45deg);
+			box-shadow: 0 0 0 transparent;
+		}
 
-.small {
-	font-size: .75em;
+		&::after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
 }
