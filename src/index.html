@@ -2,139 +2,64 @@
 <html lang="ru">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="./styles/main.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/main.min.css">
 </head>
 
 <body>
-<br>
-	<p class="text-gradient">Текст градиентом</p>
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 37" width="408" height="37" class="svg-shadow">
-		<defs>
-			<style>
-				#rect1 {
-					font-family: "Rubik Mono One", sans-serif;
-					fill: url(#Gradient1);
-				}
+  <br>
+  <p class="text-gradient">Текст градиентом</p>
+  <br>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 37" width="408" height="37" style="overflow: visible;">
+  <defs>
+    <style>
+      #rect {
+        font-family: "Rubik Mono One", sans-serif;
+        fill: url(#Gradient);
+				text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
+      }
+      .stop1 {
+        stop-color: #667eea;
+      }
+      .stop2 {
+        stop-color: #764ba2;
+      }
+    </style>
+    <linearGradient id="Gradient" gradientTransform="rotate(135deg)">
+      <stop class="stop1" offset="0%" />
+      <stop class="stop2" offset="100%" />
+    </linearGradient>
+  </defs>
+  <text id="rect" x="0" y="30">Текст градиентом</text>
+</svg>
+  <br>
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 37" width="408" height="37">
+  <defs>
+    <style>
+      #rect1 {
+        font-family: "Rubik Mono One", sans-serif;
+        fill: url(#Gradient1);
+      }
 
-				.stop1 {
-					stop-color: #667eea;
-				}
+      .stop1 {
+        stop-color: #667eea;
+      }
 
-				.stop2 {
-					stop-color: #764ba2;
-				}
-			</style>
-			<linearGradient id="Gradient1" gradientTransform="rotate(135deg)">
-				<stop class="stop1" offset="0%" />
-				<stop class="stop2" offset="100%" />
-			</linearGradient>
-		</defs>
-		<text id="rect1" x="0" y="30">Текст градиентом</text>
-	</svg>
-	<br>
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -6 424 57" width="424" height="57">
-		<defs>
-			<style>
-				#rect2 {
-					font-family: "Rubik Mono One", sans-serif;
-					fill: url(#Gradient1);
-					filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.45));
-				}
+      .stop2 {
+        stop-color: #764ba2;
+      }
+    </style>
+    <linearGradient id="Gradient1" gradientTransform="rotate(135deg)">
+      <stop class="stop1" offset="0%" />
+      <stop class="stop2" offset="100%" />
+    </linearGradient>
+  </defs>
+  <text id="rect1" x="0" y="30">Текст градиентом</text>
+</svg> -->
 
-				.stop1 {
-					stop-color: #667eea;
-				}
-
-				.stop2 {
-					stop-color: #764ba2;
-				}
-			</style>
-			<linearGradient id="Gradient1" gradientTransform="rotate(135deg)">
-				<stop class="stop1" offset="0%" />
-				<stop class="stop2" offset="100%" />
-			</linearGradient>
-		</defs>
-		<text id="rect2" x="0" y="30">Текст градиентом</text>
-	</svg>
-	<br>
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -6 424 57" width="424" height="57">
-		<defs>
-			<style>
-				#rect3 {
-					font-family: "Rubik Mono One", sans-serif;
-					fill: url(#Gradient1);
-					text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
-				}
-
-				.stop1 {
-					stop-color: #667eea;
-				}
-
-				.stop2 {
-					stop-color: #764ba2;
-				}
-			</style>
-			<linearGradient id="Gradient1" gradientTransform="rotate(135deg)">
-				<stop class="stop1" offset="0%" />
-				<stop class="stop2" offset="100%" />
-			</linearGradient>
-		</defs>
-		<text id="rect3" x="0" y="30">Текст градиентом</text>
-	</svg>
-
-	<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 37" width="408" height="37">
-		<defs>
-			<style>
-				#rect1 {
-					font-family: "Rubik Mono One", sans-serif;
-					fill: url(#Gradient1);
-				}
-
-				.stop1 {
-					stop-color: #667eea;
-				}
-
-				.stop2 {
-					stop-color: #764ba2;
-				}
-			</style>
-			<linearGradient id="Gradient1" gradientTransform="rotate(135deg)">
-				<stop class="stop1" offset="0%" />
-				<stop class="stop2" offset="100%" />
-			</linearGradient>
-		</defs>
-		<text id="rect1" x="0" y="30">Текст градиентом</text>
-	</svg> -->
-	<br>
-	<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 37" width="408" height="37">
-		<defs>
-			<style>
-				#rect2 {
-					font-family: "Rubik Mono One", sans-serif;
-					fill: url(#Gradient1);
-					text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
-				}
-
-				.stop1 {
-					stop-color: #667eea;
-				}
-
-				.stop2 {
-					stop-color: #764ba2;
-				}
-			</style>
-			<linearGradient id="Gradient1" gradientTransform="rotate(135deg)">
-				<stop class="stop1" offset="0%" />
-				<stop class="stop2" offset="100%" />
-			</linearGradient>
-		</defs>
-		<text id="rect2" x="0" y="30">Текст градиентом</text>
-	</svg> -->
-
-	<script src="./scripts/main.js"></script>
+  <script src="./scripts/main.js"></script>
 
 </body>
 
