@@ -6,6 +6,7 @@ body {
   min-width: 320px;
   height: 100%;
   margin: 0;
+	font-size: 30px;
 }
 
 .visually-hidden {
@@ -22,6 +23,7 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
 .text-gradient {
+	width: fit-content;
 	font-family: "Rubik Mono One", sans-serif;
 	font-size: 30px;
 	margin: 1em;
@@ -31,5 +33,5 @@ body {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	-moz-background-clip: text;
-	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
+	filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.45));
 }
