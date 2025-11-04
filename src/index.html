@@ -2,65 +2,104 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./styles/main.min.css">
+	<meta charset="UTF-8">
+	<title>Анимация тряски с JavaScript</title>
+	<style>
+		@keyframes shake {
+			0% {
+				transform: translateX(0);
+			}
+
+			20% {
+				transform: translateX(-10px);
+			}
+
+			40% {
+				transform: translateX(10px);
+			}
+
+			60% {
+				transform: translateX(-8px);
+			}
+
+			80% {
+				transform: translateX(8px);
+			}
+
+			100% {
+				transform: translateX(0);
+			}
+		}
+
+		.shake-animation {
+			animation: shake 0.5s ease-in-out;
+			border: 2px solid red !important;
+			background-color: #ffe6e6;
+		}
+
+		.email-input {
+			transition: opacity 0.5s ease;
+			transition: opacity 0.5s ease-in-out;
+			padding: 10px;
+			border: 2px solid #ddd;
+			border-radius: 4px;
+			font-size: 16px;
+			margin-bottom: 10px;
+			width: 250px;
+		}
+
+		.submit-btn {
+			padding: 10px 20px;
+			background-color: #4285f4;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.submit-btn:hover {
+			background-color: #3367d6;
+		}
+	</style>
 </head>
 
 <body>
-  <br>
-  <p class="text-gradient">Текст градиентом</p>
-  <br>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 37" width="408" height="37" style="overflow: visible;">
-  <defs>
-    <style>
-      #rect {
-        font-family: "Rubik Mono One", sans-serif;
-        fill: url(#Gradient);
-				text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
-      }
-      .stop1 {
-        stop-color: #667eea;
-      }
-      .stop2 {
-        stop-color: #764ba2;
-      }
-    </style>
-    <linearGradient id="Gradient" gradientTransform="rotate(135deg)">
-      <stop class="stop1" offset="0%" />
-      <stop class="stop2" offset="100%" />
-    </linearGradient>
-  </defs>
-  <text id="rect" x="0" y="30">Текст градиентом</text>
-</svg>
-  <br>
-  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408 37" width="408" height="37">
-  <defs>
-    <style>
-      #rect1 {
-        font-family: "Rubik Mono One", sans-serif;
-        fill: url(#Gradient1);
-      }
+	<form id="emailForm">
+		<input type="email" class="email-input" placeholder="Введите ваш email">
+		<button type="submit" class="submit-btn" autocomplete="off">Отправить</button>
+	</form>
 
-      .stop1 {
-        stop-color: #667eea;
-      }
+	<script>
+		document.getElementById('emailForm').addEventListener('submit', function(event) {
+			event.preventDefault(); // Предотвращаем отправку формы
 
-      .stop2 {
-        stop-color: #764ba2;
-      }
-    </style>
-    <linearGradient id="Gradient1" gradientTransform="rotate(135deg)">
-      <stop class="stop1" offset="0%" />
-      <stop class="stop2" offset="100%" />
-    </linearGradient>
-  </defs>
-  <text id="rect1" x="0" y="30">Текст градиентом</text>
-</svg> -->
+			const emailInput = document.querySelector('.email-input');
 
-  <script src="./scripts/main.js"></script>
+			// Проверяем валидность email
+			if (!emailInput.value || !isValidEmail(emailInput.value)) {
+				// Добавляем класс с анимацией
+				emailInput.classList.add('shake-animation');
 
+				// Удаляем класс после завершения анимации
+				emailInput.addEventListener('animationend', function() {
+					emailInput.classList.remove('shake-animation');
+				}, {
+					once: true
+				}); // once: true - обработчик сработает только один раз
+			} else {
+				// Если email валиден, можно отправить форму
+				alert('Форма отправлена!');
+				this.submit();
+			}
+		});
+
+		// Функция проверки email
+		function isValidEmail(email) {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return emailRegex.test(email);
+		}
+	</script>
 </body>
 
 </html>
