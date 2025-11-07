@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title></head><body><!-- <style>
+    .p-1 {
+      font-size: 16px;
+    }
+
+    .p-2 {
+      font-size: 1rem;
+    }
+
+    pre {
+      background-color: #cfcfcf;
+      padding: 5px;
+    }
+  </style>
+  <p class="p-1">Единица измерения "px"</p>
+  <p class="p-2">Единица измерения "rem"</p>
+  <pre>
+.p-1 {
+  font-size: 16px;
+  }
+
+.p-2 {
+  font-size: 1rem;
+}
+</pre> --><!-- <style>
+    .input-phone {
+    width: 18ch;
+    font-family: monospace;
+    padding: 0.5em;
+    }
+  </style>
+
+  <input type="tel" name="phone" class="input-phone" placeholder="+7 (XXX) XXX-XX-XX"> --><!-- <style>
+.block-1 {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  padding: 10px;
+  border: 5px solid transparent;
+}
+</style>
+
+<div class="block-1">Это синяя часть для контента блока.</div> --><!-- <style>
+  .block-1 {
+    width: calc(150px - 10px - 10px - 5px - 5px);
+    height: calc(150px - 10px - 10px - 5px - 5px);
+    margin: 5px;
+    padding: 10px;
+    border: 5px solid transparent;
+  }
+</style>
+
+<div class="block-1">Это синяя часть для контента блока.</div> --><!-- <style>
+.block-1 {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  padding: 10px;
+  border: 5px solid transparent;
+  box-sizing: border-box;
+}
+</style>
+
+<div class="block-1">Это синяя часть для контента блока.</div> --><!-- <style>
+.input-phone {
+  width: 18ch;
+  font-family: monospace;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+</style>
+
+<input type="tel" name="phone" class="input-phone" placeholder="+7 (XXX) XXX-XX-XX"> --><!-- <style>
+  .hero-title {
+  font-size: 8vmax; /* Размер шрифта = 8% от большей стороны вьюпорта */
+  text-align: center;
+  margin: 0;
+  }
+</style>
+
+<h1 class="hero-title">Этот заголовок будет с крупным размером текста при любой ориентации мобильного устройства.</h1> --><!-- <style>
+	body {
+		margin: 0;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .child-1,
+  .child-2 {
+    background-color: tomato;
+  }
+
+  .child-2 {
+    margin: 5px;
+  }
+</style>
+
+<div class="grid">
+	<div class="child-1">первый</div>
+  <div class="child-2">второй</div>
+</div> --><style>.visually-hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  outline: 0;
+}
+
+.cart-shopping {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cart-shopping::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(./img/cart-shopping.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+}
+
+.count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 0.9rem;
+}</style><a href="#" class="cart-shopping"><span class="visually-hidden">Корзина</span> <span class="count">4</span></a></body></html>
