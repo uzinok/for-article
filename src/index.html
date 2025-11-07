@@ -4,102 +4,173 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Анимация тряски с JavaScript</title>
-	<style>
-		@keyframes shake {
-			0% {
-				transform: translateX(0);
-			}
-
-			20% {
-				transform: translateX(-10px);
-			}
-
-			40% {
-				transform: translateX(10px);
-			}
-
-			60% {
-				transform: translateX(-8px);
-			}
-
-			80% {
-				transform: translateX(8px);
-			}
-
-			100% {
-				transform: translateX(0);
-			}
-		}
-
-		.shake-animation {
-			animation: shake 0.5s ease-in-out;
-			border: 2px solid red !important;
-			background-color: #ffe6e6;
-		}
-
-		.email-input {
-			transition: opacity 0.5s ease;
-			transition: opacity 0.5s ease-in-out;
-			padding: 10px;
-			border: 2px solid #ddd;
-			border-radius: 4px;
-			font-size: 16px;
-			margin-bottom: 10px;
-			width: 250px;
-		}
-
-		.submit-btn {
-			padding: 10px 20px;
-			background-color: #4285f4;
-			color: white;
-			border: none;
-			border-radius: 4px;
-			font-size: 16px;
-			cursor: pointer;
-		}
-
-		.submit-btn:hover {
-			background-color: #3367d6;
-		}
-	</style>
 </head>
 
 <body>
-	<form id="emailForm">
-		<input type="email" class="email-input" placeholder="Введите ваш email">
-		<button type="submit" class="submit-btn" autocomplete="off">Отправить</button>
-	</form>
+	<!-- <style> @keyframes shake { 0% { transform: translateX(0); } 20% { transform: translateX(-10px); } 40% { transform: translateX(10px); } 60% { transform: translateX(-8px); } 80% { transform: translateX(8px); } 100% { transform: translateX(0); } } .shake-animation { animation: shake 0.5s ease-in-out; border: 2px solid red !important; background-color: #ffe6e6; } .email-input { transition: opacity 0.5s ease; transition: opacity 0.5s ease-in-out; padding: 10px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; margin-bottom: 10px; width: 250px; } .submit-btn { padding: 10px 20px; background-color: #4285f4; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; } .submit-btn:hover { background-color: #3367d6; } </style> <form id="emailForm"> <input type="email" class="email-input" placeholder="Введите ваш email" readonly> <button type="submit" class="submit-btn" autocomplete="off">Отправить</button> </form> <script> document.getElementById('emailForm').addEventListener('submit', function(event) { event.preventDefault(); const emailInput = document.querySelector('.email-input'); if (!emailInput.value || !isValidEmail(emailInput.value)) { emailInput.classList.add('shake-animation'); emailInput.addEventListener('animationend', function() { emailInput.classList.remove('shake-animation'); }, { once: true }); } else { alert('Форма отправлена!'); this.submit(); } }); function isValidEmail(email) { const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; return emailRegex.test(email); } </script> -->
 
-	<script>
-		document.getElementById('emailForm').addEventListener('submit', function(event) {
-			event.preventDefault(); // Предотвращаем отправку формы
+	<!-- <style>
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
 
-			const emailInput = document.querySelector('.email-input');
+      20% {
+        transform: translateX(-10px);
+      }
 
-			// Проверяем валидность email
-			if (!emailInput.value || !isValidEmail(emailInput.value)) {
-				// Добавляем класс с анимацией
-				emailInput.classList.add('shake-animation');
+      40% {
+        transform: translateX(10px);
+      }
 
-				// Удаляем класс после завершения анимации
-				emailInput.addEventListener('animationend', function() {
-					emailInput.classList.remove('shake-animation');
-				}, {
-					once: true
-				}); // once: true - обработчик сработает только один раз
-			} else {
-				// Если email валиден, можно отправить форму
-				alert('Форма отправлена!');
-				this.submit();
-			}
-		});
+      60% {
+        transform: translateX(-8px);
+      }
 
-		// Функция проверки email
-		function isValidEmail(email) {
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-			return emailRegex.test(email);
+      80% {
+        transform: translateX(8px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .shake-animation {
+      animation: shake 0.5s ease-in-out;
+      border: 2px solid red !important;
+      background-color: #ffe6e6;
+    }
+
+    .email-input {
+      transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease-in-out;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      width: 250px;
+    }
+
+    .submit-btn {
+      padding: 10px 20px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #3367d6;
+    }
+  </style>
+  <form id="emailForm">
+    <input type="email" class="email-input" placeholder="Введите ваш email" readonly>
+    <button type="submit" class="submit-btn" autocomplete="off">Отправить</button>
+  </form>
+  <script>
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Предотвращаем отправку формы
+
+      const emailInput = document.querySelector('.email-input');
+
+      // Проверяем валидность email
+      if (!emailInput.value || !isValidEmail(emailInput.value)) {
+        // Добавляем класс с анимацией
+        emailInput.classList.add('shake-animation');
+
+        // Удаляем класс после завершения анимации
+        emailInput.addEventListener('animationend', function() {
+          emailInput.classList.remove('shake-animation');
+        }, {
+          once: true
+        }); // once: true - обработчик сработает только один раз
+      } else {
+        // Если email валиден, можно отправить форму
+        alert('Форма отправлена!');
+        this.submit();
+      }
+    });
+
+    // Функция проверки email
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+  </script> -->
+
+	<!-- <style> .button { display: inline-block; padding: 12px 24px; appearance: none; font-family: inherit; font-size: 16px; font-weight: 600; line-height: 125%; letter-spacing: .192px; color: #fdfdfd; text-decoration: none; text-align: center; background-color: #1A3E3E; border-radius: 4px; border: 1px solid #1A3E3E; } .button__animation_250s { transition: background-color 250ms ease-in-out, color 250ms ease-in-out; } .button__animation_500s { transition: background-color 500ms ease-in-out, color 500ms ease-in-out; } .button:not(:disabled):hover { color: #1A3E3E; background-color: #fdfdfd; cursor: pointer; } .button:not(:disabled):active { opacity: 0.7; } .button:disabled { opacity: 0.5; } </style> <button type="button" class="button">Анимация 0s</button> <button type="button" class="button button__animation_250s">Анимация 0.25s</button> <button type="button" class="button button__animation_500s">Анимация 0.5s</button> -->
+
+	<!-- <style> .buttons { padding: 10px; display: flex; gap: 10px; position: relative; z-index: 10; flex-wrap: wrap; } button { padding: 6px 12px; cursor: pointer; position: relative; z-index: 20; font-size: 14px; white-space: nowrap; border: 1px solid #ccc; background: white; border-radius: 3px; } button:hover { background: #f0f0f0; } .nav { position: absolute; top: 50px; left: 0; width: 100%; background: #f0f0f0; padding: 8px; transform: translateY(-100%); opacity: 0; display: flex; justify-content: space-between; align-items: center; gap: 15px; } .nav.visible { transform: translateY(0); opacity: 1; } .nav.animated { transition: transform 0.3s ease, opacity 0.3s ease; } .nav ul { list-style: none; display: flex; gap: 8px; flex-wrap: wrap; margin: 0; } .nav li { flex-shrink: 0; } .nav a { text-decoration: none; color: #333; padding: 4px 8px; font-size: 14px; display: block; white-space: nowrap; border-radius: 3px; } .nav a:hover { background: #ddd; } .close-btn { flex-shrink: 0; margin-left: auto; } </style> <div class="buttons"> <button onclick="showNav(false)">Без анимации</button> <button onclick="showNav(true)">С анимацией</button> </div> <nav id="navigation" class="nav"> <ul> <li><a href="#">Главная</a></li> <li><a href="#">О нас</a></li> <li><a href="#">Услуги</a></li> <li><a href="#">Контакты</a></li> </ul> <button class="close-btn" onclick="closeNav()">✕ Закрыть</button> </nav> <script> function showNav(useAnimation) { const nav = document.getElementById('navigation'); nav.classList.remove('visible', 'animated'); setTimeout(() => { if (useAnimation) { nav.classList.add('animated'); } nav.classList.add('visible'); }, 10); } function closeNav() { const nav = document.getElementById('navigation'); nav.classList.remove('visible'); } </script> -->
+
+	<!-- <style>
+		.bottom::after {
+			animation: animatedgradient 24s ease alternate infinite;
 		}
-	</script>
+
+		.bottom::after {
+			content: "";
+			position: absolute;
+			top: calc(50% - 15px);
+			left: 50%;
+			width: 15px;
+			height: 30px;
+			background-size: 900% 300%;
+			transform: translateX(-50%);
+			opacity: .6;
+			transition: opacity 1s var(--transition-function);
+			-webkit-mask-image: url(/img/icons/arrow-down.svg);
+			mask-image: url(/img/icons/arrow-down.svg);
+			-webkit-mask-size: 30px 30px;
+			mask-size: 30px 30px;
+			-webkit-mask-position: center;
+			mask-position: center;
+			background-image: #0039a6;
+			background-image: linear-gradient(60deg, #fff, #0039a6, #d52b1e, #0039a6, #f8f8f8);
+			animation: animatedgradient 24s ease alternate infinite;
+		}
+
+		@keyframes animatedgradient {
+			0% {
+				background-position: 0% 0%;
+			}
+
+			25% {
+				background-position: 100% 0%;
+			}
+
+			50% {
+				background-position: 100% 100%;
+			}
+
+			0% {
+				background-position: 0% 100%;
+			}
+
+			100% {
+				background-position: 0% 0%;
+			}
+		}
+	</style>
+
+	<div class="bottom"></div> -->
+
+	<!-- <div style="transition: all 0.2s ease; "></div>
+  <div style="transition: all 0.2s ease-in-out; "></div> -->
+
+	<!-- <style> .button { position: relative; display: inline-block; padding: 12px 24px; appearance: none; font-family: inherit; font-size: 16px; font-weight: 600; line-height: 125%; letter-spacing: .192px; color: #fdfdfd; text-decoration: none; text-align: center; background-color: #1A3E3E; border-radius: 4px; border: 1px solid #1A3E3E; overflow: hidden; } .button:not(:disabled):hover { cursor: pointer; } .button:not(:disabled)::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; width: 0; height: 0; background-color: #000000; } .button:not(:disabled):hover::before { transition: width 1s ease-in-out, height 1s ease-in-out, opacity 0.25s ease-in 0.8s; width: 900px; height: 900px; opacity: 0; } .button:not(:disabled):active { opacity: 0.7; } .button:disabled { opacity: 0.5; } .button__text { position: relative; z-index: 1; } </style> <button type="button" class="button"> <span class="button__text">Наведи на меня курсор</span> </button> -->
+
+	<!-- <style> .button { position: relative; display: inline-block; padding: 12px 24px; appearance: none; font-family: inherit; font-size: 16px; font-weight: 600; line-height: 125%; letter-spacing: .192px; color: #fdfdfd; text-decoration: none; text-align: center; background-color: #1A3E3E; border-radius: 4px; border: 1px solid #1A3E3E; overflow: hidden; } .button:not(:disabled):hover { cursor: pointer; } .button:not(:disabled)::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; width: 0; height: 0; background-color: #000000; } .button:not(:disabled):hover::before { transition: width 1s ease-in-out, height 1s ease-in-out, opacity 0.25s ease-in 0.8s; width: 900px; height: 900px; opacity: 0; } .button:not(:disabled):active { opacity: 0.7; } .button:disabled { opacity: 0.5; } .button__text { position: relative; z-index: 1; } </style> <button type="button" class="button"> <span class="button__text">Наведи на меня курсор</span> </button> -->
+
+	<!-- <style> .container { width: 200px; height: 100px; border: 1px solid #ccc; position: relative; margin: 20px; display: flex; gap: 10px; flex-wrap: wrap; } .box { width: 50px; height: 50px; background-color: #4285f4; position: absolute; top: 50px; } /* Базовая анимация движения */ @keyframes move { 0% { left: 0; background-color: #4285f4; } 100% { left: 150px; background-color: #ea4335; } } /* Normal - по умолчанию */ .normal { animation: move 2s infinite; animation-direction: normal; } /* Reverse - в обратную сторону */ .reverse { animation: move 2s infinite; animation-direction: reverse; } /* Alternate - чередование направлений */ .alternate { animation: move 2s infinite; animation-direction: alternate; } /* Alternate-reverse - чередование, начиная с обратного */ .alternate-reverse { animation: move 2s infinite; animation-direction: alternate-reverse; } .label { text-align: center; margin-top: 10px; font-family: Arial, sans-serif; } </style> <div style="display: flex; gap:10px;flex-wrap: wrap;"> <div class="container"> <div class="box normal"></div> <div class="label">normal</div> </div> <div class="container"> <div class="box reverse"></div> <div class="label">reverse</div> </div> <div class="container"> <div class="box alternate"></div> <div class="label">alternate</div> </div> <div class="container"> <div class="box alternate-reverse"></div> <div class="label">alternate-reverse</div> </div> </div> -->
+
+	<!-- <style> .container { width: 400px; margin: 20px auto; font-family: Arial, sans-serif; } .box { width: 90px; height: 60px; margin: 10px 0; border: 2px solid #333; display: flex; align-items: center; justify-content: center; font-weight: bold; } @keyframes slideAndColor { 0% { transform: translateX(0); background-color: blue; } 100% { transform: translateX(300px); background-color: red; } } .none { animation: slideAndColor 2s 1; animation-fill-mode: none; } .forwards { animation: slideAndColor 2s 1; animation-fill-mode: forwards; } .backwards { animation: slideAndColor 2s 1s 1; animation-fill-mode: backwards; } .both { animation: slideAndColor 2s 1s 1; animation-fill-mode: both; } .controls { margin-top: 20px; text-align: center; } button { padding: 10px 20px; font-size: 16px; cursor: pointer; } .description { margin-top: 10px; font-size: 14px; color: #666; } </style> <div class="container"> <div class="box none">none</div> <div class="description">Возвращается в исходное состояние</div> <div class="box forwards">forwards</div> <div class="description">Сохраняет конечное состояние</div> <div class="box backwards">backwards</div> <div class="description">Применяет начальные стили до старта (задержка 1с)</div> <div class="box both">both</div> <div class="description">Сохраняет и начальные, и конечные стили</div> <div class="controls"> <button onclick="resetAnimations()">Перезапустить анимации</button> </div> </div> <script> function resetAnimations() { const boxes = document.querySelectorAll('.box'); boxes.forEach(box => { box.style = ''; box.classList.remove(box.textContent); void box.offsetWidth; setTimeout(() => { box.classList.add(box.textContent); }, 5000); }); } </script> -->
+
+	<style> .container { width: 200px; height: 100px; border: 1px solid #ccc; position: relative; margin: 20px; } .box { width: 50px; height: 50px; background-color: #4285f4; position: absolute; top: 50px; } /* Базовая анимация движения */ @keyframes move { 0% { left: 0; background-color: #4285f4; } 100% { left: 150px; background-color: #ea4335; } } .alternate { animation: move 2s infinite; animation-direction: alternate; } .label { text-align: center; margin-top: 10px; } .container:hover .alternate { animation-play-state: paused; } </style> <div style="display: flex; gap:10px;flex-wrap: wrap;"> <div class="container"> <div class="box alternate"></div> <div class="label">Наведи курсор</div> </div> </div>
+
 </body>
 
 </html>
