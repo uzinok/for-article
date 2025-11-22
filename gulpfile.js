@@ -1,28 +1,33 @@
-import gulp from 'gulp';
+// Подключаемые пакеты
+import {
+	src,
+	dest
+} from 'gulp';
+import svgSprite from 'gulp-svg-sprite';
 
-import svgstore from 'gulp-svgstore';
-import rename from 'gulp-rename';
+function sprite() {
 
-import imagemin, { svgo } from 'gulp-imagemin';
+	const spriteConfig = {
+		mode: {
+			symbol: {
+				dest: '.',
+				sprite: 'sprite.svg',
+				example: false
+			}
+		},
+		shape: {
+			id: {
+				separator: '--',
+				generator: '%s'
+			}
+		}
+	};
 
-export function sprite() {
-	return gulp
-		.src("src/img/icon/*.svg")
-		.pipe(imagemin([
-			svgo({
-				plugins: [
-					{
-						name: 'removeViewBox',
-						active: true
-					},
-					{
-						name: 'cleanupIDs',
-						active: false
-					}
-				]
-			})
-		]))
-		.pipe(svgstore({ inlineSvg: true }))
-		.pipe(rename({ basename: 'sprite' }))
-		.pipe(gulp.dest("src/img/"));
+	return src('./src/img/icons/*.svg')
+		.pipe(svgSprite(spriteConfig))
+		.pipe(dest('./src/img/'));
 }
+
+export {
+	sprite
+};
