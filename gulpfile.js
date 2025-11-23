@@ -6,12 +6,12 @@ import {
 import svgSprite from 'gulp-svg-sprite';
 
 function sprite() {
-
+	// конфигурация для спрайта
 	const spriteConfig = {
 		mode: {
 			symbol: {
 				dest: '.',
-				sprite: 'sprite.svg',
+				sprite: 'sprite.svg', // название спрайта
 				example: false
 			}
 		},
@@ -20,14 +20,15 @@ function sprite() {
 				separator: '--',
 				generator: '%s'
 			}
+		},
+		svg: {
+			namespaceClassnames: false // отключаем изменение классов
 		}
 	};
 
-	return src('./src/img/icons/*.svg')
-		.pipe(svgSprite(spriteConfig))
-		.pipe(dest('./src/img/'));
+	return src('./src/img/icons/*.svg') // путь к svg иконкам
+		.pipe(svgSprite(spriteConfig)) // собираем спрайт
+		.pipe(dest('./src/img/')); // путь куда сохраняем спрайт
 }
 
-export {
-	sprite
-};
+export { sprite };
