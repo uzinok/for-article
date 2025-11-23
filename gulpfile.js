@@ -9,10 +9,26 @@ function sprite() {
 	// конфигурация для спрайта
 	const spriteConfig = {
 		mode: {
-			symbol: {
+			css: { // Activate the «css» mode
+				render: {
+					css: true // Activate CSS output (with default options)
+				}
+			}
+		}
+	};
+
+	return src('./src/img/icons/*.svg') // путь к svg иконкам
+		.pipe(svgSprite(spriteConfig)) // собираем спрайт
+		.pipe(dest('./src/img/')); // путь куда сохраняем спрайт
+}
+
+function stack() {
+	// конфигурация для спрайта
+	const stackConfig = {
+		mode: {
+			stack: { // Ключевое изменение - используем режим stack
 				dest: '.',
-				sprite: 'sprite.svg', // название спрайта
-				example: false
+				sprite: 'stack.svg', // Можно изменить имя файла
 			}
 		},
 		shape: {
@@ -22,13 +38,13 @@ function sprite() {
 			}
 		},
 		svg: {
-			namespaceClassnames: false // отключаем изменение классов
+			namespaceClassnames: false
 		}
 	};
 
 	return src('./src/img/icons/*.svg') // путь к svg иконкам
-		.pipe(svgSprite(spriteConfig)) // собираем спрайт
+		.pipe(svgSprite(stackConfig)) // собираем спрайт
 		.pipe(dest('./src/img/')); // путь куда сохраняем спрайт
 }
 
-export { sprite };
+export { sprite, stack };
