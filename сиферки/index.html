@@ -18,8 +18,59 @@
 </head>
 
 <body>
+
 	<img src="./star.svg" alt="#">
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 19">
+
+	<svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+		style="overflow: visible;">
+		<defs>
+			<clipPath id="clip">
+				<path d="M0,24 L24,24 L24,0 c -6,3 -18,-3 -24,0 Z">
+					<animate
+						attributeName="d"
+						values="
+						M0,24 L24,24 L24,0 c -6,3 -18,-3 -24,0 Z;
+						M0,24 L24,24 L24,0 c -6,-3 -18,3 -24,0 Z;
+						M0,24 L24,24 L24,0 c -6,0 -18,0 -24,0 Z;
+						M0,24 L24,24 L24,0 c -6,-3 -18,3 -24,0 Z;
+						M0,24 L24,24 L24,0 c -6,3 -18,-3 -24,0 Z"
+						dur="2.5s"
+						repeatCount="indefinite"
+						calcMode="linear"
+						keyTimes="0; 0.25; 0.5; 0.75; 1"
+					></animate>
+				</path>
+			</clipPath>
+		</defs>
+		<path
+			d="M7 3a5 5 0 0 0-5 5c0 2.2.9 7.4 9.5 12.7q.5.3 1 0C21.1 15.4 22 10.2 22 8a5 5 0 0 0-5-5c-2.8 0-5 3-5 3S9.8 3 7 3"
+			fill="red" clip-path="url(#clip)" />
+		<path
+			d="M7 3a5 5 0 0 0-5 5c0 2.2.9 7.4 9.5 12.7q.5.3 1 0C21.1 15.4 22 10.2 22 8a5 5 0 0 0-5-5c-2.8 0-5 3-5 3S9.8 3 7 3"
+			stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+	</svg>
+
+<svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+	style="overflow: visible;">
+	<path d="M0,24 L24,24 L24,0 c -6,3 -18,-3 -24,0 Z" fill="red">
+		<animate
+			attributeName="d"
+			values="
+			M0,24 L24,24 L24,0 c -6,3 -18,-3 -24,0 Z;
+			M0,24 L24,24 L24,0 c -6,-3 -18,3 -24,0 Z;
+			M0,24 L24,24 L24,0 c -6,0 -18,0 -24,0 Z;
+			M0,24 L24,24 L24,0 c -6,-3 -18,3 -24,0 Z;
+			M0,24 L24,24 L24,0 c -6,3 -18,-3 -24,0 Z"
+			dur="2.5s"
+			repeatCount="indefinite"
+			calcMode="linear"
+			keyTimes="0; 0.25; 0.5; 0.75; 1"
+		></animate>
+	</path>
+</svg>
+
+	<!-- <img src="./star.svg" alt="#"> -->
+	<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 19">
 		<path d="M0 10c50-25 150 25 200 0" stroke="blue" stroke-width="2" fill="none">
 			<animate attributeName="d" values="
       M0 10c50-25 150 25 200 0;
@@ -41,8 +92,8 @@
 			})();
 			//]]>
 		</script>
-	</svg>
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 19">
+	</svg> -->
+	<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 19">
 		<path d="M0 10c50-25 150 25 200 0" stroke="blue" stroke-width="2" fill="none">
 			<animate attributeName="d" values="
 				M0 10c50-25 150 25 200 0;
@@ -51,17 +102,17 @@
 				M0 10c50 0 150 0 200 0;
 				M0 10c50-25 150 25 200 0" keyTimes="0; 0.25; 0.5; 0.75; 1" dur="5s" repeatCount="indefinite" calcMode="linear" />
 		</path>
-	</svg>
+	</svg> -->
 
-	<svg viewBox="0 0 80 164.36" xmlns="http://www.w3.org/2000/svg" id="mySvg">
+	<!-- <svg viewBox="0 0 80 164.36" xmlns="http://www.w3.org/2000/svg" id="mySvg">
 		<path id="myPath"
 			d="M41.32 112.5q-36.48 0-36.47-32.41Q5.28 45.15 39 45.15q33.84 1.32 33.07 36.04-2.96 30.21-30.54 31.31l-2.09-11.1Q60 100.41 61.1 80.86q.43-25.27-22.42-27.03Q15.4 55.15 15.4 78.44q2.2 22.41 24.06 22.96Z"
 			fill="#3498db" />
-	</svg>
+	</svg> -->
 
 	<!-- Подключаем Flubber (без зависимостей) -->
 	<!-- <script src="https://unpkg.com/flubber@0.3.0"></script> -->
-	<script>
+	<!-- <script>
 		(function () {
 			const startD =
 				"M41.32 112.5q-36.48 0-36.47-32.41Q5.28 45.15 39 45.15q33.84 1.32 33.07 36.04-2.96 30.21-30.54 31.31l-2.09-11.1Q60 100.41 61.1 80.86q.43-25.27-22.42-27.03Q15.4 55.15 15.4 78.44q2.2 22.41 24.06 22.96Z";
@@ -120,14 +171,9 @@
 			svg.addEventListener('mouseenter', () => startAnimation(1));
 			svg.addEventListener('mouseleave', () => startAnimation(-1));
 		})();
-	</script>
+	</script> -->
 
-	<svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<!-- Прямоугольник с волнистой верхней стороной (относительные координаты) -->
-		<path d="M0,24 L24,24 L24,6 c -6,3 -18,-3 -24,0 Z" fill="red" />
-	</svg>
-
-	<div class="wave-container">
+	<!-- <div class="wave-container">
 		<svg viewBox="0 0 200 19" xmlns="http://www.w3.org/2000/svg">
 			<path class="wave" d="M0 10c50-25 150 25 200 0" stroke="black" stroke-width="1" fill="none" />
 		</svg>
@@ -277,7 +323,7 @@
 				d: path("M0 10c80-25 160 25 200 0");
 			}
 		}
-	</style>
+	</style> -->
 
 	<!-- <svg width="200" height="200" viewBox="0 0 38 38" fill="#60A5FA" class="loader-1">
 		<g class="group-circle" transform="translate(19 19)">
@@ -365,7 +411,7 @@
 		}
 	</style> -->
 
-<svg width="200" height="200" viewBox="0 0 38 38">
+<!-- <svg width="200" height="200" viewBox="0 0 38 38">
 	<g transform="translate(19 19)">
 		<g transform="rotate(0)">
 			<circle cx="0" cy="12" r="3" fill="#60A5FA" opacity="0.125">
@@ -416,28 +462,7 @@
 			</circle>
 		</g>
 	</g>
-</svg>
-
-
-	<!-- <svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<defs>
-			<clipPath id="clip">
-				<path d="M0,24 L24,24 L24,24 L0,24 Z">
-					<animate attributeName="d" dur="10s" repeatCount="indefinite" calcMode="linear" values="M0,24 L24,24 L24,24 L0,24 Z;
-							M0,24 L24,24 L24,18 L0,18 Z;
-							M0,24 L24,24 L24,12 L0,12 Z;
-							M0,24 L24,24 L24,6  L0,6  Z;
-							M0,24 L24,24 L24,0  L0,0  Z" />
-				</path>
-			</clipPath>
-		</defs>
-		<path
-			d="M7 3a5 5 0 0 0-5 5c0 2.2.9 7.4 9.5 12.7q.5.3 1 0C21.1 15.4 22 10.2 22 8a5 5 0 0 0-5-5c-2.8 0-5 3-5 3S9.8 3 7 3"
-			fill="red" clip-path="url(#clip)" />
-		<path
-			d="M7 3a5 5 0 0 0-5 5c0 2.2.9 7.4 9.5 12.7q.5.3 1 0C21.1 15.4 22 10.2 22 8a5 5 0 0 0-5-5c-2.8 0-5 3-5 3S9.8 3 7 3"
-			stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-	</svg> -->
+</svg> -->
 
 	<!-- <svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path
