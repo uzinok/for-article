@@ -1,0 +1,35 @@
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #444444;
+}
+
+main {
+  margin: auto;
+}
+
+.example {
+  max-width: 1284px;
+  margin: 0 auto;
+  padding: 84px 78px;
+  background-color: #f9f7f3;
+}
+
+/* / */.group-circle g {
+  animation: loader 1s linear 0s infinite;
+}/* \ */
+
+@keyframes loader {
+  to {
+    opacity: 0;
+  }
+}

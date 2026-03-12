@@ -1,0 +1,90 @@
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #444444;
+}
+
+main {
+  margin: auto;
+}
+
+.cat-svg-demo__parent {
+  width: 260px;
+  margin: 0 auto;
+}
+
+.eye {
+  animation: eye 4s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+@keyframes eye {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  36% {
+    transform: scale(1, 1);
+  }
+
+  38% {
+    transform: scale(1, 0);
+  }
+
+  42% {
+    transform: scale(1, 0);
+  }
+
+  44% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.ear {
+  animation: ear 7s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+.ear1 {
+  animation: ear 7s;
+  animation-delay: 300ms;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+@keyframes ear {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  37% {
+    transform: scale(1, 1);
+  }
+
+  40% {
+    transform: scale(1, 0);
+  }
+
+  43% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Демо</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+    <svg width="200" height="200" viewBox="0 0 44 44">
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#E5E7EB" stroke-width="4"></circle>
+      <circle cx="22" cy="22" r="20" fill="none" stroke="#60A5FA" stroke-width="4" stroke-dasharray="10 127">
+        <animate
+          attributeName="stroke-dasharray"
+          values="
+            10 127;
+            100 127;
+            10 127"
+          dur="10s"
+          repeatCount="indefinite"
+        ></animate>
+        /* / */<animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 22 22"
+          to="360 22 22"
+          dur="5s"
+          repeatCount="indefinite"
+        ></animateTransform>/* \ */
+      </circle>
+    </svg>
+  </main>
+</body>
+
+</html>
