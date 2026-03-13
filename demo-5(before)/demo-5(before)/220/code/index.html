@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Демо</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+    <svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="clip">
+          <!-- Прямоугольник -->
+          <path d="M0,24 L24,24 L24,24 L0,24 Z">
+            /* / */<animate
+              attributeName="d"
+              dur="10s"
+              repeatCount="indefinite"
+              calcMode="linear"
+              values="M0,24 L24,24 L24,24 L0,24 Z;
+              M0,24 L24,24 L24,0  L0,0  Z"
+            />/* \ */
+          </path>
+        </clipPath>
+      </defs>
+      <!-- Заливка сердца -->
+      <path
+        d="M6.25.5c-1.52 0-2.99.68-4.07 1.89A7 7 0 0 0 .5 6.94c0 2.84 1.03 9.54 10.93 16.37q.57.37 1.14 0C22.48 16.48 23.5 9.78 23.5 6.94c0-1.7-.6-3.34-1.68-4.55A5.5 5.5 0 0 0 17.75.5C14.53.5 12 4.37 12 4.37S9.47.5 6.25.5"
+        fill="red" clip-path="url(#clip)" />
+      <!-- Контур сердца -->
+      <path
+        d="M6.25.5c-1.52 0-2.99.68-4.07 1.89A7 7 0 0 0 .5 6.94c0 2.84 1.03 9.54 10.93 16.37q.57.37 1.14 0C22.48 16.48 23.5 9.78 23.5 6.94c0-1.7-.6-3.34-1.68-4.55A5.5 5.5 0 0 0 17.75.5C14.53.5 12 4.37 12 4.37S9.47.5 6.25.5"
+        stroke="black" stroke-width="0.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </main>
+</body>
+
+</html>

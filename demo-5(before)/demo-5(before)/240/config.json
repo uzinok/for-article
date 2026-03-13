@@ -1,0 +1,6 @@
+{
+  "title": "Шаг 2",
+  "mode": "render-single-html",
+  "visibleTabs": ["index.html", "js/script.js"],
+  "activeEditor": "js/script.js"
+}

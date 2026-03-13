@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Демо</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+    <img src="img/wave.svg" alt="#">
+    <svg viewBox="0 0 200 19" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          @media screen and (prefers-reduced-motion: no-preference) {
+            .wave {
+              animation: wave-animation 5s infinite;
+              animation-timing-function: linear;
+            }
+
+            @keyframes wave-animation {
+              0% {
+                d: path("M0 10c50-25 150 25 200 0");
+              }
+              25% {
+                d: path("M0 10c50 0 150 0 200 0");
+              }
+              50% {
+                d: path("M0 10c50 25 150 -25 200 0");
+              }
+              75% {
+                d: path("M0 10c50 0 150 0 200 0");
+              }
+              100% {
+                d: path("M0 10c50-25 150 25 200 0");
+              }
+            }
+          }
+        </style>
+      </defs>
+      <path class="wave" d="M0 10c50-25 150 25 200 0" stroke="blue" stroke-width="2" fill="none" />
+      </svg>
+  </main>
+</body>
+
+</html>

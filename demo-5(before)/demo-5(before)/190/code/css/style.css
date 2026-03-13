@@ -1,0 +1,45 @@
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #444444;
+}
+
+main {
+  margin: auto;
+}
+
+.wave {
+  animation: wave-animation 5s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes wave-animation {
+  0% {
+    d: path("M0 10c50-25 150 25 200 0");
+  }
+
+  25% {
+    d: path("M0 10c50 0 150 0 200 0");
+  }
+
+  50% {
+    d: path("M0 10c50 25 150 -25 200 0");
+  }
+
+  75% {
+    d: path("M0 10c50 0 150 0 200 0");
+  }
+
+  100% {
+    d: path("M0 10c50-25 150 25 200 0");
+  }
+}
